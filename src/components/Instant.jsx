@@ -79,7 +79,7 @@ export const Instant = () => {
         >
           {ImagesArray.map((EachImage, key) => (
             <SplideSlide>
-              <div className="card">
+              <div className="card cursor-pointer">
                 <img
                   src={EachImage.img}
                   alt={`slider ${key + 1}`}

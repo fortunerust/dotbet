@@ -1,3 +1,4 @@
+import React from "react"
 import { Tabs, TabsHeader, Tab } from "@material-tailwind/react";
 
 export const TabsAside = ({ data }) => {
