@@ -3,6 +3,7 @@ import "../assets/css/home.css";
 import { Aside } from "../components/Aside";
 import { RightAreaHome } from "../components/RightAreaHome";
 import { Footer } from "../components/Footer";
+
 export const Home = () => {
   return (
     <div>
@@ -10,9 +11,8 @@ export const Home = () => {
         {/* left area */}
         <Aside />
         {/* right area */}
-        <RightAreaHome />
+        <RightAreaHome/>
       </div>
-
       <Footer />
     </div>
   );

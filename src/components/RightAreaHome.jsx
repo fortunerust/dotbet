@@ -99,7 +99,7 @@ export const RightAreaHome = () => {
   }, []);
   return (
     <div className="flex-1">
-      <Header />
+      <Header/>
       <div className="body-area flex items-start px-6 pt-6">
         <div className="body-left-area  mr-6" ref={ref}>
           <div className="welcome-area py-8 p-6 rounded-xl relative">
@@ -205,8 +205,9 @@ export const RightAreaHome = () => {
           <div className="scroll-area-start pt-4 pb-10" ref={refRight}>
             <img src={dailyBonus} alt="Daily Bonus" className="w-full mb-4" />
 
-            {commentsData.map((EachData) => (
+            {commentsData.map((EachData, index) => (
               <CommentCard
+                key={index}
                 name={EachData.name}
                 date={EachData.date}
                 img={EachData.img}

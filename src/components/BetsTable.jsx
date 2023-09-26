@@ -177,8 +177,8 @@ export const BetsTable = () => {
         </tr>
       </thead>
       <tbody>
-        {data.map((EachData) => (
-          <tr>
+        {data.map((EachData, key) => (
+          <tr key={key}>
             <td>
               <div className="rounded-tl-lg flex items-center">
                 <img

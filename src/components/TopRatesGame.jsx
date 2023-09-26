@@ -29,7 +29,7 @@ export const TopRatesGame = () => {
           }}
         >
           {ImagesArray.map((EachImage, key) => (
-            <SplideSlide>
+            <SplideSlide key={key}>
               <div className="card ">
                 <img
                   src={EachImage}

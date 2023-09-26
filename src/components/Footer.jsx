@@ -243,7 +243,7 @@ export const Footer = () => {
               }}
             >
               {iconsArray.map((EachArray, key) => (
-                <SplideSlide>
+                <SplideSlide key={key}>
                   <img
                     src={EachArray}
                     className="w-10 h-10"

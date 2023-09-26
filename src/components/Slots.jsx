@@ -78,7 +78,7 @@ export const Slots = () => {
           }}
         >
           {ImagesArray.map((EachImage, key) => (
-            <SplideSlide>
+            <SplideSlide key={key}>
               <div className="card cursor-pointer">
                 <img
                   src={EachImage.img}

@@ -50,7 +50,7 @@ export const RecommendedGames = () => {
           }}
         >
           {ImagesArray.map((EachObj, key) => (
-            <SplideSlide>
+            <SplideSlide key={key}>
               <div className="card ">
                 <img
                   src={EachObj.game}
