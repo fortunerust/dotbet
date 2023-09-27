@@ -63,7 +63,7 @@ export default function RegisterEmail({open, setOpen, title, setTitle}) {
         userId: userdata,
         currency: 'THB',
         language: 'en',
-        betLimit: betLimit.toString(),
+        betLimit: JSON.stringify(betLimit),
         userName: userdata
       }
     };
