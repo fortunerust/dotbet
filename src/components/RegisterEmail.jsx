@@ -12,10 +12,11 @@ import twitter_icon from "../assets/img/twitter_sign.svg";
 import telegram_icon from "../assets/img/telegram_sign.svg";
 import whatsapp_icon from "../assets/img/whatsapp_sign.svg";
 
-export default function RegisterEmail({open, setOpen, title, setTitle}) {
-  const [ passVisible, setPassVisible ] = useState(false);
+export default function RegisterEmail({ open, setOpen, title, setTitle }) {
+  const [passVisible, setPassVisible] = useState(false);
   const cancelButtonRef = useRef(null);
   const emailRef = useRef(null);
+  const passwordRef = useRef(null);
 
   const onLogin = (e) => {
     e.preventDefault();
@@ -29,42 +30,38 @@ export default function RegisterEmail({open, setOpen, title, setTitle}) {
 
   const onRegister = async (e) => {
     e.preventDefault();
-    const userdata = emailRef.current.value;
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
 
-    var betLimit = {
-      "SEXYBCRT":{
-        "LIVE":{
-          "limitId":[280901,280902,280903,280904,280905]
-        }
-      },
-      "VENUS":{
-        "LIVE":{
-          "limitId":[280901,280902,280903,280904,280905]
-        }
-      },
-      "SV388":{
-        "LIVE":{
-          "maxbet":10000,
-          "minbet":1,
-          "mindraw":1,
-          "matchlimit":20000,
-          "maxdraw":4000
-        }
-      }
-    }
+    // var betLimit = {
+    //   "SEXYBCRT": {
+    //     "LIVE": {
+    //       "limitId": [280901, 280902, 280903, 280904, 280905]
+    //     }
+    //   },
+    //   "VENUS": {
+    //     "LIVE": {
+    //       "limitId": [280901, 280902, 280903, 280904, 280905]
+    //     }
+    //   },
+    //   "SV388": {
+    //     "LIVE": {
+    //       "maxbet": 10000,
+    //       "minbet": 1,
+    //       "mindraw": 1,
+    //       "matchlimit": 20000,
+    //       "maxdraw": 4000
+    //     }
+    //   }
+    // }
 
     const options = {
       method: 'POST',
-      url: 'https://' + process.env.REACT_APP_PUBLIC_AWC_HOST + '/wallet/createMember',
-      headers: {'content-type': 'application/x-www-form-urlencoded'},
+      url: process.env.REACT_APP_BACKEND + '/api/users',
+      headers: { 'content-type': 'application/x-www-form-urlencoded' },
       data: {
-        cert: process.env.REACT_APP_PUBLIC_AWC_CERT,
-        agentId: process.env.REACT_APP_PUBLIC_AWC_AGENT_ID,
-        userId: userdata,
-        currency: 'THB',
-        language: 'en',
-        betLimit: JSON.stringify(betLimit),
-        userName: userdata
+        email,
+        password
       }
     };
 
@@ -76,7 +73,7 @@ export default function RegisterEmail({open, setOpen, title, setTitle}) {
   }
 
   return (
-    <Transition.Root show={open && title==='register_email'} as={Fragment}>
+    <Transition.Root show={open && title === 'register_email'} as={Fragment}>
       <Dialog as="div" className="relative z-[10000]" initialFocus={cancelButtonRef} onClose={setOpen}>
         <Transition.Child
           as={Fragment}
@@ -121,7 +118,7 @@ export default function RegisterEmail({open, setOpen, title, setTitle}) {
                       <input type="text" placeholder="Jackrose11@gmail.com" ref={emailRef} id="email" className="rounded-lg px-6 mt-3" />
                     </div>
                     <div className="input-wrapper mt-4 mb-5">
-                      <label htmlFor="password">Login Password</label><input type={passVisible ? "text" : "password"} placeholder="Enter your passwoard" id="password" className="rounded-lg px-6 mt-3" />
+                      <label htmlFor="password">Login Password</label><input type={passVisible ? "text" : "password"} placeholder="Enter your passwoard" ref={passwordRef} id="password" className="rounded-lg px-6 mt-3" />
                       <img src={eye_icon} className="eye-icon cursor-pointer absolute right-[22px] top-[47px]" alt="eye icon" onClick={() => setPassVisible(!passVisible)} />
                     </div>
                     <div className="agreement flex items-center">
@@ -141,7 +138,7 @@ export default function RegisterEmail({open, setOpen, title, setTitle}) {
                         </label>
                       </div>
                       <p className="ml-3">I agree to the User <a href="/">Agreement &amp; Confirm</a> i am at I east 18 years old</p>
-                      </div>
+                    </div>
                       <div className="list-inner mt-2 flex items-center">
                         <div className="CheckboxStyle CheckboxStyleSignUp">
                           <input type="checkbox" id="marketing" className="hidden" />
@@ -151,7 +148,7 @@ export default function RegisterEmail({open, setOpen, title, setTitle}) {
                             </svg>
                           </label>
                         </div>
-                        <p className="ml-3" style={{ fontSize: '12px'}}>I agree to receive marketing promotions from TMTCash</p>
+                        <p className="ml-3" style={{ fontSize: '12px' }}>I agree to receive marketing promotions from TMTCash</p>
                       </div>
                     </div>
 
@@ -161,27 +158,27 @@ export default function RegisterEmail({open, setOpen, title, setTitle}) {
                       <div className="line-breaker flex items-center mt-3">
                         <span className="flex-1 mr-2"></span><p>Or Login with</p>
                         <span className="flex-1 ml-2"></span></div>
-                        <div className="mt-3 social-icons flex items-center justify-between">
-                          <a href="/">
-                            <img src={gmail_icon} alt="social button" />
-                          </a>
-                          <a href="/">
-                            <img src={facebook_icon} alt="social button" />
-                          </a>
-                          <a href="/">
-                            <img src={apple_icon} alt="social button" />
-                          </a>
-                          <a href="/">
-                            <img src={twitter_icon} alt="social button" />
-                          </a>
-                          <a href="/">
-                            <img src={telegram_icon} alt="social button" />
-                          </a>
-                          <a href="/">
-                            <img src={whatsapp_icon} alt="social button" />
-                          </a>
-                        </div>
+                      <div className="mt-3 social-icons flex items-center justify-between">
+                        <a href="/">
+                          <img src={gmail_icon} alt="social button" />
+                        </a>
+                        <a href="/">
+                          <img src={facebook_icon} alt="social button" />
+                        </a>
+                        <a href="/">
+                          <img src={apple_icon} alt="social button" />
+                        </a>
+                        <a href="/">
+                          <img src={twitter_icon} alt="social button" />
+                        </a>
+                        <a href="/">
+                          <img src={telegram_icon} alt="social button" />
+                        </a>
+                        <a href="/">
+                          <img src={whatsapp_icon} alt="social button" />
+                        </a>
                       </div>
+                    </div>
                   </form>
                 </div>
               </Dialog.Panel>
