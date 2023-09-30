@@ -1,4 +1,5 @@
 import React from "react";
+import axios from 'axios';
 
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 
@@ -14,6 +15,10 @@ export const LiveCasino = () => {
     {
       img: gameg1,
       text: "Roulette",
+      gameCode: "BG-LIVE-003",
+      gameType: "Live",
+      platform: "BG",
+      hall: "SEXY"
     },
     {
       img: gameg2,
@@ -52,6 +57,32 @@ export const LiveCasino = () => {
       text: "Craps",
     },
   ];
+
+  const handleGamePlay = async (game) => {
+    const options = {
+      method: 'POST',
+      url: process.env.REACT_APP_BACKEND + '/api/game/play',
+      headers: { 'content-type': 'application/x-www-form-urlencoded' },
+      data: {
+        gameCode: game.gameCode,
+        gameType: game.gameType,
+        platform: game.platform,
+        hall: game.platform,
+        tid: 1
+      }
+    };
+
+    await axios.request(options).then(function (response) {
+      console.log(response.data);
+      if(response.data.status == "0000"){
+        window.localStorage.setItem("token", response.data.token);
+        // window.location.href = response.data.login_url;
+      }
+    }).catch(function (error) {
+      console.error(error);
+    });
+  }
+
   return (
     <div className="RecentWin arrowareaslider">
       <div className="top flex items-center justify-between mb-4">
@@ -72,7 +103,7 @@ export const LiveCasino = () => {
           }}
         >
           {ImagesArray.map((EachImage, key) => (
-            <SplideSlide key={key}>
+            <SplideSlide key={key} onClick={()=>handleGamePlay(EachImage)}>
               <div className="card cursor-pointer">
                 <img
                   src={EachImage.img}
