@@ -33,28 +33,6 @@ export default function RegisterEmail({ open, setOpen, title, setTitle }) {
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
 
-    // var betLimit = {
-    //   "SEXYBCRT": {
-    //     "LIVE": {
-    //       "limitId": [280901, 280902, 280903, 280904, 280905]
-    //     }
-    //   },
-    //   "VENUS": {
-    //     "LIVE": {
-    //       "limitId": [280901, 280902, 280903, 280904, 280905]
-    //     }
-    //   },
-    //   "SV388": {
-    //     "LIVE": {
-    //       "maxbet": 10000,
-    //       "minbet": 1,
-    //       "mindraw": 1,
-    //       "matchlimit": 20000,
-    //       "maxdraw": 4000
-    //     }
-    //   }
-    // }
-
     const options = {
       method: 'POST',
       url: process.env.REACT_APP_BACKEND + '/api/users',
@@ -67,6 +45,10 @@ export default function RegisterEmail({ open, setOpen, title, setTitle }) {
 
     await axios.request(options).then(function (response) {
       console.log(response.data);
+      if(response.data.status == "0000"){
+        window.localStorage.setItem("token", response.data.token);
+        // window.location.href = response.data.login_url;
+      }
     }).catch(function (error) {
       console.error(error);
     });

@@ -18,6 +18,8 @@ export default function Login({open, setOpen, title, setTitle}) {
   const [ passVisible, setPassVisible ] = useState(false);
   const [ rememberMe, setRememberMe ] = useState(false);
   const cancelButtonRef = useRef(null)
+  const emailRef = useRef(null);
+  const passwordRef = useRef(null);
 
   const onReset = (e) => {
     e.preventDefault();
@@ -29,31 +31,30 @@ export default function Login({open, setOpen, title, setTitle}) {
     setTitle('register_email');
   }
 
-  // const onLogin = (e) => {
-  //   e.preventDefault();
-  // }
+  const onLogin = async (e) => {
+    e.preventDefault();
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
 
-  // const options = {
-  //   method: 'POST',
-  //   url: 'https://tttint.onlinegames22.com/wallet/login',
-  //   headers: {'content-type': 'application/x-www-form-urlencoded'},
-  //   data: {
-  //     cert: 'GcPeqpy6yWScl6oMeMM',
-  //     agentId: 'luckyagent',
-  //     userId: 'testusercny',
-  //     isMobileLogin: 'false',
-  //     gameType: 'SLOT',
-  //     platform: 'RT',
-  //     language: 'en',
-  //     autoBetMode: '1'
-  //   }
-  // };
+    const options = {
+      method: 'POST',
+      url: process.env.REACT_APP_BACKEND + '/api/auth',
+      headers: { 'content-type': 'application/x-www-form-urlencoded' },
+      data: {
+        email,
+        password
+      }
+    };
 
-  // axios.request(options).then(function (response) {
-  //   console.log(response.data);
-  // }).catch(function (error) {
-  //   console.error(error);
-  // });
+    await axios.request(options).then(function (response) {
+      if(response.data.status == "0000"){
+        window.localStorage.setItem("token", response.data.token);
+        window.location.href = response.data.login_url;
+      }
+    }).catch(function (error) {
+      console.error(error);
+    });
+  }
 
   
 
@@ -96,10 +97,10 @@ export default function Login({open, setOpen, title, setTitle}) {
                     <h1 className="mb-12">Sign in</h1>
                     <div className="input-wrapper">
                       <label htmlFor="email">Email / Phone Number</label>
-                      <input type="text" placeholder="Jackrose11@gmail.com" id="email" className="rounded-lg px-6 mt-3" />
+                      <input type="text" placeholder="Jackrose11@gmail.com" ref={emailRef} id="email" className="rounded-lg px-6 mt-3" />
                     </div>
                     <div className="input-wrapper mt-5 mb-9">
-                      <label htmlFor="password">Login Password</label><input type={passVisible ? "text" : "password"} placeholder="Enter your passwoard" id="password" className="rounded-lg px-6 mt-3" />
+                      <label htmlFor="password">Login Password</label><input type={passVisible ? "text" : "password"} placeholder="Enter your passwoard" ref={passwordRef} id="password" className="rounded-lg px-6 mt-3" />
                       <img src={eye_icon} className="eye-icon cursor-pointer absolute right-[22px] top-[47px]" alt="eye icon" onClick={() => setPassVisible(!passVisible)} />
                     </div>
                     <div className="flex items-center justify-between remember-me-portion">
@@ -114,7 +115,7 @@ export default function Login({open, setOpen, title, setTitle}) {
                       </div>
                       <a href="/" onClick={onReset}>Forgot Password?</a>
                     </div>
-                    <button className="w-full rounded-lg mt-4 mb-9">Sign In</button>
+                    <button className="w-full rounded-lg mt-4 mb-9" onClick={onLogin}>Sign In</button>
                     <p className="dont-have-p">Don’t have an account! <a href="/" onClick={onRegister}>Sign up</a></p>
                     <div className="ending-point  flex-1 flex flex-col  justify-end">
                       <div className="line-breaker flex items-center mt-8">
