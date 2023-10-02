@@ -6,8 +6,14 @@ import { Splide, SplideSlide } from '@splidejs/react-splide'
 import gameg1 from '../assets/img/l1.png'
 import gameg2 from '../assets/img/l2.png'
 import gameg3 from '../assets/img/l3.png'
-import gameg4 from '../assets/img/l4.png'
-import gameg5 from '../assets/img/l5.png'
+import gameg4 from '../assets/img/CasinoWar.png'
+import gameg5 from '../assets/img/PokerGo.png'
+import gameg6 from '../assets/img/Lucky five.png'
+import gameg7 from '../assets/img/DiamondDeal.png'
+import gameg8 from '../assets/img/Mahjong Wins.png'
+import gameg9 from '../assets/img/Baccarat Deluxe.png'
+import gameg10 from '../assets/img/Fortune Rabbit.png'
+
 import livecasino from '../assets/img/live-casino.svg'
 
 export const LiveCasino = () => {
@@ -38,68 +44,71 @@ export const LiveCasino = () => {
     },
     {
       img: gameg4,
-      text: 'SpeedBaccarat',
-      gameCode: 'BG-LIVE-006',
+      text: 'CasinoWar',
+      gameCode: 'BG-LIVE-014',
       gameType: 'Live',
       platform: 'BG',
       hall: 'SEXY'
     },
     {
       img: gameg5,
-      text: 'MiCardBaccarat',
-      gameCode: 'BG-LIVE-007',
-      gameType: 'Live',
-      platform: 'BG',
+      text: 'PokerGo',
+      gameCode: 'YL-EGAME-009',
+      gameType: 'EGAME',
+      platform: 'YL',
       hall: 'SEXY'
     },
     {
-      img: gameg1,
-      text: 'FullColorBaccarat',
-      gameCode: 'BG-LIVE-008',
-      gameType: 'Live',
-      platform: 'BG',
+      img: gameg6,
+      text: 'Lucky five',
+      gameCode: 'YL-EGAME-008',
+      gameType: 'EGAME',
+      platform: 'YL',
       hall: 'SEXY'
     },
     {
-      img: gameg2,
-      text: 'BullBull',
-      gameCode: 'BG-LIVE-009',
-      gameType: 'Live',
-      platform: 'BG',
+      img: gameg7,
+      text: 'DiamondDeal',
+      gameCode: 'YL-EGAME-010',
+      gameType: 'EGAME',
+      platform: 'YL',
       hall: 'SEXY'
     },
     {
-      img: gameg3,
-      text: 'WinThreeCards',
-      gameCode: 'BG-LIVE-010',
-      gameType: 'Live',
-      platform: 'BG',
+      img: gameg8,
+      text: 'Mahjong Wins',
+      gameCode: 'PP-SLOT-372',
+      gameType: 'SLOT',
+      platform: 'PP',
       hall: 'SEXY'
     },
     {
-      img: gameg4,
-      text: 'RedBlack',
-      gameCode: 'BG-LIVE-011',
-      gameType: 'Live',
-      platform: 'BG',
+      img: gameg9,
+      text: 'Baccarat Deluxe',
+      gameCode: 'PG-TABLE-001',
+      gameType: 'TABLE',
+      platform: 'PG',
       hall: 'SEXY'
     },
     {
-      img: gameg5,
-      text: 'SpeedSicBo',
-      gameCode: 'BG-LIVE-012',
-      gameType: 'Live',
-      platform: 'BG',
+      img: gameg10,
+      text: 'Fortune Rabbit',
+      gameCode: 'PG-SLOT-112',
+      gameType: 'SLOT',
+      platform: 'PG',
       hall: 'SEXY'
     }
   ]
 
   const handleGamePlay = async game => {
-    const token = window.localStorage.getItem("token");
+    const token = window.localStorage.getItem('token')
     const options = {
       method: 'POST',
       url: process.env.REACT_APP_BACKEND + '/api/game/play',
-      headers: { 'content-type': 'application/x-www-form-urlencoded', 'x-auth-token': token },
+      headers: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'x-auth-token': token
+      },
       data: {
         gameCode: game.gameCode,
         gameType: game.gameType,
@@ -112,7 +121,7 @@ export const LiveCasino = () => {
     await axios
       .request(options)
       .then(function (response) {
-        console.log(response.data, "dfsdfsdfsdf")
+        console.log(response.data, 'dfsdfsdfsdf')
         if (response.data.status == '0000') {
           window.location.href = response.data.session_url
         }
@@ -143,11 +152,11 @@ export const LiveCasino = () => {
         >
           {ImagesArray.map((EachImage, key) => (
             <SplideSlide key={key} onClick={() => handleGamePlay(EachImage)}>
-              <div className='card cursor-pointer'>
+              <div className='card cursor-pointer hover:border-2 hover:border-[#469711] rounded-lg'>
                 <img
                   src={EachImage.img}
                   alt={`slider ${key + 1}`}
-                  className='rounded-tr-lg rounded-tl-lg'
+                  className='rounded-tr-lg rounded-tl-lg w-[200px] h-[180px]'
                 />
                 <div className='presentation p-3 justify-between flex items-center rounded-bl-lg rounded-br-lg'>
                   <h1>{EachImage.text}</h1>

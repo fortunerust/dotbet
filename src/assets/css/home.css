@@ -48,6 +48,9 @@
   height: 42px;
   width: 100%;
 }
+.home .tags-wrapper > div:hover{
+  background-color: #062f67;
+}
 .home .tags-wrapper > div img {
   width: 16px;
   margin-right: 0.5rem;

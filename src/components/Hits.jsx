@@ -3,62 +3,65 @@ import axios from 'axios'
 import glowdot from '../assets/img/glow-dot.svg'
 import { Splide, SplideSlide } from '@splidejs/react-splide'
 
-import gameg1 from '../assets/img/jetx.png'
-import gameg2 from '../assets/img/wild-spin.png'
-import gameg3 from '../assets/img/throne.png'
-import gameg4 from '../assets/img/bufalo.png'
-import gameg5 from '../assets/img/bufalo2.png'
+import gameg1 from '../assets/img/Dragon-tiger2.png'
+import gameg2 from '../assets/img/Super Golf Drive.png'
+import gameg3 from '../assets/img/Alchemy Gold.png'
+import gameg4 from '../assets/img/Bombing Fishing.png'
+import gameg5 from '../assets/img/l1.png'
 
 export const Hits = () => {
   const ImagesArray = [
     {
       img: gameg1,
-      text: 'Booming Gems',
-      gameCode: 'DRAGOONSOFT-SLOT-042',
-      gameType: 'SLOT',
-      platform: 'DRAGOONSOFT',
+      text: 'Dragon-tiger2',
+      gameCode: 'KM-TABLE-011',
+      gameType: 'TABLE',
+      platform: 'KINGMAKER',
       hall: 'SEXY'
     },
     {
       img: gameg2,
-      text: 'Wolf Legend',
-      gameCode: 'DRAGOONSOFT-SLOT-024',
+      text: 'Super Golf Drive',
+      gameCode: 'PG-SLOT-118',
       gameType: 'SLOT',
-      platform: 'DRAGOONSOFT',
+      platform: 'PG',
       hall: 'SEXY'
     },
     {
       img: gameg3,
-      text: 'Bust Treasury',
-      gameCode: 'DRAGOONSOFT-SLOT-020',
-      gameType: 'Live',
-      platform: 'DRAGOONSOFT',
+      text: 'Alchemy Gold',
+      gameCode: 'PG-SLOT-108',
+      gameType: 'SLOT',
+      platform: 'PG',
       hall: 'SEXY'
     },
     {
       img: gameg4,
-      text: '5 God Beast',
-      gameCode: 'DRAGOONSOFT-SLOT-021',
-      gameType: 'SLOT',
-      platform: 'DRAGOONSOFT',
+      text: 'Bombing Fishing',
+      gameCode: 'JILI-FISH-002',
+      gameType: 'FH',
+      platform: 'JILI',
       hall: 'SEXY'
     },
     {
       img: gameg5,
-      text: 'Ultra Treasure',
-      gameCode: 'DRAGOONSOFT-SLOT-014',
-      gameType: 'SLOT',
-      platform: 'DRAGOONSOFT',
-      hall: 'SEXY'
+      text: 'Roulette',
+      gameCode: 'BG-LIVE-003',
+      gameType: 'LIVE',
+      platform: 'BG',
+      hall: null
     }
   ]
 
   const handleGamePlay = async game => {
-    const token = window.localStorage.getItem("token");
+    const token = window.localStorage.getItem('token')
     const options = {
       method: 'POST',
       url: process.env.REACT_APP_BACKEND + '/api/game/play',
-      headers: { 'content-type': 'application/x-www-form-urlencoded', 'x-auth-token': token },
+      headers: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'x-auth-token': token
+      },
       data: {
         gameCode: game.gameCode,
         gameType: game.gameType,
@@ -103,11 +106,11 @@ export const Hits = () => {
         >
           {ImagesArray.map((EachImage, key) => (
             <SplideSlide key={key} onClick={() => handleGamePlay(EachImage)}>
-              <div className='card cursor-pointer'>
+              <div className='card cursor-pointer hover:border-2 hover:border-[#469711] rounded-lg'>
                 <img
                   src={EachImage.img}
                   alt={`slider ${key + 1}`}
-                  className='rounded-tr-lg rounded-tl-lg'
+                  className='rounded-tr-lg rounded-tl-lg w-[200px] h-[180px]'
                 />
                 <div className='presentation p-3 justify-between flex items-center rounded-bl-lg rounded-br-lg'>
                   <h1>{EachImage.text}</h1>
