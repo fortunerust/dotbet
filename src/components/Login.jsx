@@ -47,9 +47,10 @@ export default function Login({open, setOpen, title, setTitle}) {
     };
 
     await axios.request(options).then(function (response) {
+      console.log(response.data);
       if(response.data.status == "0000"){
         window.localStorage.setItem("token", response.data.token);
-        window.location.href = response.data.login_url;
+        // window.location.href = response.data.login_url;
       }
     }).catch(function (error) {
       console.error(error);

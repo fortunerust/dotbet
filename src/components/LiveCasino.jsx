@@ -16,9 +16,9 @@ export const LiveCasino = () => {
       img: gameg1,
       text: 'Roulette',
       gameCode: 'BG-LIVE-003',
-      gameType: 'Live',
+      gameType: 'LIVE',
       platform: 'BG',
-      hall: 'SEXY'
+      hall: null
     },
     {
       img: gameg2,
@@ -95,15 +95,16 @@ export const LiveCasino = () => {
   ]
 
   const handleGamePlay = async game => {
+    const token = window.localStorage.getItem("token");
     const options = {
       method: 'POST',
       url: process.env.REACT_APP_BACKEND + '/api/game/play',
-      headers: { 'content-type': 'application/x-www-form-urlencoded' },
+      headers: { 'content-type': 'application/x-www-form-urlencoded', 'x-auth-token': token },
       data: {
         gameCode: game.gameCode,
         gameType: game.gameType,
         platform: game.platform,
-        hall: game.platform,
+        hall: game.hall,
         tid: 1
       }
     }
