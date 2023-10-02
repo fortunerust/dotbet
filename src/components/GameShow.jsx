@@ -2,11 +2,17 @@ import React from 'react'
 import axios from 'axios'
 import { Splide, SplideSlide } from '@splidejs/react-splide'
 
-import gameg1 from '../assets/img/dream.png'
-import gameg2 from '../assets/img/baller.png'
-import gameg3 from '../assets/img/bt3.png'
-import gameg4 from '../assets/img/l4.png'
-import gameg5 from '../assets/img/bt5.png'
+import gameg1 from '../assets/img/thai-hi-lo2.png'
+import gameg2 from '../assets/img/belangkai2.png'
+import gameg3 from '../assets/img/Dragon-tiger2.png'
+import gameg4 from '../assets/img/fish-prawn-crab2.png'
+import gameg5 from '../assets/img/vn_fish-prawn-crab.png'
+import gameg6 from '../assets/img/taixiu.png'
+import gameg7 from '../assets/img/keno.png'
+import gameg8 from '../assets/img/NumberMatka.png'
+import gameg9 from '../assets/img/CardMatka.png'
+import gameg10 from '../assets/img/7 Up 7 Down.png'
+
 import gameshow from '../assets/img/game-show.svg'
 
 export const GameShow = () => {
@@ -20,7 +26,7 @@ export const GameShow = () => {
       hall: 'SEXY'
     },
     {
-      img: gameg4,
+      img: gameg2,
       text: 'Belangkai2',
       gameCode: 'KM-TABLE-010',
       gameType: 'TABLE',
@@ -36,7 +42,7 @@ export const GameShow = () => {
       hall: 'SEXY'
     },
     {
-      img: gameg2,
+      img: gameg4,
       text: 'Fish-prawn-crab2',
       gameCode: 'KM-TABLE-013',
       gameType: 'TABLE',
@@ -52,41 +58,41 @@ export const GameShow = () => {
       hall: 'SEXY'
     },
     {
-      img: gameg1,
-      text: 'Dream Catcher',
-      gameCode: 'KM-TABLE-015',
-      gameType: 'TABLE',
-      platform: 'KINGMAKER',
-      hall: 'SEXY'
-    },
-    {
-      img: gameg4,
-      text: 'Sicbo',
+      img: gameg6,
+      text: 'taixiu',
       gameCode: 'KM-TABLE-017',
       gameType: 'TABLE',
       platform: 'KINGMAKER',
       hall: 'SEXY'
     },
     {
-      img: gameg3,
-      text: 'Taixiu',
+      img: gameg7,
+      text: 'keno',
       gameCode: 'KM-TABLE-018',
       gameType: 'TABLE',
       platform: 'KINGMAKER',
       hall: 'SEXY'
     },
     {
-      img: gameg2,
-      text: 'Keno',
-      gameCode: 'KM-TABLE-019',
+      img: gameg8,
+      text: 'NumberMatka',
+      gameCode: 'KM-TABLE-021',
       gameType: 'TABLE',
       platform: 'KINGMAKER',
       hall: 'SEXY'
     },
     {
-      img: gameg5,
-      text: 'Thai-fpc',
-      gameCode: 'KM-TABLE-020',
+      img: gameg9,
+      text: 'CardMatka',
+      gameCode: 'KM-TABLE-022',
+      gameType: 'TABLE',
+      platform: 'KINGMAKER',
+      hall: 'SEXY'
+    },
+    {
+      img: gameg10,
+      text: '7 Up 7 Down',
+      gameCode: 'KM-TABLE-028',
       gameType: 'TABLE',
       platform: 'KINGMAKER',
       hall: 'SEXY'
@@ -94,11 +100,14 @@ export const GameShow = () => {
   ]
 
   const handleGamePlay = async game => {
-    const token = window.localStorage.getItem("token");
+    const token = window.localStorage.getItem('token')
     const options = {
       method: 'POST',
       url: process.env.REACT_APP_BACKEND + '/api/game/play',
-      headers: { 'content-type': 'application/x-www-form-urlencoded', 'x-auth-token': token },
+      headers: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'x-auth-token': token
+      },
       data: {
         gameCode: game.gameCode,
         gameType: game.gameType,
@@ -142,11 +151,11 @@ export const GameShow = () => {
         >
           {ImagesArray.map((EachImage, key) => (
             <SplideSlide key={key} onClick={() => handleGamePlay(EachImage)}>
-              <div className='card cursor-pointer'>
+              <div className='card cursor-pointer hover:border-2 hover:border-[#469711] rounded-lg'>
                 <img
                   src={EachImage.img}
                   alt={`slider ${key + 1}`}
-                  className='rounded-tr-lg rounded-tl-lg'
+                  className='rounded-tr-lg rounded-tl-lg w-[200px] h-[180px]'
                 />
                 <div className='presentation p-3 justify-between flex items-center rounded-bl-lg rounded-br-lg'>
                   <h1>{EachImage.text}</h1>

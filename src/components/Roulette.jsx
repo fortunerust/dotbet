@@ -1,119 +1,118 @@
 import React from 'react'
 import axios from 'axios'
-
 import { Splide, SplideSlide } from '@splidejs/react-splide'
 
-import gameg1 from '../assets/img/Honey Trap of Diao Chan.png'
-import gameg2 from '../assets/img/Hood vs Wolf.png'
-import gameg3 from '../assets/img/Legend of Hou Yi.png'
-import gameg4 from '../assets/img/Lucky Fortune Cat.png'
-import gameg5 from '../assets/img/Ganesha Gold.png'
-import gameg6 from '../assets/img/Crypto Gold.png'
-import gameg7 from '../assets/img/Supermarket Spree.png'
-import gameg8 from '../assets/img/Ice Land.png'
-import gameg9 from '../assets/img/Treasure Mine.png'
-import gameg10 from '../assets/img/Vault Of Anubis.png'
-import gameg11 from '../assets/img/Four Treasures.png'
-import gameg12 from '../assets/img/5 Lions Gold.png'
+import gameg1 from '../assets/img/Roulette.png'
+import gameg2 from '../assets/img/European Roulette.png'
+import gameg3 from '../assets/img/Chinese Treasures.png'
+import gameg4 from '../assets/img/Cinderellas Ball.png'
+import gameg5 from '../assets/img/Crazy Genie.png'
+import gameg6 from '../assets/img/Devils Number.png'
+import gameg7 from '../assets/img/Divine Ways.png'
+import gameg8 from '../assets/img/Dragon is Fire.png'
+import gameg9 from '../assets/img/Elven Magic.png'
+import gameg10 from '../assets/img/Emerald Diamond.png'
+import gameg11 from '../assets/img/Epic Journey.png'
+import gameg12 from '../assets/img/Fortune Charm.png'
 
 import b from '../assets/img/b.svg'
 
-export const NewArrival = () => {
+export const Roulette = () => {
   const ImagesArray = [
     {
       img: gameg1,
-      text: 'Honey Trap of Diao Chan',
-      gameCode: 'PG-SLOT-001',
-      gameType: 'SLOT',
-      platform: 'PG',
+      text: 'Roulette',
+      gameCode: 'VN-LIVE-009',
+      gameType: 'LIVE',
+      platform: 'VENUS',
       hall: 'SEXY'
     },
     {
       img: gameg2,
-      text: 'Hood vs Wolf',
-      gameCode: 'PG-SLOT-009',
-      gameType: 'SLOT',
-      platform: 'PG',
+      text: 'European Roulette',
+      gameCode: 'RT-TABLE-002',
+      gameType: 'TABLE',
+      platform: 'RT',
       hall: 'SEXY'
     },
     {
       img: gameg3,
-      text: 'Legend of Hou Yi',
-      gameCode: 'PG-SLOT-018',
+      text: 'Chinese Treasures',
+      gameCode: 'RT-SLOT-004',
       gameType: 'SLOT',
-      platform: 'PG',
+      platform: 'RT',
       hall: 'SEXY'
     },
     {
       img: gameg4,
-      text: 'Lucky Fortune Cat',
-      gameCode: 'RT-SLOT-039',
+      text: "Cinderella's Ball",
+      gameCode: 'RT-SLOT-005',
       gameType: 'SLOT',
       platform: 'RT',
       hall: 'SEXY'
     },
     {
       img: gameg5,
-      text: 'Ganesha Gold',
-      gameCode: 'PG-SLOT-026',
+      text: 'Crazy Genie',
+      gameCode: 'RT-SLOT-006',
       gameType: 'SLOT',
-      platform: 'PG',
-      hall: 'PG'
+      platform: 'RT',
+      hall: 'SEXY'
     },
     {
       img: gameg6,
-      text: 'Crypto Gold',
-      gameCode: 'PG-SLOT-072',
+      text: "Devil's Number",
+      gameCode: 'RT-SLOT-007',
       gameType: 'SLOT',
-      platform: 'PG',
+      platform: 'RT',
       hall: 'SEXY'
     },
     {
       img: gameg7,
-      text: 'Supermarket Spree',
-      gameCode: 'PG-SLOT-084',
+      text: 'Divine Ways',
+      gameCode: 'RT-SLOT-008',
       gameType: 'SLOT',
-      platform: 'PG',
+      platform: 'RT',
       hall: 'SEXY'
     },
     {
       img: gameg8,
-      text: 'Ice Land',
-      gameCode: 'P8-SLOT-018',
+      text: 'Dragon is Fire',
+      gameCode: 'JRT-SLOT-009',
       gameType: 'SLOT',
-      platform: 'PLAY8',
+      platform: 'RT',
       hall: 'SEXY'
     },
     {
       img: gameg9,
-      text: 'Treasure Mine',
-      gameCode: 'RT-SLOT-081',
+      text: 'Elven Magic',
+      gameCode: 'RT-SLOT-012',
       gameType: 'SLOT',
       platform: 'RT',
       hall: 'SEXY'
     },
     {
       img: gameg10,
-      text: 'Vault Of Anubis',
-      gameCode: 'RT-SLOT-100',
+      text: 'Emerald Diamond',
+      gameCode: 'RT-SLOT-013',
       gameType: 'SLOT',
       platform: 'RT',
       hall: 'SEXY'
     },
     {
       img: gameg11,
-      text: 'Four Treasures',
-      gameCode: 'JDB-SLOT-017',
+      text: 'Epic Journey',
+      gameCode: 'RT-SLOT-014',
       gameType: 'SLOT',
-      platform: 'JDB',
+      platform: 'RT',
       hall: 'SEXY'
     },
     {
       img: gameg12,
-      text: '5 Lions Gold',
-      gameCode: 'PP-SLOT-080',
+      text: 'Fortune Charm',
+      gameCode: 'RT-SLOT-019',
       gameType: 'SLOT',
-      platform: 'PP',
+      platform: 'RT',
       hall: 'SEXY'
     }
   ]
@@ -152,7 +151,7 @@ export const NewArrival = () => {
   return (
     <div className='RecentWin arrowareaslider'>
       <div className='top flex items-center justify-between mb-4'>
-        <h1 className='flex items-center'>New</h1>
+        <h1 className='flex items-center'>Roulette</h1>
       </div>
 
       <div className='slider-wrapper-recent'>

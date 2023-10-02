@@ -3,120 +3,112 @@ import axios from 'axios'
 
 import { Splide, SplideSlide } from '@splidejs/react-splide'
 
-import gameg1 from '../assets/img/b1.png'
-import gameg2 from '../assets/img/b2.png'
-import gameg3 from '../assets/img/b3.png'
-import gameg4 from '../assets/img/b4.png'
-import gameg5 from '../assets/img/b5.png'
-import gameg6 from '../assets/img/b6.png'
+import gameg1 from '../assets/img/world cup.png'
+import gameg2 from '../assets/img/Shaolin Soccer.png'
+import gameg3 from '../assets/img/Speed Winner.png'
+import gameg4 from '../assets/img/Super Golf Drive.png'
+import gameg5 from '../assets/img/Muay Thai Champion.png'
+import gameg6 from '../assets/img/Horsebook.png'
+import gameg7 from '../assets/img/ANIMAL RACING.png'
+import gameg8 from '../assets/img/HorseRacing.png'
+import gameg9 from '../assets/img/Penalty Shootout.png'
+import gameg10 from '../assets/img/Virtual Sports.png'
+
 import b from '../assets/img/b.svg'
 
-export const Bonus = () => {
+export const Sports = () => {
   const ImagesArray = [
     {
       img: gameg1,
-      text: 'GOLDEN PANTHER',
-      gameCode: 'FC-SLOT-001',
+      text: 'World Cup',
+      gameCode: 'JILI-SLOT-063',
       gameType: 'SLOT',
-      platform: 'FC',
+      platform: 'JILI',
       hall: 'SEXY'
     },
     {
       img: gameg2,
-      text: 'THREE LITTLE PIGS',
-      gameCode: 'FC-SLOT-002',
+      text: 'Shaolin Soccer',
+      gameCode: 'PG-SLOT-046',
       gameType: 'SLOT',
-      platform: 'FC',
+      platform: 'PG',
       hall: 'SEXY'
     },
     {
       img: gameg3,
-      text: 'HOT POT PARTY',
-      gameCode: 'FC-SLOT-003',
+      text: 'Speed Winner',
+      gameCode: 'PG-SLOT-102',
       gameType: 'SLOT',
-      platform: 'FC',
+      platform: 'PG',
       hall: 'SEXY'
     },
     {
       img: gameg4,
-      text: 'NIGHT MARKET',
-      gameCode: 'FC-SLOT-004',
+      text: 'Super Golf Drive',
+      gameCode: 'PG-SLOT-118',
       gameType: 'SLOT',
-      platform: 'FC',
+      platform: 'PG',
       hall: 'SEXY'
     },
     {
       img: gameg5,
-      text: 'LUXURY GOLDEN PANTHER',
-      gameCode: 'FC-SLOT-012',
+      text: 'Muay Thai Champion',
+      gameCode: 'PG-SLOT-039',
       gameType: 'SLOT',
-      platform: 'FC',
+      platform: 'PG',
       hall: 'SEXY'
     },
     {
       img: gameg6,
-      text: 'PONG PONG HU',
-      gameCode: 'FC-SLOT-005',
-      gameType: 'SLOT',
-      platform: 'FC',
+      text: 'Horsebook',
+      gameCode: 'HRB-LIVE-001',
+      gameType: 'LIVE',
+      platform: 'HORSEBOOK',
       hall: 'SEXY'
     },
     {
-      img: gameg1,
-      text: 'PANDA DRAGON BOAT',
-      gameCode: 'FC-SLOT-006',
-      gameType: 'SLOT',
-      platform: 'FC',
-      hall: 'SEXY'
-    },
-    {
-      img: gameg2,
-      text: 'CHINESE NEW YEAR',
-      gameCode: 'FC-SLOT-007',
-      gameType: 'SLOT',
-      platform: 'FC',
-      hall: 'SEXY'
-    },
-    {
-      img: gameg3,
-      text: 'FORTUNE KOI',
-      gameCode: 'FC-SLOT-008',
-      gameType: 'SLOT',
-      platform: 'FC',
-      hall: 'SEXY'
-    },
-    {
-      img: gameg4,
-      text: 'HAPPY DUO BAO',
-      gameCode: 'FC-SLOT-009',
-      gameType: 'SLOT',
-      platform: 'FC',
-      hall: 'SEXY'
-    },
-    {
-      img: gameg5,
-      text: 'DA LE MEN',
-      gameCode: 'FC-SLOT-010',
-      gameType: 'SLOT',
-      platform: 'FC',
-      hall: 'SEXY'
-    },
-    {
-      img: gameg6,
+      img: gameg7,
       text: 'ANIMAL RACING',
       gameCode: 'FC-SLOT-011',
       gameType: 'SLOT',
       platform: 'FC',
       hall: 'SEXY'
+    },
+    {
+      img: gameg8,
+      text: 'HorseRacing',
+      gameCode: 'KM-TABLE-048',
+      gameType: 'TABLE',
+      platform: 'KINGMAKER',
+      hall: 'SEXY'
+    },
+    {
+      img: gameg9,
+      text: 'Penalty Shootout',
+      gameCode: 'PP-EGAME-002',
+      gameType: 'EGAME',
+      platform: 'PP',
+      hall: 'SEXY'
+    },
+    {
+      img: gameg10,
+      text: 'Virtual Sports',
+      gameCode: 'SABA-VIRTUAL-001',
+      gameType: 'VIRTUAL',
+      platform: 'SABA',
+      hall: 'SEXY'
     }
   ]
 
   const handleGamePlay = async game => {
-    const token = window.localStorage.getItem("token");
+    const token = window.localStorage.getItem('token')
     const options = {
       method: 'POST',
       url: process.env.REACT_APP_BACKEND + '/api/game/play',
-      headers: { 'content-type': 'application/x-www-form-urlencoded', 'x-auth-token': token },
+      headers: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'x-auth-token': token
+      },
       data: {
         gameCode: game.gameCode,
         gameType: game.gameType,
@@ -142,7 +134,7 @@ export const Bonus = () => {
   return (
     <div className='RecentWin arrowareaslider'>
       <div className='top flex items-center justify-between mb-4'>
-        <h1 className='flex items-center'>Bonus Wagering</h1>
+        <h1 className='flex items-center'>Sports</h1>
       </div>
 
       <div className='slider-wrapper-recent'>
@@ -152,16 +144,16 @@ export const Bonus = () => {
             gap: 10,
             arrows: true,
             pagination: false,
-            perPage: 6
+            perPage: 5
           }}
         >
           {ImagesArray.map((EachImage, key) => (
             <SplideSlide key={key} onClick={() => handleGamePlay(EachImage)}>
-              <div className='card cursor-pointer'>
+              <div className='card cursor-pointer hover:border-2 hover:border-[#469711] rounded-lg'>
                 <img
                   src={EachImage.img}
                   alt={`slider ${key + 1}`}
-                  className='rounded-tr-lg rounded-tl-lg'
+                  className='rounded-tr-lg rounded-tl-lg w-[200px] h-[180px]'
                 />
                 <div className='presentation p-3 justify-between flex items-center rounded-bl-lg rounded-br-lg'>
                   <h1>{EachImage.text}</h1>
