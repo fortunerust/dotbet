@@ -315,7 +315,7 @@ export const RightAreaHome = () => {
                 ${' '}
                 {rollingNumber
                   .toString()
-                  .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}{' '}
+                  .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1, ')}{' '}
               </p>
               <p>1.09-26.09</p>
               <div className='buttons-wrapper mt-6'>
