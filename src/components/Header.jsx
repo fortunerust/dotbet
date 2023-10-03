@@ -26,20 +26,9 @@ export const Header = () => {
           />
           <img src={search} alt='search' />
         </div>
-        {localStorage.getItem('token') !== '' ? (
-          <div className='right-header-area items-center flex flex-1 justify-end'>
-            <button
-              className='flex rounded-lg justify-center  login-btn deposit-button items-center h-8'
-              onClick={() => {
-                console.log('log out')
-                // localStorage.removeItem('token')
-              }}
-            >
-              <img src={signIn} alt='sign out' className='mr-2' />
-              Log out
-            </button>
-          </div>
-        ) : (
+        {localStorage.getItem('token') == '' ||
+        localStorage.getItem('token') == undefined ||
+        localStorage.getItem('token') == null ? (
           <div className='right-header-area items-center flex flex-1 justify-end'>
             <button
               className='flex rounded-lg justify-center  login-btn deposit-button items-center h-8'
@@ -60,6 +49,18 @@ export const Header = () => {
             >
               <img src={signUp} alt='sign Up' className='mr-2' />
               Sign UP
+            </button>
+          </div>
+        ) : (
+          <div className='right-header-area items-center flex flex-1 justify-end'>
+            <button
+              className='flex rounded-lg justify-center  login-btn deposit-button items-center h-8'
+              onClick={() => {
+                localStorage.clear()
+              }}
+            >
+              <img src={signIn} alt='sign out' className='mr-2' />
+              Log out
             </button>
           </div>
         )}

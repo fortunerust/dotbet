@@ -19,15 +19,15 @@ export const Fishing = () => {
   const [loading, setLoading] = useState(false)
 
   const notify = () =>
-    toast.success('Signing up. Please wait for a while.', {
+    toast.error('Connection failed.', {
       position: 'top-right',
-      autoClose: 5000,
+      autoClose: 1000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme: 'dark'
+      theme: 'light'
     })
 
   const ImagesArray = [
@@ -135,6 +135,7 @@ export const Fishing = () => {
       })
       .catch(function (error) {
         console.error(error)
+        notify()
         setLoading(false)
       })
   }
@@ -156,10 +157,7 @@ export const Fishing = () => {
           }}
         >
           {ImagesArray.map((EachImage, key) => (
-            <SplideSlide
-              key={key}
-              onClick={() => (handleGamePlay(EachImage), notify)}
-            >
+            <SplideSlide key={key} onClick={() => handleGamePlay(EachImage)}>
               <div className='card cursor-pointer hover:border-2 hover:border-[#469711] rounded-lg'>
                 <img
                   src={EachImage.img}
@@ -185,7 +183,7 @@ export const Fishing = () => {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme='dark'
+        theme='light'
       />
       {loading && <LoadingModal />}
     </div>

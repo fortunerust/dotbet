@@ -17,15 +17,15 @@ export const TopRatesGame = () => {
   const [loading, setLoading] = useState(false)
 
   const notify = () =>
-    toast.success('Signing up. Please wait for a while.', {
+    toast.error('Connection failed.', {
       position: 'top-right',
-      autoClose: 5000,
+      autoClose: 1000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme: 'dark'
+      theme: 'light'
     })
 
   const ImagesArray = [
@@ -101,6 +101,7 @@ export const TopRatesGame = () => {
       })
       .catch(function (error) {
         console.error(error)
+        notify()
         setLoading(false)
       })
   }
@@ -138,7 +139,7 @@ export const TopRatesGame = () => {
 
                   <button
                     className='h-6 rounded-lg text-xs'
-                    onClick={() => (handleGamePlay(EachImage), notify)}
+                    onClick={() => handleGamePlay(EachImage)}
                   >
                     Play Now
                   </button>
@@ -158,7 +159,7 @@ export const TopRatesGame = () => {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme='dark'
+        theme='light'
       />
       {loading && <LoadingModal />}
     </div>
