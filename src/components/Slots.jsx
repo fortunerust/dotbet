@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 import { Splide, SplideSlide } from '@splidejs/react-splide'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import LoadingModal from './loadingPage'
 
 import gameg1 from '../assets/img/Lucky Piggy.png'
 import gameg2 from '../assets/img/Prosperity Fortune Tree.png'
@@ -18,6 +21,20 @@ import gameg12 from '../assets/img/FortuneCat.png'
 import b from '../assets/img/b.svg'
 
 export const Slots = () => {
+  const [loading, setLoading] = useState(false)
+
+  const notify = () =>
+    toast.success('Signing up. Please wait for a while.', {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'dark'
+    })
+
   const ImagesArray = [
     {
       img: gameg1,
@@ -118,6 +135,7 @@ export const Slots = () => {
   ]
 
   const handleGamePlay = async game => {
+    setLoading(true)
     const token = window.localStorage.getItem('token')
     const options = {
       method: 'POST',
@@ -139,17 +157,19 @@ export const Slots = () => {
       .request(options)
       .then(function (response) {
         console.log(response.data)
-        if (response.data.status == '0000') {
+        if (response.data.status === '0000') {
           window.location.href = response.data.session_url
+          setLoading(false)
         }
       })
       .catch(function (error) {
         console.error(error)
+        setLoading(false)
       })
   }
 
   return (
-    <div className='RecentWin arrowareaslider'>
+    <div className='RecentWin arrowareaslider' id='slots'>
       <div className='top flex items-center justify-between mb-4'>
         <h1 className='flex items-center'>Featured Slots</h1>
       </div>
@@ -165,12 +185,15 @@ export const Slots = () => {
           }}
         >
           {ImagesArray.map((EachImage, key) => (
-            <SplideSlide key={key} onClick={() => handleGamePlay(EachImage)}>
+            <SplideSlide
+              key={key}
+              onClick={() => (handleGamePlay(EachImage), notify)}
+            >
               <div className='card cursor-pointer hover:border-2 hover:border-[#469711] rounded-lg'>
                 <img
                   src={EachImage.img}
                   alt={`slider ${key + 1}`}
-                  className='rounded-tr-lg rounded-tl-lg w-[200px] h-[180px]'
+                  className='rounded-tr-lg rounded-tl-lg w-[200px] h-[250px]'
                 />
                 <div className='presentation p-3 justify-between flex items-center rounded-bl-lg rounded-br-lg'>
                   <h1>{EachImage.text}</h1>
@@ -181,6 +204,19 @@ export const Slots = () => {
           ))}
         </Splide>
       </div>
+      <ToastContainer
+        position='top-right'
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme='dark'
+      />
+      {loading && <LoadingModal />}
     </div>
   )
 }

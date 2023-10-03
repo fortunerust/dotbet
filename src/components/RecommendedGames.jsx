@@ -1,75 +1,166 @@
-import React from "react";
-import { Splide, SplideSlide } from "@splidejs/react-splide";
+import React, { useState } from 'react'
+import axios from 'axios'
+import { Splide, SplideSlide } from '@splidejs/react-splide'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import LoadingModal from './loadingPage'
 
-import gameg1 from "../assets/img/rec1.png";
-import gameg2 from "../assets/img/rec2.png";
-import info from "../assets/img/info.svg";
+import gameg1 from '../assets/img/Roulette.png'
+import gameg2 from '../assets/img/CasinoWar.png'
+import gameg3 from '../assets/img/Prosperity Fortune Tree.png'
+import gameg4 from '../assets/img/Honey Trap of Diao Chan.png'
+import gameg5 from '../assets/img/belangkai2.png'
+import info from '../assets/img/info.svg'
 
 export const RecommendedGames = () => {
+  const [loading, setLoading] = useState(false)
+
+  const notify = () =>
+    toast.success('Signing up. Please wait for a while.', {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'dark'
+    })
+
   const ImagesArray = [
     {
       game: gameg1,
-      heading: "Crazy 7",
+      heading: 'Roulette',
+      gameCode: 'BG-LIVE-003',
+      gameType: 'LIVE',
+      platform: 'BG',
+      hall: null
     },
     {
       game: gameg2,
-      heading: "PG Soft",
+      heading: 'CasinoWar',
+      gameCode: 'BG-LIVE-014',
+      gameType: 'Live',
+      platform: 'BG',
+      hall: 'SEXY'
     },
     {
-      game: gameg1,
-      heading: "Crazy 7",
+      game: gameg3,
+      heading: 'Prosperity Fortune Tree',
+      gameCode: 'PG-SLOT-106',
+      gameType: 'SLOT',
+      platform: 'PG',
+      hall: 'SEXY'
     },
     {
-      game: gameg2,
-      heading: "PG Soft",
+      game: gameg4,
+      heading: 'Honey Trap of Diao Chan',
+      gameCode: 'PG-SLOT-001',
+      gameType: 'SLOT',
+      platform: 'PG',
+      hall: 'SEXY'
     },
     {
-      game: gameg1,
-      heading: "Crazy 7",
-    },
-    {
-      game: gameg2,
-      heading: "PG Soft",
-    },
-  ];
+      game: gameg5,
+      heading: 'Belangkai2',
+      gameCode: 'KM-TABLE-010',
+      gameType: 'TABLE',
+      platform: 'KINGMAKER',
+      hall: 'SEXY'
+    }
+  ]
+
+  const handleGamePlay = async game => {
+    setLoading(true)
+
+    const token = window.localStorage.getItem('token')
+    const options = {
+      method: 'POST',
+      url: process.env.REACT_APP_BACKEND + '/api/game/play',
+      headers: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'x-auth-token': token
+      },
+      data: {
+        gameCode: game.gameCode,
+        gameType: game.gameType,
+        platform: game.platform,
+        hall: game.hall,
+        tid: 1
+      }
+    }
+
+    await axios
+      .request(options)
+      .then(function (response) {
+        console.log(response.data)
+        if (response.data.status === '0000') {
+          window.location.href = response.data.session_url
+          setLoading(false)
+        }
+      })
+      .catch(function (error) {
+        console.error(error)
+        setLoading(false)
+      })
+  }
+
   return (
-    <div className="RecentWin TopRatesGame">
-      <div className="top flex items-center justify-between ">
-        <h1 className="flex items-center">Recommended Games</h1>
-        <a href="/">See all</a>
+    <div className='RecentWin TopRatesGame' id='recommendedGames'>
+      <div className='top flex items-center justify-between '>
+        <h1 className='flex items-center'>Recommended Games</h1>
+        <a href='/'>See all</a>
       </div>
 
-      <div className="slider-wrapper-recent">
+      <div className='slider-wrapper-recent'>
         <Splide
-          className="mt-8 SliderAreaFirst "
+          className='mt-8 SliderAreaFirst '
           options={{
             gap: 10,
             arrows: false,
             pagination: false,
-            perPage: 5,
+            perPage: 5
           }}
         >
           {ImagesArray.map((EachObj, key) => (
             <SplideSlide key={key}>
-              <div className="card ">
+              <div className='card '>
                 <img
                   src={EachObj.game}
                   alt={`slider ${key + 1}`}
-                  className="rounded-tr-lg rounded-tl-lg"
+                  className='rounded-tr-lg rounded-tl-lg w-[200px] h-[250px]'
                 />
-                <div className="presentation p-3 rounded-bl-lg rounded-br-lg">
-                  <div className="top-area  mb-2 flex items-center justify-between">
-                    <h1 className="">{EachObj.heading}</h1>
-                    <img src={info} alt="info" />
+                <div className='presentation p-3 rounded-bl-lg rounded-br-lg'>
+                  <div className='top-area  mb-2 flex items-center justify-between'>
+                    <h1 className=''>{EachObj.heading}</h1>
+                    <img src={info} alt='info' />
                   </div>
 
-                  <button className="h-6 rounded-lg text-xs">Play Now</button>
+                  <button
+                    className='h-6 rounded-lg text-xs'
+                    onClick={() => (handleGamePlay(EachObj), notify)}
+                  >
+                    Play Now
+                  </button>
                 </div>
               </div>
             </SplideSlide>
           ))}
         </Splide>
       </div>
+      <ToastContainer
+        position='top-right'
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme='dark'
+      />
+      {loading && <LoadingModal />}
     </div>
-  );
-};
+  )
+}
