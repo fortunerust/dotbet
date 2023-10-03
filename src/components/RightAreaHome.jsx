@@ -105,14 +105,11 @@ export const RightAreaHome = () => {
   const [showState, setShowState] = useState(false)
   const [openedFaqId, setOpenedFaqId] = useState(7)
 
-  const navigate = useNavigate()
-
   const dropDownText = async e => {
     setOpenedFaqId(e)
     switch (e) {
       case 0:
         setHomeState(true)
-        navigate('/#hits')
         setSportState(false)
         setLiveState(false)
         setSlotState(false)
@@ -123,7 +120,6 @@ export const RightAreaHome = () => {
       case 1:
         setHomeState(false)
         setSportState(true)
-        navigate('/#sports')
         setLiveState(false)
         setSlotState(false)
         setRouletteState(false)
@@ -138,7 +134,6 @@ export const RightAreaHome = () => {
         setRouletteState(false)
         setFishingState(false)
         setShowState(false)
-        navigate('#liveCasino')
         break
       case 3:
         setHomeState(false)
@@ -148,7 +143,6 @@ export const RightAreaHome = () => {
         setRouletteState(false)
         setFishingState(false)
         setShowState(false)
-        navigate('#slots')
         break
       case 4:
         setHomeState(false)
@@ -158,7 +152,6 @@ export const RightAreaHome = () => {
         setRouletteState(true)
         setFishingState(false)
         setShowState(false)
-        navigate('#roulette')
         break
       case 5:
         setHomeState(false)
@@ -168,7 +161,6 @@ export const RightAreaHome = () => {
         setRouletteState(false)
         setFishingState(true)
         setShowState(false)
-        navigate('#fishing')
         break
       case 6:
         setHomeState(false)
@@ -178,7 +170,6 @@ export const RightAreaHome = () => {
         setRouletteState(false)
         setFishingState(false)
         setShowState(true)
-        navigate('#gameShow')
         break
       default:
         break
@@ -188,31 +179,38 @@ export const RightAreaHome = () => {
   const gameListState = [
     {
       Img: home,
-      Text: 'Lobby'
+      Text: 'Lobby',
+      id: '/#hits'
     },
     {
       Img: sports,
-      Text: 'Sports'
+      Text: 'Sports',
+      id: '/#sports'
     },
     {
       Img: Live,
-      Text: 'Live Casino'
+      Text: 'Live Casino',
+      id: '/#liveCasino'
     },
     {
       Img: slots,
-      Text: 'Featured Slots'
+      Text: 'Featured Slots',
+      id: '/#slots'
     },
     {
       Img: roulette,
-      Text: 'Roulette'
+      Text: 'Roulette',
+      id: '/#roulette'
     },
     {
       Img: slots,
-      Text: 'Fishing'
+      Text: 'Fishing',
+      id: '/#fishing'
     },
     {
       Img: slots,
-      Text: 'Game Shows'
+      Text: 'Game Shows',
+      id: '/#gameShow'
     }
   ]
 
@@ -247,16 +245,17 @@ export const RightAreaHome = () => {
           <div className='tags-wrapper mt-10 mb-12  grid grid-cols-7 gap-3'>
             {gameListState.map((item, index) => {
               return (
-                <div
+                <a
                   key={index}
                   onClick={e => dropDownText(index)}
+                  href={`${item.id}`}
                   className={`${
                     index === openedFaqId ? 'active' : ''
                   } tag flex justify-center  items-center cursor-pointer`}
                 >
                   <img src={item.Img} alt='game show' />
                   <p>{item.Text}</p>
-                </div>
+                </a>
               )
             })}
           </div>

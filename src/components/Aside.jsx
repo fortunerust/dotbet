@@ -111,31 +111,38 @@ export const Aside = () => {
   const gameListState = [
     {
       Img: home,
-      Text: 'Lobby'
+      Text: 'Lobby',
+      id: '/#hits'
     },
     {
       Img: sports,
-      Text: 'Sports'
+      Text: 'Sports',
+      id: '/#sports'
     },
     {
       Img: Live,
-      Text: 'Live Casino'
+      Text: 'Live Casino',
+      id: '/#liveCasino'
     },
     {
       Img: slots,
-      Text: 'Featured Slots'
+      Text: 'Featured Slots',
+      id: '/#slots'
     },
     {
       Img: roulette,
-      Text: 'Roulette'
+      Text: 'Roulette',
+      id: '/#roulette'
     },
     {
       Img: slots,
-      Text: 'Fishing'
+      Text: 'Fishing',
+      id: '/#fishing'
     },
     {
       Img: slots,
-      Text: 'Game Shows'
+      Text: 'Game Shows',
+      id: '/#gameShow'
     }
   ]
 
@@ -157,16 +164,17 @@ export const Aside = () => {
 
       {gameListState.map((item, index) => {
         return (
-          <div
+          <a
             key={index}
             onClick={e => menuState(index)}
+            href={`${item.id}`}
             className={`${
               index === openedFaqId ? 'active' : ''
             } bonus-area mb-2 rounded-lg flex items-center cursor-pointer`}
           >
             <img src={item.Img} alt='card' />
             <h1 className='flex-1 text-center'>{item.Text}</h1>
-          </div>
+          </a>
         )
       })}
 

@@ -23,15 +23,15 @@ export const Sports = () => {
   const [loading, setLoading] = useState(false)
 
   const notify = () =>
-    toast.success('Signing up. Please wait for a while.', {
+    toast.error('Connection failed.', {
       position: 'top-right',
-      autoClose: 5000,
+      autoClose: 1000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme: 'dark'
+      theme: 'light'
     })
 
   const ImagesArray = [
@@ -148,6 +148,7 @@ export const Sports = () => {
       })
       .catch(function (error) {
         console.error(error)
+        notify()
         setLoading(false)
       })
   }
@@ -198,7 +199,7 @@ export const Sports = () => {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme='dark'
+        theme='light'
       />
       {loading && <LoadingModal />}
     </div>

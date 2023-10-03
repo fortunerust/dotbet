@@ -1,6 +1,8 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 import { Splide, SplideSlide } from '@splidejs/react-splide'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import LoadingModal from './loadingPage'
 
 import gameg1 from '../assets/img/Roulette.png'
@@ -20,6 +22,18 @@ import b from '../assets/img/b.svg'
 
 export const Roulette = () => {
   const [loading, setLoading] = useState(false)
+
+  const notify = () =>
+    toast.error('Connection failed.', {
+      position: 'top-right',
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'light'
+    })
 
   const ImagesArray = [
     {
@@ -147,18 +161,17 @@ export const Roulette = () => {
         if (response.data.status === '0000') {
           window.location.href = response.data.session_url
           setLoading(false)
-
         }
       })
       .catch(function (error) {
         console.error(error)
+        notify()
         setLoading(false)
-
       })
   }
 
   return (
-    <div className='RecentWin arrowareaslider' id="roulette">
+    <div className='RecentWin arrowareaslider' id='roulette'>
       <div className='top flex items-center justify-between mb-4'>
         <h1 className='flex items-center'>Roulette</h1>
       </div>
@@ -190,8 +203,19 @@ export const Roulette = () => {
           ))}
         </Splide>
       </div>
+      <ToastContainer
+        position='top-right'
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme='light'
+      />
       {loading && <LoadingModal />}
-
     </div>
   )
 }
