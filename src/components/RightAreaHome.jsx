@@ -23,6 +23,7 @@ import roulette from '../assets/img/aside/tabs/roulette.svg'
 import Live from '../assets/img/aside/tabs/Live casino.svg'
 import slots from '../assets/img/aside/tabs/Slots.svg'
 import home from '../assets/img/aside/tabs/home.svg'
+import { useNavigate } from 'react-router-dom'
 
 export const RightAreaHome = () => {
   const commentsData = [
@@ -94,6 +95,7 @@ export const RightAreaHome = () => {
     refRight.current.style.height = `${ElementHeight - 180}px`
   }
 
+  const [rollingNumber, setRollingNumber] = useState(4563362754)
   const [homeState, setHomeState] = useState(true)
   const [sportState, setSportState] = useState(false)
   const [liveState, setLiveState] = useState(false)
@@ -103,71 +105,80 @@ export const RightAreaHome = () => {
   const [showState, setShowState] = useState(false)
   const [openedFaqId, setOpenedFaqId] = useState(7)
 
+  const navigate = useNavigate()
+
   const dropDownText = async e => {
     setOpenedFaqId(e)
     switch (e) {
       case 0:
-        await setHomeState(true)
-        await setSportState(false)
-        await setLiveState(false)
-        await setSlotState(false)
-        await setRouletteState(false)
-        await setFishingState(false)
-        await setShowState(false)
+        setHomeState(true)
+        navigate('/#hits')
+        setSportState(false)
+        setLiveState(false)
+        setSlotState(false)
+        setRouletteState(false)
+        setFishingState(false)
+        setShowState(false)
         break
       case 1:
-        await setHomeState(false)
-        await setSportState(true)
-        await setLiveState(false)
-        await setSlotState(false)
-        await setRouletteState(false)
-        await setFishingState(false)
-        await setShowState(false)
+        setHomeState(false)
+        setSportState(true)
+        navigate('/#sports')
+        setLiveState(false)
+        setSlotState(false)
+        setRouletteState(false)
+        setFishingState(false)
+        setShowState(false)
         break
       case 2:
-        await setHomeState(false)
-        await setSportState(false)
-        await setLiveState(true)
-        await setSlotState(false)
-        await setRouletteState(false)
-        await setFishingState(false)
-        await setShowState(false)
+        setHomeState(false)
+        setSportState(false)
+        setLiveState(true)
+        setSlotState(false)
+        setRouletteState(false)
+        setFishingState(false)
+        setShowState(false)
+        navigate('#liveCasino')
         break
       case 3:
-        await setHomeState(false)
-        await setSportState(false)
-        await setLiveState(false)
-        await setSlotState(true)
-        await setRouletteState(false)
-        await setFishingState(false)
-        await setShowState(false)
+        setHomeState(false)
+        setSportState(false)
+        setLiveState(false)
+        setSlotState(true)
+        setRouletteState(false)
+        setFishingState(false)
+        setShowState(false)
+        navigate('#slots')
         break
       case 4:
-        await setHomeState(false)
-        await setSportState(false)
-        await setLiveState(false)
-        await setSlotState(false)
-        await setRouletteState(true)
-        await setFishingState(false)
-        await setShowState(false)
+        setHomeState(false)
+        setSportState(false)
+        setLiveState(false)
+        setSlotState(false)
+        setRouletteState(true)
+        setFishingState(false)
+        setShowState(false)
+        navigate('#roulette')
         break
       case 5:
-        await setHomeState(false)
-        await setSportState(false)
-        await setLiveState(false)
-        await setSlotState(false)
-        await setRouletteState(false)
-        await setFishingState(true)
-        await setShowState(false)
+        setHomeState(false)
+        setSportState(false)
+        setLiveState(false)
+        setSlotState(false)
+        setRouletteState(false)
+        setFishingState(true)
+        setShowState(false)
+        navigate('#fishing')
         break
       case 6:
-        await setHomeState(false)
-        await setSportState(false)
-        await setLiveState(false)
-        await setSlotState(false)
-        await setRouletteState(false)
-        await setFishingState(false)
-        await setShowState(true)
+        setHomeState(false)
+        setSportState(false)
+        setLiveState(false)
+        setSlotState(false)
+        setRouletteState(false)
+        setFishingState(false)
+        setShowState(true)
+        navigate('#gameShow')
         break
       default:
         break
@@ -216,8 +227,15 @@ export const RightAreaHome = () => {
         <div className='body-left-area  mr-6' ref={ref}>
           <div className='welcome-area py-8 p-6 rounded-xl relative'>
             <h1 className='mb-4'>Lucky Spin Tournament</h1>
-            <p>Win in selected Smartoft games. Save points and share </p>
-            <p>$50 000 prize pool!</p>
+            <p className='my-3'>
+              Win in selected Smartoft games. Save points and share{' '}
+            </p>
+            <p className='text-center text-2xl py-4 w-2/5 bg-[#054F5D] rounded-xl rolling my-3 font-extrabold'>
+              ${' '}
+              {rollingNumber
+                .toString()
+                .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}{' '}
+            </p>
             <p>1.09-26.09</p>
             <div className='buttons-wrapper mt-6'>
               <button className='w-36 h-11 mr-3'>Get Started</button>
@@ -244,37 +262,37 @@ export const RightAreaHome = () => {
           </div>
 
           {/* RecentWin*/}
-          <Hits id='hits' />
+          <Hits />
 
           {/* NewArrival */}
-          <NewArrival id='newArrival' />
+          <NewArrival />
 
           {/* Sports */}
-          <Sports id='sports' />
+          <Sports />
 
           {/* LiveCasino */}
-          <LiveCasino id='liveCasino' />
+          <LiveCasino />
 
           {/* Slots */}
-          <Slots id='slots' />
+          <Slots />
 
           {/* Roulette */}
-          <Roulette id='roulette' />
+          <Roulette />
 
           {/* Fishing */}
-          <Fishing id='fishing' />
+          <Fishing />
 
           {/* GameShow */}
-          <GameShow id='gameShow' />
+          <GameShow />
 
           {/* Top Rates Game */}
-          <TopRatesGame id='topRatesGame' />
+          <TopRatesGame />
 
           {/* LatestBets */}
-          <LatestBets id='latestBets' />
+          <LatestBets />
 
           {/* Recommended Game */}
-          <RecommendedGames id='recommendedGame' />
+          <RecommendedGames />
         </div>
         <div className='body-right-area rounded-2xl p-4'>
           <div className='top-area pb-4 flex items-center relative'>

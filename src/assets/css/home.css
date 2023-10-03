@@ -27,6 +27,9 @@
   line-height: 21.6px;
   word-wrap: break-word;
 }
+.home .welcome-area .rolling{
+  font-size: 24px!important;
+}
 .home .welcome-area .buttons-wrapper button {
   color: var(--primaryColor);
   font-family: "Arabic Pro bold";

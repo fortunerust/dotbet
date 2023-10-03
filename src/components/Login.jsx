@@ -50,7 +50,7 @@ export default function Login ({ open, setOpen, title, setTitle }) {
       .request(options)
       .then(function (response) {
         console.log(response.data)
-        if (response.data.status == '0000') {
+        if (response.data.status === '0000') {
           window.localStorage.setItem('token', response.data.token)
           setOpen(false)
 

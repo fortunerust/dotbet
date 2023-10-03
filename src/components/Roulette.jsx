@@ -1,6 +1,7 @@
-import React from 'react'
+import React, {useState} from 'react'
 import axios from 'axios'
 import { Splide, SplideSlide } from '@splidejs/react-splide'
+import LoadingModal from './loadingPage'
 
 import gameg1 from '../assets/img/Roulette.png'
 import gameg2 from '../assets/img/European Roulette.png'
@@ -18,6 +19,8 @@ import gameg12 from '../assets/img/Fortune Charm.png'
 import b from '../assets/img/b.svg'
 
 export const Roulette = () => {
+  const [loading, setLoading] = useState(false)
+
   const ImagesArray = [
     {
       img: gameg1,
@@ -118,6 +121,8 @@ export const Roulette = () => {
   ]
 
   const handleGamePlay = async game => {
+    setLoading(true)
+
     const token = window.localStorage.getItem('token')
     const options = {
       method: 'POST',
@@ -139,17 +144,21 @@ export const Roulette = () => {
       .request(options)
       .then(function (response) {
         console.log(response.data)
-        if (response.data.status == '0000') {
+        if (response.data.status === '0000') {
           window.location.href = response.data.session_url
+          setLoading(false)
+
         }
       })
       .catch(function (error) {
         console.error(error)
+        setLoading(false)
+
       })
   }
 
   return (
-    <div className='RecentWin arrowareaslider'>
+    <div className='RecentWin arrowareaslider' id="roulette">
       <div className='top flex items-center justify-between mb-4'>
         <h1 className='flex items-center'>Roulette</h1>
       </div>
@@ -170,7 +179,7 @@ export const Roulette = () => {
                 <img
                   src={EachImage.img}
                   alt={`slider ${key + 1}`}
-                  className='rounded-tr-lg rounded-tl-lg w-[200px] h-[180px]'
+                  className='rounded-tr-lg rounded-tl-lg w-[200px] h-[250px]'
                 />
                 <div className='presentation p-3 justify-between flex items-center rounded-bl-lg rounded-br-lg'>
                   <h1>{EachImage.text}</h1>
@@ -181,6 +190,8 @@ export const Roulette = () => {
           ))}
         </Splide>
       </div>
+      {loading && <LoadingModal />}
+
     </div>
   )
 }
