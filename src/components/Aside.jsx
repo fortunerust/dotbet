@@ -112,37 +112,37 @@ export const Aside = () => {
     {
       Img: home,
       Text: 'Lobby',
-      id: '/#hits'
+      id: 'hits'
     },
     {
       Img: sports,
       Text: 'Sports',
-      id: '/#sports'
+      id: 'sports'
     },
     {
       Img: Live,
       Text: 'Live Casino',
-      id: '/#liveCasino'
+      id: 'liveCasino'
     },
     {
       Img: slots,
       Text: 'Featured Slots',
-      id: '/#slots'
+      id: 'slots'
     },
     {
       Img: roulette,
       Text: 'Roulette',
-      id: '/#roulette'
+      id: 'roulette'
     },
     {
       Img: slots,
       Text: 'Fishing',
-      id: '/#fishing'
+      id: 'fishing'
     },
     {
       Img: slots,
       Text: 'Game Shows',
-      id: '/#gameShow'
+      id: 'gameShow'
     }
   ]
 
@@ -164,7 +164,7 @@ export const Aside = () => {
 
       {gameListState.map((item, index) => {
         return (
-          <a
+          <div
             key={index}
             onClick={e => menuState(index)}
             href={`${item.id}`}
@@ -174,7 +174,7 @@ export const Aside = () => {
           >
             <img src={item.Img} alt='card' />
             <h1 className='flex-1 text-center'>{item.Text}</h1>
-          </a>
+          </div>
         )
       })}
 
