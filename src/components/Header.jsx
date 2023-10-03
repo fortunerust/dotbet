@@ -56,7 +56,7 @@ export const Header = () => {
             <button
               className='flex rounded-lg justify-center  login-btn deposit-button items-center h-8'
               onClick={() => {
-                localStorage.clear()
+                window.localStorage.removeItem('token')
               }}
             >
               <img src={signIn} alt='sign out' className='mr-2' />

@@ -44,21 +44,21 @@
 .home .tags-wrapper {
   grid-template-columns: 1fr 1fr 1.2fr 1.3fr 1fr 1fr 1.2fr;
 }
-.home .tags-wrapper > a {
+.home .tags-wrapper > div {
   background: #181637;
   border-radius: 40px;
   border: 1px #2c2a4a solid;
   height: 42px;
   width: 100%;
 }
-.home .tags-wrapper > a:hover{
+.home .tags-wrapper > div:hover{
   background-color: #062f67;
 }
-.home .tags-wrapper > a img {
+.home .tags-wrapper > div img {
   width: 16px;
   margin-right: 0.5rem;
 }
-.home .tags-wrapper > a.active {
+.home .tags-wrapper > div.active {
   background-color: #469711;
 }
 .home .tags-wrapper p {

@@ -95,7 +95,7 @@ export const RightAreaHome = () => {
     refRight.current.style.height = `${ElementHeight - 180}px`
   }
 
-  const [rollingNumber, setRollingNumber] = useState(4563362754)
+  const [rollingNumber, setRollingNumber] = useState(1)
   const [homeState, setHomeState] = useState(true)
   const [sportState, setSportState] = useState(false)
   const [liveState, setLiveState] = useState(false)
@@ -105,7 +105,7 @@ export const RightAreaHome = () => {
   const [showState, setShowState] = useState(false)
   const [openedFaqId, setOpenedFaqId] = useState(7)
 
-  const dropDownText = async e => {
+  const dropDownText = e => {
     setOpenedFaqId(e)
     switch (e) {
       case 0:
@@ -180,39 +180,49 @@ export const RightAreaHome = () => {
     {
       Img: home,
       Text: 'Lobby',
-      id: '/#hits'
+      id: 'hits'
     },
     {
       Img: sports,
       Text: 'Sports',
-      id: '/#sports'
+      id: 'sports'
     },
     {
       Img: Live,
       Text: 'Live Casino',
-      id: '/#liveCasino'
+      id: 'liveCasino'
     },
     {
       Img: slots,
       Text: 'Featured Slots',
-      id: '/#slots'
+      id: 'slots'
     },
     {
       Img: roulette,
       Text: 'Roulette',
-      id: '/#roulette'
+      id: 'roulette'
     },
     {
       Img: slots,
       Text: 'Fishing',
-      id: '/#fishing'
+      id: 'fishing'
     },
     {
       Img: slots,
       Text: 'Game Shows',
-      id: '/#gameShow'
+      id: 'gameShow'
     }
   ]
+
+  useEffect(() => {
+    if (rollingNumber) {
+      let i = rollingNumber
+      setInterval(function () {
+        i++
+        setRollingNumber(i)
+      }, 400)
+    }
+  }, [rollingNumber])
 
   useEffect(() => {
     ResizeWork()
@@ -228,7 +238,7 @@ export const RightAreaHome = () => {
             <p className='my-3'>
               Win in selected Smartoft games. Save points and share{' '}
             </p>
-            <p className='text-center text-2xl py-4 w-2/5 bg-[#054F5D] rounded-xl rolling my-3 font-extrabold'>
+            <p className='text-start text-2xl py-4 w-full  rounded-xl rolling my-3 font-extrabold'>
               ${' '}
               {rollingNumber
                 .toString()
@@ -245,53 +255,95 @@ export const RightAreaHome = () => {
           <div className='tags-wrapper mt-10 mb-12  grid grid-cols-7 gap-3'>
             {gameListState.map((item, index) => {
               return (
-                <a
+                <div
                   key={index}
                   onClick={e => dropDownText(index)}
-                  href={`${item.id}`}
+                  // href={`${item.id}`}
                   className={`${
                     index === openedFaqId ? 'active' : ''
                   } tag flex justify-center  items-center cursor-pointer`}
                 >
                   <img src={item.Img} alt='game show' />
                   <p>{item.Text}</p>
-                </a>
+                </div>
               )
             })}
           </div>
 
-          {/* RecentWin*/}
-          <Hits />
+          {homeState && (
+            <>
+              {/* RecentWin*/}
+              <Hits />
 
-          {/* NewArrival */}
-          <NewArrival />
+              {/* NewArrival */}
+              <NewArrival />
+              {/* Sports */}
+              <Sports />
 
-          {/* Sports */}
-          <Sports />
+              {/* LiveCasino */}
+              <LiveCasino />
 
-          {/* LiveCasino */}
-          <LiveCasino />
+              {/* Slots */}
+              <Slots />
 
-          {/* Slots */}
-          <Slots />
+              {/* Roulette */}
+              <Roulette />
 
-          {/* Roulette */}
-          <Roulette />
+              {/* Fishing */}
+              <Fishing />
 
-          {/* Fishing */}
-          <Fishing />
+              {/* GameShow */}
+              <GameShow />
 
-          {/* GameShow */}
-          <GameShow />
+              {/* Top Rates Game */}
+              <TopRatesGame />
 
-          {/* Top Rates Game */}
-          <TopRatesGame />
+              {/* LatestBets */}
+              <LatestBets />
 
-          {/* LatestBets */}
-          <LatestBets />
+              {/* Recommended Game */}
+              <RecommendedGames />
+            </>
+          )}
 
-          {/* Recommended Game */}
-          <RecommendedGames />
+          {sportState && (
+            <>
+              {/* Sports */}
+              <Sports />
+            </>
+          )}
+
+          {liveState && (
+            <>
+              {/* LiveCasino */}
+              <LiveCasino />
+            </>
+          )}
+          {slotState && (
+            <>
+              {/* Slots */}
+              <Slots />
+            </>
+          )}
+          {rouletteState && (
+            <>
+              {/* Roulette */}
+              <Roulette />
+            </>
+          )}
+          {fishingState && (
+            <>
+              {/* Fishing */}
+              <Fishing />
+            </>
+          )}
+
+          {showState && (
+            <>
+              {/* GameShow */}
+              <GameShow />
+            </>
+          )}
         </div>
         <div className='body-right-area rounded-2xl p-4'>
           <div className='top-area pb-4 flex items-center relative'>
