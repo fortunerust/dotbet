@@ -98,7 +98,7 @@ export const RightAreaHome = () => {
     refRight.current.style.height = `${ElementHeight - 180}px`
   }
 
-  const [rollingNumber, setRollingNumber] = useState(1)
+  const [rollingNumber, setRollingNumber] = useState(50000000 + parseInt(Math.random()*10000))
   const [homeState, setHomeState] = useState(true)
   const [sportState, setSportState] = useState(false)
   const [liveState, setLiveState] = useState(false)
@@ -248,14 +248,15 @@ export const RightAreaHome = () => {
   ]
 
   useEffect(() => {
-    if (rollingNumber) {
-      let i = rollingNumber
-      setInterval(function () {
-        i++
-        setRollingNumber(i)
-      }, 400)
+    let i = rollingNumber;
+    let poolnumber = setInterval(function () {
+      i += parseInt(Math.random() * 100);
+      setRollingNumber(i)
+    }, 1000)
+    return ()=>{
+      clearInterval(poolnumber);
     }
-  }, [rollingNumber])
+  }, [])
 
   useEffect(() => {
     ResizeWork()
