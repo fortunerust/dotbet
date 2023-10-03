@@ -134,10 +134,10 @@ export const Hits = () => {
                 <img
                   src={EachImage.img}
                   alt={`slider ${key + 1}`}
-                  className='rounded-tr-lg rounded-tl-lg w-[200px] h-[250px]'
+                  className='rounded-tr-lg rounded-tl-lg w-[80px] h-[80px] xl:w-[200px] xl:h-[200px] lg:w-[140px] lg:h-[140px]'
                 />
-                <div className='presentation p-3 justify-between flex items-center rounded-bl-lg rounded-br-lg'>
-                  <h1>{EachImage.text}</h1>
+                <div className='presentation p-3 justify-between flex flex-col lg:flex-row items-center text-center lg:text-start rounded-bl-lg rounded-br-lg'>
+                  <h1 className='w-full h-8 object-cover overflow-hidden'>{EachImage.text}</h1>
                   <button>Original</button>
                 </div>
               </div>

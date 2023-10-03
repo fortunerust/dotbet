@@ -1,21 +1,19 @@
 .home .welcome-area {
-  background: url("../img/bg-reward.png");
+  background: url('../img/bg-reward.png');
   background-size: cover;
   background-position: center;
   overflow: hidden;
 }
 .home .welcome-area .rewardBanner {
   position: absolute;
-  right: 15%;
+  right: 20px;
   transform: translateX(15%);
   bottom: -5px;
-  height: 130%;
 }
-.home .welcome-area h1 {
+.home .welcome-area .topHeader {
   color: var(--headingColor);
-  font-size: 36px;
   font-family: Basis Grotesque Arabic Pro;
-  font-family: "Arabic Pro Bold";
+  font-family: 'Arabic Pro Bold';
   line-height: 37.8px;
   word-wrap: break-word;
 }
@@ -23,16 +21,16 @@
 .home .welcome-area p {
   color: var(--paragraphColor);
   font-size: 18px;
-  font-family: "Arabic Pro Medium";
+  font-family: 'Arabic Pro Medium';
   line-height: 21.6px;
   word-wrap: break-word;
 }
-.home .welcome-area .rolling{
-  font-size: 24px!important;
+.home .welcome-area .rolling {
+  font-size: 24px !important;
 }
 .home .welcome-area .buttons-wrapper button {
   color: var(--primaryColor);
-  font-family: "Arabic Pro bold";
+  font-family: 'Arabic Pro bold';
   font-size: 14px;
   width: 250px;
   line-height: 135%;
@@ -41,9 +39,6 @@
   background: #4d9f1a;
   color: var(--headingColor);
 }
-.home .tags-wrapper {
-  grid-template-columns: 1fr 1fr 1.2fr 1.3fr 1fr 1fr 1.2fr;
-}
 .home .tags-wrapper > div {
   background: #181637;
   border-radius: 40px;
@@ -51,7 +46,7 @@
   height: 42px;
   width: 100%;
 }
-.home .tags-wrapper > div:hover{
+.home .tags-wrapper > div:hover {
   background-color: #062f67;
 }
 .home .tags-wrapper > div img {
@@ -64,7 +59,7 @@
 .home .tags-wrapper p {
   color: var(--paragraphColor);
   font-size: 14px;
-  font-family: "Arabic Pro Medium";
+  font-family: 'Arabic Pro Medium';
   line-height: 18.2px;
   word-wrap: break-word;
 }
@@ -110,13 +105,13 @@
 }
 .home .RecentWin .top h1 {
   color: var(--headingColor);
-  font-family: "Arabic Pro Medium";
+  font-family: 'Arabic Pro Medium';
   font-size: 23px;
   font-style: normal;
   line-height: 115%;
 }
 .home .RecentWin .top a {
-  font-family: "Arabic Pro Medium";
+  font-family: 'Arabic Pro Medium';
   font-size: 16px;
   font-style: normal;
   line-height: 120%;
@@ -134,7 +129,7 @@
 }
 .home .slider-wrapper-recent .card > .presentation h1 {
   color: var(--headingColor);
-  font-family: "Arabic Pro Reg";
+  font-family: 'Arabic Pro Reg';
   font-size: 12px;
   font-style: normal;
   line-height: 135%; /* 16.2px */
@@ -142,7 +137,7 @@
 .home .slider-wrapper-recent .card > .presentation button:not(.text-xs) {
   color: #c7c8cf;
   font-size: 10px;
-  font-family: "Arabic Pro Reg";
+  font-family: 'Arabic Pro Reg';
 
   line-height: 14px;
   word-wrap: break-word;
@@ -170,7 +165,7 @@
 
 .home .LatestBets .table-area th {
   color: var(--headingColor);
-  font-family: "Arabic Pro Medium";
+  font-family: 'Arabic Pro Medium';
   font-size: 16px;
   font-style: normal;
   line-height: 125%;
@@ -194,7 +189,7 @@
 .home .LatestBets .table-area tbody td {
   padding-left: 1rem;
   color: #d0d1d2;
-  font-family: "Arabic Pro Medium";
+  font-family: 'Arabic Pro Medium';
   font-size: 16px;
   font-style: normal;
   line-height: 125%; /* 20px */
@@ -209,14 +204,14 @@
 
 /* RegisterBanner */
 .home .RegisterBanner {
-  background-image: url("../img/bg-register.png");
+  background-image: url('../img/bg-register.png');
   background-position: center;
   background-size: cover;
 }
 .home .RegisterBanner h1 {
   width: 365px;
   color: var(--headingColor);
-  font-family: "Arabic Pro Bold";
+  font-family: 'Arabic Pro Bold';
   font-size: 27px;
   font-style: normal;
   line-height: 110%; /* 29.7px */
@@ -226,7 +221,7 @@
 }
 .home .RegisterBanner p {
   color: var(--headingColor);
-  font-family: "Arabic Pro Reg";
+  font-family: 'Arabic Pro Reg';
   font-size: 16px;
   font-style: normal;
   line-height: 120%; /* 19.2px */
@@ -234,7 +229,7 @@
 .home .RegisterBanner a {
   background: linear-gradient(180deg, #ffc83e 0%, #ffb700 49.48%, #d09500 100%);
   color: var(--primaryColor);
-  font-family: "Arabic Pro Bold";
+  font-family: 'Arabic Pro Bold';
   font-size: 14px;
   font-style: normal;
   line-height: 135%;
@@ -243,7 +238,8 @@
 /* .home .body-right-area */
 .home .body-right-area {
   min-width: 255px;
-  width: 255px;
+  max-width: 350px;
+  width: 100%;
   background-color: var(--secondaryColor);
   border: 1px solid var(--borderColor);
   position: sticky;
@@ -254,14 +250,14 @@
 }
 .home .body-right-area > .top-area h1 {
   color: var(--headingColor);
-  font-family: "Arabic Pro Reg";
+  font-family: 'Arabic Pro Reg';
   font-size: 14px;
   font-style: normal;
   line-height: 130%; /* 18.2px */
 }
 .home .body-right-area > .top-area p {
   color: var(--paragraphColor);
-  font-family: "Arabic Pro Reg";
+  font-family: 'Arabic Pro Reg';
   font-size: 12px;
   font-style: normal;
   line-height: 135%; /* 16.2px */
@@ -274,7 +270,7 @@
   border: 1px solid #000000;
   border-radius: 50%;
   position: absolute;
-  content: "";
+  content: '';
   right: 23px;
   z-index: 3;
   bottom: 15px;
@@ -294,14 +290,14 @@
 }
 .CommentCard .top-area h1 {
   color: var(--headingColor);
-  font-family: "Arabic Pro Reg";
+  font-family: 'Arabic Pro Reg';
   font-size: 12px;
   font-style: normal;
   line-height: 135%; /* 16.2px */
 }
 .CommentCard .top-area p {
   color: var(--paragraphColor);
-  font-family: "Arabic Pro Reg";
+  font-family: 'Arabic Pro Reg';
   font-size: 8px;
   font-style: normal;
   line-height: 140%;
@@ -309,7 +305,7 @@
 
 .CommentCard .right-area > p {
   color: var(--paragraphColor);
-  font-family: "Arabic Pro Reg";
+  font-family: 'Arabic Pro Reg';
   font-size: 12px;
   font-style: normal;
   line-height: 130%; /* 15.6px */
@@ -326,7 +322,7 @@
   outline: none;
   background: transparent;
   color: var(--headingColor);
-  font-family: "Arabic Pro Reg";
+  font-family: 'Arabic Pro Reg';
   font-size: 12px;
   font-style: normal;
   line-height: 130%;
@@ -340,3 +336,4 @@
 .home .scroll-area-start::-webkit-scrollbar {
   display: none;
 }
+

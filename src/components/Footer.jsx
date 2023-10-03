@@ -26,8 +26,31 @@ import coin17 from '../assets/img/image 89.svg'
 import coin19 from '../assets/img/image 91.svg'
 import coin20 from '../assets/img/image 92.svg'
 
-import AWCLogo from '../assets/img/Logo/AWC.png'
-import MancalaLogo from '../assets/img/Logo/Mancalalogo.svg'
+import logo2 from '../assets/img/Logo/logo1.png'
+import logo3 from '../assets/img/Logo/logo (1).svg'
+import logo4 from '../assets/img/Logo/logo (1).png'
+import logo5 from '../assets/img/Logo/logo2.png'
+import logo6 from '../assets/img/Logo/logo (2).png'
+import logo7 from '../assets/img/Logo/logo3.png'
+import logo8 from '../assets/img/Logo/logo4.png'
+import logo9 from '../assets/img/Logo/logo (3).png'
+import logo10 from '../assets/img/Logo/logo (4).png'
+import logo11 from '../assets/img/Logo/logo5.png'
+import logo12 from '../assets/img/Logo/logo (5).png'
+import logo13 from '../assets/img/Logo/logo6.png'
+import logo14 from '../assets/img/Logo/logo (6).png'
+import logo15 from '../assets/img/Logo/logo7.png'
+import logo16 from '../assets/img/Logo/logo (7).png'
+import logo17 from '../assets/img/Logo/logo8.png'
+import logo18 from '../assets/img/Logo/logo (8).png'
+import logo19 from '../assets/img/Logo/logo9.png'
+import logo20 from '../assets/img/Logo/logo (9).png'
+import logo22 from '../assets/img/Logo/logo (10).png'
+import logo24 from '../assets/img/Logo/logo (11).png'
+import logo25 from '../assets/img/Logo/logo (12).png'
+import logo27 from '../assets/img/Logo/logo (19).png'
+import logo28 from '../assets/img/Logo/logo (20).png'
+import logo29 from '../assets/img/Logo/logo (24).png'
 
 import { Splide, SplideSlide } from '@splidejs/react-splide'
 import '@splidejs/react-splide/css'
@@ -53,16 +76,118 @@ export const Footer = () => {
     coin19,
     coin20
   ]
+
+  const Logos = [
+    {
+      Logo: logo2,
+      Url: ''
+    },
+    {
+      Logo: logo3,
+      Url: ''
+    },
+    {
+      Logo: logo4,
+      Url: ''
+    },
+    {
+      Logo: logo5,
+      Url: ''
+    },
+    {
+      Logo: logo6,
+      Url: ''
+    },
+    {
+      Logo: logo7,
+      Url: ''
+    },
+    {
+      Logo: logo8,
+      Url: ''
+    },
+    {
+      Logo: logo9,
+      Url: ''
+    },
+    {
+      Logo: logo10,
+      Url: ''
+    },
+    {
+      Logo: logo11,
+      Url: ''
+    },
+    {
+      Logo: logo12,
+      Url: ''
+    },
+    {
+      Logo: logo13,
+      Url: ''
+    },
+    {
+      Logo: logo14,
+      Url: ''
+    },
+    {
+      Logo: logo15,
+      Url: ''
+    },
+    {
+      Logo: logo16,
+      Url: ''
+    },
+    {
+      Logo: logo17,
+      Url: ''
+    },
+    {
+      Logo: logo18,
+      Url: ''
+    },
+    {
+      Logo: logo19,
+      Url: ''
+    },
+    {
+      Logo: logo20,
+      Url: ''
+    },
+    {
+      Logo: logo22,
+      Url: ''
+    },
+    {
+      Logo: logo24,
+      Url: ''
+    },
+    {
+      Logo: logo25,
+      Url: ''
+    },
+    {
+      Logo: logo27,
+      Url: ''
+    },
+    {
+      Logo: logo28,
+      Url: ''
+    },
+    {
+      Logo: logo29,
+      Url: ''
+    }
+  ]
   return (
     <footer className='pt-16 pb-14 mt-16'>
       <div className='footer-width content-footer-area'>
-        <div className='p-3 mb-3 justify-center items-center flex gap-8'>
-          <a href='https://demo.awcgames.club/login'>
-            <img src={AWCLogo} alt='AWC logo' className='w-32' />
-          </a>
-          <a href='https://mancalagaming.com/games'>
-            <img src={MancalaLogo} alt='Mancala logo' className='w-32' />
-          </a>
+        <div className='flex flex-wrap items-center justify-center gap-10 mb-6'>
+          {Logos.map((item, index) => (
+            <a key={index} href={item.Url}>
+              <img src={item.Logo} alt='Logo' className='h-6 mx-auto' />
+            </a>
+          ))}
         </div>
         <div className='why-area grid lg:grid-cols-2 gap-6 lg:gap-36'>
           <div className='left-area-footer-why'>
