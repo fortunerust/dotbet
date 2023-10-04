@@ -21,7 +21,7 @@ export default function ResetPassword({open, setOpen, title, setTitle}) {
 
   return (
     <Transition.Root show={open && title==='reset'} as={Fragment}>
-      <Dialog as="div" className="relative z-[10000]" initialFocus={cancelButtonRef} onClose={setOpen}>
+      <Dialog as="div" className="relative [10]" initialFocus={cancelButtonRef} onClose={setOpen}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -34,7 +34,7 @@ export default function ResetPassword({open, setOpen, title, setTitle}) {
           <div className="fixed inset-0 backdrop-blur-sm bg-black bg-opacity-30 transition-opacity" />
         </Transition.Child>
 
-        <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
+        <div className="fixed inset-0 10 w-screen overflow-y-auto">
           <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
             <Transition.Child
               as={Fragment}

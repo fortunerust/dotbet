@@ -20,7 +20,7 @@ import gameg12 from '../assets/img/FortuneCat.png'
 
 import b from '../assets/img/b.svg'
 
-export const Slots = () => {
+export const Slots = (props) => {
   const [loading, setLoading] = useState(false)
 
   const notify = () =>
@@ -158,7 +158,7 @@ export const Slots = () => {
       .then(function (response) {
         if (response.data.status === '0000') {
           window.location.href = response.data.session_url
-        }else{
+        } else {
           toast.error(response.data.desc, {
             position: 'top-right',
             autoClose: 1000,
@@ -181,9 +181,12 @@ export const Slots = () => {
 
   return (
     <div className='RecentWin arrowareaslider' id='slots'>
-      <div className='top flex items-center justify-between mb-4'>
-        <h1 className='flex items-center'>Featured Slots</h1>
-      </div>
+      {
+        !props.direction &&
+        <div className='top flex items-center justify-between mb-4'>
+          <h1 className='flex items-center'>Featured Slots</h1>
+        </div>
+      }
 
       <div className='slider-wrapper-recent'>
         <Splide
@@ -192,7 +195,9 @@ export const Slots = () => {
             gap: 10,
             arrows: true,
             pagination: false,
-            perPage: 5
+            perPage: 5,
+            height: props.height,
+            direction: props.direction,
           }}
         >
           {ImagesArray.map((EachImage, key) => (
@@ -204,7 +209,7 @@ export const Slots = () => {
                 <img
                   src={EachImage.img}
                   alt={`slider ${key + 1}`}
-                  className='rounded-tr-lg rounded-tl-lg w-[80px] h-[80px] xl:w-[200px] xl:h-[200px] lg:w-[140px] lg:h-[140px]'
+                  className={props.direction ? 'rounded-50 w-[70px] h-[70px]' : 'rounded-tr-lg rounded-tl-lg w-[80px] h-[80px] xl:w-[200px] xl:h-[200px] lg:w-[140px] lg:h-[140px]'}
                 />
                 <div className='presentation p-3 justify-between flex flex-col lg:flex-row items-center text-center lg:text-start rounded-bl-lg rounded-br-lg'>
                   <h1 className='w-full h-8 object-cover overflow-hidden'>{EachImage.text}</h1>

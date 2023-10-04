@@ -66,7 +66,7 @@ export default function Login ({ open, setOpen, title, setTitle }) {
     <Transition.Root show={open && title === 'login'} as={Fragment}>
       <Dialog
         as='div'
-        className='relative z-[10000]'
+        className='relative z-[10]'
         initialFocus={cancelButtonRef}
         onClose={setOpen}
       >

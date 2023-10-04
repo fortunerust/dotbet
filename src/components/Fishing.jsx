@@ -15,7 +15,7 @@ import gameg7 from '../assets/img/All-star Fishing.png'
 import gameg8 from '../assets/img/Dinosaur Tycoon II.png'
 import gameg9 from '../assets/img/Dragon Fortune.png'
 
-export const Fishing = () => {
+export const Fishing = (props) => {
   const [loading, setLoading] = useState(false)
 
   const notify = () =>
@@ -129,7 +129,7 @@ export const Fishing = () => {
       .then(function (response) {
         if (response.data.status === '0000') {
           window.location.href = response.data.session_url
-        }else{
+        } else {
           toast.error(response.data.desc, {
             position: 'top-right',
             autoClose: 1000,
@@ -152,9 +152,12 @@ export const Fishing = () => {
 
   return (
     <div className='RecentWin arrowareaslider' id='fishing'>
-      <div className='top flex items-center justify-between mb-4'>
-        <h1 className='flex items-center'>Fishing</h1>
-      </div>
+      {
+        !props.direction &&
+        <div className='top flex items-center justify-between mb-4'>
+          <h1 className='flex items-center'>Fishing</h1>
+        </div>
+      }
 
       <div className='slider-wrapper-recent'>
         <Splide
@@ -163,7 +166,9 @@ export const Fishing = () => {
             gap: 10,
             arrows: true,
             pagination: false,
-            perPage: 5
+            perPage: 5,
+            height: props.height,
+            direction: props.direction,
           }}
         >
           {ImagesArray.map((EachImage, key) => (
@@ -172,7 +177,7 @@ export const Fishing = () => {
                 <img
                   src={EachImage.img}
                   alt={`slider ${key + 1}`}
-                  className='rounded-tr-lg rounded-tl-lg w-[80px] h-[80px] xl:w-[200px] xl:h-[200px] lg:w-[140px] lg:h-[140px]'
+                  className={props.direction ? 'rounded-50 w-[70px] h-[70px]' : 'rounded-tr-lg rounded-tl-lg w-[80px] h-[80px] xl:w-[200px] xl:h-[200px] lg:w-[140px] lg:h-[140px]'}
                 />
                 <div className='presentation p-3 justify-between flex flex-col lg:flex-row items-center text-center lg:text-start rounded-bl-lg rounded-br-lg'>
                   <h1 className='w-full h-8 object-cover overflow-hidden'>{EachImage.text}</h1>

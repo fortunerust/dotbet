@@ -12,7 +12,7 @@ import gameg3 from '../assets/img/Alchemy Gold.png'
 import gameg4 from '../assets/img/Bombing Fishing.png'
 import gameg5 from '../assets/img/l1.png'
 
-export const Hits = () => {
+export const Hits = (props) => {
   const [loading, setLoading] = useState(false)
 
   const notify = () =>
@@ -117,6 +117,8 @@ export const Hits = () => {
 
   return (
     <div className='RecentWin mt-10' id='hits'>
+      { !props.direction &&
+
       <div className='top flex items-center justify-between mb-4'>
         <h1 className='flex items-center'>
           <img src={glowdot} alt='glowdot' className='mr-2' />
@@ -124,6 +126,7 @@ export const Hits = () => {
         </h1>
         <a href='/'>See all</a>
       </div>
+      }
 
       <div className='slider-wrapper-recent'>
         <Splide
@@ -132,7 +135,9 @@ export const Hits = () => {
             gap: 10,
             arrows: false,
             pagination: false,
-            perPage: 5
+            perPage: 5,
+            height: props.height,
+            direction: props.direction,
           }}
         >
           {ImagesArray.map((EachImage, key) => (
@@ -144,7 +149,7 @@ export const Hits = () => {
                 <img
                   src={EachImage.img}
                   alt={`slider ${key + 1}`}
-                  className='rounded-tr-lg rounded-tl-lg w-[80px] h-[80px] xl:w-[200px] xl:h-[200px] lg:w-[140px] lg:h-[140px]'
+                  className={props.direction ? 'rounded-50 w-[70px] h-[70px]':'rounded-tr-lg rounded-tl-lg w-[80px] h-[80px] xl:w-[200px] xl:h-[200px] lg:w-[140px] lg:h-[140px]'}
                 />
                 <div className='presentation p-3 justify-between flex flex-col lg:flex-row items-center text-center lg:text-start rounded-bl-lg rounded-br-lg'>
                   <h1 className='w-full h-8 object-cover overflow-hidden'>{EachImage.text}</h1>

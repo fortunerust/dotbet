@@ -3,7 +3,7 @@ import ModelLogo from '../assets/Modal-Logo.png'
 
 export default function LoadingModal ({ message }) {
   return (
-    <div className='z-[999999] w-screen md:w-full flex h-full min-h-screen top-0 left-0 bg-black fixed'>
+    <div className='z-[10] w-screen md:w-full flex h-full min-h-screen top-0 left-0 bg-black fixed'>
       <div className='w-full h-screen bg-cover flex px-8 py-20 justify-center items-center '>
         <div className='relative top-0 left-0 rotate-45 mx-auto bg-black w-32 h-32  rounded-2xl'>
           <img
