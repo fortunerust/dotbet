@@ -26,6 +26,8 @@ import roulette from '../assets/img/aside/tabs/roulette.svg'
 import Live from '../assets/img/aside/tabs/Live casino.svg'
 import slots from '../assets/img/aside/tabs/Slots.svg'
 import home from '../assets/img/aside/tabs/home.svg'
+import cards from '../assets/img/aside/tabs/Card.svg'
+
 import Slide from '../components/Slide'
 
 export const RightAreaHome = () => {
@@ -229,6 +231,33 @@ export const RightAreaHome = () => {
     }
   ]
 
+  const gameListLeft = [
+    {
+      Img: home,
+      Text: 'Lobby'
+    },
+    {
+      Img: sports,
+      Text: 'Sports'
+    },
+    {
+      Img: roulette,
+      Text: 'Roulette'
+    },
+    {
+      Img: Live,
+      Text: 'Live Casino'
+    },
+    {
+      Img: cards,
+      Text: 'Blackjack'
+    },
+    {
+      Img: slots,
+      Text: 'Slots'
+    }
+  ]
+
   const supportList = [
     {
       Img: blog,
@@ -253,95 +282,99 @@ export const RightAreaHome = () => {
 
   return (
     <>
-      <div className='md:flex  dropdown'>
-        <aside className='py-4 hidden  md:flex'>
-          <div className='flex-col'>
-            <div className='flex items-center justify-center mb-11 mt-2'>
-              <img src={menuExpander} alt='menuExpander' />
-            </div>
-            {gameListState.map((item, index) => {
-              return (
-                <div
-                  key={index}
-                  onClick={e => dropDownText(index)}
-                  href={`${item.id}`}
-                  className={`${
-                    index === openedFaqId ? 'active' : ''
-                  } bonus-area rounded-lg flex items-center cursor-pointer w-[115px] h-[50px]`}
-                >
-                  <img src={item.Img} alt='card' />
-                  <h1 className='flex-1 text-center'>{item.Text}</h1>
-                  <div className='dropdown-content'>
-                    {index == '0' && (
-                      <>
-                        {/* RecentWin*/}
-                        <Hits direction='ttb' height={750} />
-                      </>
-                    )}
+      <div className='md:flex sticky dropdown'>
+        <aside className='py-4 hidden  md:flex '>
+          <div className='flex flex-col justify-between'>
+            <div>
+              <div className='flex items-center justify-center mb-11 mt-2'>
+                <img src={menuExpander} alt='menuExpander' />
+              </div>
+              {gameListLeft.map((item, index) => {
+                return (
+                  <div
+                    key={index}
+                    href={`${item.id}`}
+                    className={`${
+                      index === openedFaqId ? 'active' : ''
+                    } bonus-area rounded-lg flex items-center  cursor-pointer w-[115px] h-[50px]`}
+                  >
+                    <img src={item.Img} alt='card' />
+                    <h1 className='flex-1 text-center'>{item.Text}</h1>
+                    {index !== 0 && (
+                      <div className='dropdown-content'>
+                        {index == '1' && (
+                          <>
+                            {/* Sports */}
+                            <Sports direction='ttb' height={900} items={8} />
+                          </>
+                        )}
 
-                    {index == '1' && (
-                      <>
-                        {/* Sports */}
-                        <Sports direction='ttb' height={750} />
-                      </>
-                    )}
-
-                    {index == '2' && (
-                      <>
-                        {/* LiveCasino */}
-                        <LiveCasino direction='ttb' height={750} />
-                      </>
-                    )}
-                    {index == '3' && (
-                      <>
-                        {/* Slots */}
-                        <Slots direction='ttb' height={750} />
-                      </>
-                    )}
-                    {index == '4' && (
-                      <>
-                        {/* Roulette */}
-                        <Roulette direction='ttb' height={750} />
-                      </>
-                    )}
-                    {index == '5' && (
-                      <>
-                        {/* Fishing */}
-                        <Fishing direction='ttb' height={750} />
-                      </>
-                    )}
-                    {index == '6' && (
-                      <>
-                        {/* GameShow */}
-                        <GameShow direction='ttb' height={750} />
-                      </>
+                        {index == '2' && (
+                          <>
+                            {/* Roulette */}
+                            <Roulette direction='ttb' height={900} items={8} />
+                          </>
+                        )}
+                        {index == '3' && (
+                          <>
+                            {/* LiveCasino */}
+                            <LiveCasino
+                              direction='ttb'
+                              height={900}
+                              items={8}
+                            />
+                          </>
+                        )}
+                        {index == '4' && (
+                          <>
+                            {/* Fishing */}
+                            <Fishing direction='ttb' height={900} items={8} />
+                          </>
+                        )}
+                        {index == '5' && (
+                          <>
+                            {/* Slots */}
+                            <Slots direction='ttb' height={900} items={8} />
+                          </>
+                        )}
+                        {index == '6' && (
+                          <>
+                            {/* GameShow */}
+                            <GameShow direction='ttb' height={900} items={8} />
+                          </>
+                        )}
+                      </div>
                     )}
                   </div>
-                </div>
-              )
-            })}
-            <div className='breaker flex-1'></div>
-            {supportList.map((item, index) => {
-              return (
-                <div
-                  key={index}
-                  onClick={e => supportAction(index)}
-                  className={`${
-                    index === supportActiveState ? 'active' : ''
-                  } bonus-area mb-2 rounded-lg flex items-center cursor-pointer`}
-                >
-                  <img src={item.Img} alt='card' />
-                  <h1 className='flex-1 text-center'>{item.Text}</h1>
-                </div>
-              )
-            })}
+                )
+              })}
+            </div>
+            <div>
+              <div className='breaker flex-1'></div>
+              <div className='flex flex-col '>
+                {supportList.map((item, index) => {
+                  return (
+                    <div
+                      key={index}
+                      onClick={e => supportAction(index)}
+                      className={`${
+                        index === supportActiveState ? 'active' : ''
+                      } bonus-area mb-2 rounded-lg flex items-center cursor-pointer`}
+                    >
+                      <img src={item.Img} alt='card' />
+                      <h1 className='flex-1 text-center'>{item.Text}</h1>
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
           </div>
         </aside>
       </div>
-      <div className='md:w-[84%] w-full flex-1'>
+      <div className='md:w-[84%] md:ml-[110px] w-full flex-1'>
         <Header />
-        <div className='w-full justify-between flex items-start gap-10 px-8 pt-6'>
-          <div className='w-full lg:w-[65%]'>
+        <div className='w-full justify-between flex items-start gap-10 px-2 sm:px-8 pt-6'>
+          <div className='w-full lg:w-[65%] xl:w-[70%] 2xl:w-[75%] px-2 mx-auto'>
             {/* <div className='welcome-area flex flex-col lg:flex-row rounded-xl relative justify-between'>
               <div className='w-full xl:w-3/5 py-8 p-6 '>
                 <div className='mb-4 topHeader text-[12px] md:text-[18px] lg:text-[24px] xl:text-[32px]'>
@@ -390,74 +423,74 @@ export const RightAreaHome = () => {
             {homeState && (
               <>
                 {/* RecentWin*/}
-                <Hits />
+                <Hits items={5} />
 
                 {/* NewArrival */}
-                <NewArrival />
+                <NewArrival items={5} />
                 {/* Sports */}
-                <Sports />
+                <Sports items={5} />
 
                 {/* LiveCasino */}
-                <LiveCasino />
+                <LiveCasino items={5} />
 
                 {/* Slots */}
-                <Slots />
+                <Slots items={5} />
 
                 {/* Roulette */}
-                <Roulette />
+                <Roulette items={5} />
 
                 {/* Fishing */}
-                <Fishing />
+                <Fishing items={5} />
 
                 {/* GameShow */}
-                <GameShow />
+                <GameShow items={5} />
 
                 {/* Top Rates Game */}
-                <TopRatesGame />
+                <TopRatesGame items={5} />
 
                 {/* LatestBets */}
-                <LatestBets />
+                <LatestBets items={5} />
 
                 {/* Recommended Game */}
-                <RecommendedGames />
+                <RecommendedGames items={5} />
               </>
             )}
 
             {sportState && (
               <>
                 {/* Sports */}
-                <Sports />
+                <Sports items={5} />
               </>
             )}
 
             {liveState && (
               <>
                 {/* LiveCasino */}
-                <LiveCasino />
+                <LiveCasino items={5} />
               </>
             )}
             {slotState && (
               <>
                 {/* Slots */}
-                <Slots />
+                <Slots items={5} />
               </>
             )}
             {rouletteState && (
               <>
                 {/* Roulette */}
-                <Roulette />
+                <Roulette items={5} />
               </>
             )}
             {fishingState && (
               <>
                 {/* Fishing */}
-                <Fishing />
+                <Fishing items={5} />
               </>
             )}
             {showState && (
               <>
                 {/* GameShow */}
-                <GameShow />
+                <GameShow items={5} />
               </>
             )}
           </div>

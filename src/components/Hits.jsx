@@ -149,7 +149,7 @@ export const Hits = (props) => {
                 <img
                   src={EachImage.img}
                   alt={`slider ${key + 1}`}
-                  className={props.direction ? 'rounded-50 w-[70px] h-[70px]':'rounded-tr-lg rounded-tl-lg w-[80px] h-[80px] xl:w-[200px] xl:h-[200px] lg:w-[140px] lg:h-[140px]'}
+                  className={props.direction ? 'rounded-50 w-[70px] h-[70px]':'rounded-tr-lg rounded-tl-lg w-[80px] xl:w-[200px] lg:w-[140px] aspect-square'}
                 />
                 <div className='presentation p-3 justify-between flex flex-col lg:flex-row items-center text-center lg:text-start rounded-bl-lg rounded-br-lg'>
                   <h1 className='w-full h-8 object-cover overflow-hidden'>{EachImage.text}</h1>

@@ -18,7 +18,7 @@ export const Header = () => {
         <a href='/'>
           <img src={logo} alt='logo' />
         </a>
-        <div className='input-wrapper ml-6 flex items-center w-48 h-8'>
+        <div className='input-wrapper ml-6 hidden sm:flex items-center w-48 h-8'>
           <input
             type='text'
             placeholder='Search...'

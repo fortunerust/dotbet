@@ -139,7 +139,7 @@ export const RecommendedGames = () => {
                 <img
                   src={EachObj.game}
                   alt={`slider ${key + 1}`}
-                  className='rounded-tr-lg rounded-tl-lg w-[80px] h-[80px] xl:w-[200px] xl:h-[200px] lg:w-[140px] lg:h-[140px]'
+                  className='rounded-tr-lg rounded-tl-lg w-[80px] xl:w-[200px] lg:w-[140px] aspect-square'
                 />
                 <div className='presentation p-3 rounded-bl-lg rounded-br-lg'>
                   <div className='presentation p-3 justify-between flex flex-col lg:flex-row items-center text-center lg:text-start rounded-bl-lg rounded-br-lg'>
