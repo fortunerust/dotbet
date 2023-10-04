@@ -139,11 +139,21 @@ export const LiveCasino = () => {
     await axios
       .request(options)
       .then(function (response) {
-        console.log(response.data, 'dfsdfsdfsdf')
         if (response.data.status === '0000') {
           window.location.href = response.data.session_url
-          setLoading(false)
+        }else{
+          toast.error(response.data.desc, {
+            position: 'top-right',
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'light'
+          })
         }
+        setLoading(false);
       })
       .catch(function (error) {
         console.error(error)
