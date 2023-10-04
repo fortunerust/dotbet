@@ -310,6 +310,7 @@ export const RightAreaHome = () => {
                 <div className='buttons-wrapper mt-6'>
                   <button className='w-36 h-11 mr-3'>Get Started</button>
                 </div>
+              </div>
               <img
                 src={rewardBanner}
                 className='rewardBanner w-2/5 max-w-[340px] xl:flex hidden'
