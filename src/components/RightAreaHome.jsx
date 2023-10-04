@@ -26,7 +26,6 @@ import roulette from '../assets/img/aside/tabs/roulette.svg'
 import Live from '../assets/img/aside/tabs/Live casino.svg'
 import slots from '../assets/img/aside/tabs/Slots.svg'
 import home from '../assets/img/aside/tabs/home.svg'
-import { useNavigate } from 'react-router-dom'
 
 export const RightAreaHome = () => {
   const commentsData = [
@@ -88,15 +87,6 @@ export const RightAreaHome = () => {
         'Quem precisa de heróis reais quando se tem super-heróis no cinema? 💪🎞️'
     }
   ]
-  const ref = useRef(null)
-  const refRight = useRef(null)
-
-  const ResizeWork = e => {
-    let Element = window.innerWidth
-    let ElementHeight = window.innerHeight
-    ref.current.style.width = `${Element - 460}px`
-    refRight.current.style.height = `${ElementHeight - 180}px`
-  }
 
   const [rollingNumber, setRollingNumber] = useState(50000000 + parseInt(Math.random()*10000))
   const [homeState, setHomeState] = useState(true)
@@ -258,13 +248,9 @@ export const RightAreaHome = () => {
     }
   }, [])
 
-  useEffect(() => {
-    ResizeWork()
-    window.addEventListener('resize', ResizeWork)
-  }, [])
   return (
     <>
-      <aside className='px-5 py-4 flex flex-col'>
+      <aside className='px-5 py-4 hidden md:flex-col md:flex'>
         <div className='flex items-center justify-center mb-11 mt-2'>
           <img src={menuExpander} alt='menuExpander' />
         </div>
@@ -302,30 +288,36 @@ export const RightAreaHome = () => {
           )
         })}
       </aside>
-      <div className='flex-1'>
+      <div className='md:w-[84%] w-full flex-1'>
         <Header />
-        <div className='body-area flex items-start px-6 pt-6'>
-          <div className='body-left-area  mr-6' ref={ref}>
-            <div className='welcome-area py-8 p-6 rounded-xl relative'>
-              <h1 className='mb-4'>Lucky Spin Tournament</h1>
-              <p className='my-3'>
-                Win in selected Smartoft games. Save points and share{' '}
-              </p>
-              <p className='text-start text-2xl py-4 w-full  rounded-xl rolling my-3 font-extrabold'>
-                ${' '}
-                {rollingNumber
-                  .toString()
-                  .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1, ')}{' '}
-              </p>
-              <p>1.09-26.09</p>
-              <div className='buttons-wrapper mt-6'>
-                <button className='w-36 h-11 mr-3'>Get Started</button>
-              </div>
-
-              <img src={rewardBanner} className='rewardBanner' alt='' />
+        <div className=' justify-between flex items-start gap-10 px-8 pt-6'>
+          <div className='w-full max-lg:w-[70%]'>
+            <div className='welcome-area flex flex-col lg:flex-row rounded-xl relative justify-between'>
+              <div className='w-full xl:w-3/5 py-8 p-6 '>
+                <div className='mb-4 topHeader text-[12px] md:text-[18px] lg:text-[24px] xl:text-[32px]'>
+                  Lucky Spin Tournament
+                </div>
+                <p className='my-3'>
+                  Win in selected Smartoft games. Save points and share{' '}
+                </p>
+                <p className='text-start text-2xl py-4 w-full  rounded-xl rolling my-3 font-extrabold'>
+                  ${' '}
+                  {rollingNumber
+                    .toString()
+                    .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}{' '}
+                </p>
+                <p>1.09-26.09</p>
+                <div className='buttons-wrapper mt-6'>
+                  <button className='w-36 h-11 mr-3'>Get Started</button>
+                </div>
+              <img
+                src={rewardBanner}
+                className='rewardBanner w-2/5 max-w-[340px] xl:flex hidden'
+                alt='rewardBanner'
+              />
             </div>
 
-            <div className='tags-wrapper mt-10 mb-12  grid grid-cols-7 gap-3'>
+            <div className='tags-wrapper mt-10 mb-12 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7 gap-3'>
               {gameListState.map((item, index) => {
                 return (
                   <div
@@ -410,7 +402,6 @@ export const RightAreaHome = () => {
                 <Fishing />
               </>
             )}
-
             {showState && (
               <>
                 {/* GameShow */}
@@ -418,7 +409,7 @@ export const RightAreaHome = () => {
               </>
             )}
           </div>
-          <div className='body-right-area rounded-2xl p-4'>
+          <div className=' body-right-area w-1/4 rounded-2xl p-4 hidden lg:flex lg:flex-col'>
             <div className='top-area pb-4 flex items-center relative'>
               <img src={chat} alt='' />
               <h1 className='flex-1 ml-1'>General Chat</h1>
@@ -442,7 +433,7 @@ export const RightAreaHome = () => {
               </div>
             </div>
 
-            <div className='scroll-area-start pt-4 pb-10' ref={refRight}>
+            <div className='scroll-area-start pt-4 pb-10'>
               <img src={dailyBonus} alt='Daily Bonus' className='w-full mb-4' />
 
               {commentsData.map((EachData, index) => (
