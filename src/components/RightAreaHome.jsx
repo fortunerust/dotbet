@@ -26,6 +26,7 @@ import roulette from '../assets/img/aside/tabs/roulette.svg'
 import Live from '../assets/img/aside/tabs/Live casino.svg'
 import slots from '../assets/img/aside/tabs/Slots.svg'
 import home from '../assets/img/aside/tabs/home.svg'
+import Slide from '../components/Slide'
 
 export const RightAreaHome = () => {
   const commentsData = [
@@ -88,7 +89,9 @@ export const RightAreaHome = () => {
     }
   ]
 
-  const [rollingNumber, setRollingNumber] = useState(50000000 + parseInt(Math.random()*10000))
+  const [rollingNumber, setRollingNumber] = useState(
+    50000000 + parseInt(Math.random() * 10000)
+  )
   const [homeState, setHomeState] = useState(true)
   const [sportState, setSportState] = useState(false)
   const [liveState, setLiveState] = useState(false)
@@ -238,67 +241,114 @@ export const RightAreaHome = () => {
   ]
 
   useEffect(() => {
-    let i = rollingNumber;
+    let i = rollingNumber
     let poolnumber = setInterval(function () {
-      i += parseInt(Math.random() * 100);
+      i += parseInt(Math.random() * 100)
       setRollingNumber(i)
     }, 1000)
-    return ()=>{
-      clearInterval(poolnumber);
+    return () => {
+      clearInterval(poolnumber)
     }
   }, [])
 
   return (
     <>
-      <aside className='px-5 py-4 hidden md:flex-col md:flex'>
-        <div className='flex items-center justify-center mb-11 mt-2'>
-          <img src={menuExpander} alt='menuExpander' />
-        </div>
-
-        {gameListState.map((item, index) => {
-          return (
-            <div
-              key={index}
-              onClick={e => dropDownText(index)}
-              href={`${item.id}`}
-              className={`${
-                index === openedFaqId ? 'active' : ''
-              } bonus-area mb-2 rounded-lg flex items-center cursor-pointer`}
-            >
-              <img src={item.Img} alt='card' />
-              <h1 className='flex-1 text-center'>{item.Text}</h1>
+      <div className='md:flex  dropdown'>
+        <aside className='py-4 hidden  md:flex'>
+          <div className='flex-col'>
+            <div className='flex items-center justify-center mb-11 mt-2'>
+              <img src={menuExpander} alt='menuExpander' />
             </div>
-          )
-        })}
+            {gameListState.map((item, index) => {
+              return (
+                <div
+                  key={index}
+                  onClick={e => dropDownText(index)}
+                  href={`${item.id}`}
+                  className={`${
+                    index === openedFaqId ? 'active' : ''
+                  } bonus-area rounded-lg flex items-center cursor-pointer w-[115px] h-[50px]`}
+                >
+                  <img src={item.Img} alt='card' />
+                  <h1 className='flex-1 text-center'>{item.Text}</h1>
+                  <div className='dropdown-content'>
+                    {index == '0' && (
+                      <>
+                        {/* RecentWin*/}
+                        <Hits direction='ttb' height={750} />
+                      </>
+                    )}
 
-        <div className='breaker flex-1'></div>
+                    {index == '1' && (
+                      <>
+                        {/* Sports */}
+                        <Sports direction='ttb' height={750} />
+                      </>
+                    )}
 
-        {supportList.map((item, index) => {
-          return (
-            <div
-              key={index}
-              onClick={e => supportAction(index)}
-              className={`${
-                index === supportActiveState ? 'active' : ''
-              } bonus-area mb-2 rounded-lg flex items-center cursor-pointer`}
-            >
-              <img src={item.Img} alt='card' />
-              <h1 className='flex-1 text-center'>{item.Text}</h1>
-            </div>
-          )
-        })}
-      </aside>
+                    {index == '2' && (
+                      <>
+                        {/* LiveCasino */}
+                        <LiveCasino direction='ttb' height={750} />
+                      </>
+                    )}
+                    {index == '3' && (
+                      <>
+                        {/* Slots */}
+                        <Slots direction='ttb' height={750} />
+                      </>
+                    )}
+                    {index == '4' && (
+                      <>
+                        {/* Roulette */}
+                        <Roulette direction='ttb' height={750} />
+                      </>
+                    )}
+                    {index == '5' && (
+                      <>
+                        {/* Fishing */}
+                        <Fishing direction='ttb' height={750} />
+                      </>
+                    )}
+                    {index == '6' && (
+                      <>
+                        {/* GameShow */}
+                        <GameShow direction='ttb' height={750} />
+                      </>
+                    )}
+                  </div>
+                </div>
+              )
+            })}
+            <div className='breaker flex-1'></div>
+            {supportList.map((item, index) => {
+              return (
+                <div
+                  key={index}
+                  onClick={e => supportAction(index)}
+                  className={`${
+                    index === supportActiveState ? 'active' : ''
+                  } bonus-area mb-2 rounded-lg flex items-center cursor-pointer`}
+                >
+                  <img src={item.Img} alt='card' />
+                  <h1 className='flex-1 text-center'>{item.Text}</h1>
+                </div>
+              )
+            })}
+          </div>
+        </aside>
+      </div>
       <div className='md:w-[84%] w-full flex-1'>
         <Header />
-        <div className=' justify-between flex items-start gap-10 px-8 pt-6'>
-          <div className='w-full max-lg:w-[70%]'>
-            <div className='welcome-area flex flex-col lg:flex-row rounded-xl relative justify-between'>
+        <div className='w-full justify-between flex items-start gap-10 px-8 pt-6'>
+          <div className='w-full lg:w-[65%]'>
+            {/* <div className='welcome-area flex flex-col lg:flex-row rounded-xl relative justify-between'>
               <div className='w-full xl:w-3/5 py-8 p-6 '>
                 <div className='mb-4 topHeader text-[12px] md:text-[18px] lg:text-[24px] xl:text-[32px]'>
                   Lucky Spin Tournament
                 </div>
                 <p className='my-3'>
-                  Win in selected Smartoft games. Save points and share{' '}
+                  Win in selected Smartsoft games. Save points and share{' '}
                 </p>
                 <p className='text-start text-2xl py-4 w-full  rounded-xl rolling my-3 font-extrabold'>
                   ${' '}
@@ -316,7 +366,8 @@ export const RightAreaHome = () => {
                 className='rewardBanner w-2/5 max-w-[340px] xl:flex hidden'
                 alt='rewardBanner'
               />
-            </div>
+            </div> */}
+            <Slide />
 
             <div className='tags-wrapper mt-10 mb-12 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7 gap-3'>
               {gameListState.map((item, index) => {
@@ -410,7 +461,7 @@ export const RightAreaHome = () => {
               </>
             )}
           </div>
-          <div className=' body-right-area w-1/4 rounded-2xl p-4 hidden lg:flex lg:flex-col'>
+          <div className=' body-right-area w-[20%] rounded-2xl p-4 hidden lg:flex lg:flex-col'>
             <div className='top-area pb-4 flex items-center relative'>
               <img src={chat} alt='' />
               <h1 className='flex-1 ml-1'>General Chat</h1>

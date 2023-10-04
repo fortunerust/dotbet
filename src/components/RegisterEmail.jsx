@@ -57,7 +57,7 @@ export default function RegisterEmail({ open, setOpen, title, setTitle }) {
 
   return (
     <Transition.Root show={open && title === 'register_email'} as={Fragment}>
-      <Dialog as="div" className="relative z-[10000]" initialFocus={cancelButtonRef} onClose={setOpen}>
+      <Dialog as="div" className="relative z-[10]" initialFocus={cancelButtonRef} onClose={setOpen}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"

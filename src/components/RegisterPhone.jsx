@@ -32,7 +32,7 @@ export default function RegisterPhone ({ open, setOpen, title, setTitle }) {
     <Transition.Root show={open && title === 'register_phone'} as={Fragment}>
       <Dialog
         as='div'
-        className='relative z-[10000]'
+        className='relative z-[10]'
         initialFocus={cancelButtonRef}
         onClose={setOpen}
       >
@@ -48,7 +48,7 @@ export default function RegisterPhone ({ open, setOpen, title, setTitle }) {
           <div className='fixed inset-0 backdrop-blur-sm bg-black bg-opacity-30 transition-opacity' />
         </Transition.Child>
 
-        <div className='fixed inset-0 z-10 w-screen overflow-y-auto'>
+        <div className='fixed inset-0 10 w-screen overflow-y-auto'>
           <div className='flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0'>
             <Transition.Child
               as={Fragment}
