@@ -1,75 +1,96 @@
-import { useEffect, useState } from "react";
-import sports from "../assets/img/aside/tabs/Sports.svg";
-import sports_hover from "../assets/img/aside/tabs/Sports_hover.svg";
-import roulette from "../assets/img/aside/tabs/roulette.svg";
-import roulette_hover from "../assets/img/aside/tabs/roulette_hover.svg";
-import Live from "../assets/img/aside/tabs/Live casino.svg";
-import Live_hover from "../assets/img/aside/tabs/Live casino_hover.svg";
-import slots from "../assets/img/aside/tabs/Slots.svg";
-import slots_hover from "../assets/img/aside/tabs/Slots_hover.svg";
-import home from "../assets/img/aside/tabs/home.svg";
-import home_hover from "../assets/img/aside/tabs/home_hover.svg";
-import cards from "../assets/img/aside/tabs/Card.svg";
-import cards_hover from "../assets/img/aside/tabs/Card_hover.svg";
+import { useEffect, useState } from 'react'
+import sports from '../assets/img/aside/tabs/Sports.svg'
+import sports_hover from '../assets/img/aside/tabs/Sports_hover.svg'
+import roulette from '../assets/img/aside/tabs/roulette.svg'
+import roulette_hover from '../assets/img/aside/tabs/roulette_hover.svg'
+import Live from '../assets/img/aside/tabs/Live casino.svg'
+import Live_hover from '../assets/img/aside/tabs/Live casino_hover.svg'
+import slots from '../assets/img/aside/tabs/Slots.svg'
+import slots_hover from '../assets/img/aside/tabs/Slots_hover.svg'
+import home from '../assets/img/aside/tabs/home.svg'
+import home_hover from '../assets/img/aside/tabs/home_hover.svg'
+import cards from '../assets/img/aside/tabs/Card.svg'
+import cards_hover from '../assets/img/aside/tabs/Card_hover.svg'
 
 export const GetIcon = ({ title, active }) => {
-  const [icon, setIcon] = useState("");
+  const [icon, setIcon] = useState('')
 
   useEffect(() => {
     switch (title) {
-      case "Lobby":
+      case 'Lobby':
         if (active) {
-          setIcon(home_hover);
+          setIcon(home_hover)
         } else {
-          setIcon(home);
+          setIcon(home)
         }
-        break;
-      case "Sports":
+        break
+      case 'SPORTS':
         if (active) {
-          setIcon(sports_hover);
+          setIcon(sports_hover)
         } else {
-          setIcon(sports);
+          setIcon(sports)
         }
-        break;
-      case "Live Casino":
+        break
+      case 'Live Casino':
         if (active) {
-          setIcon(Live_hover);
+          setIcon(Live_hover)
         } else {
-          setIcon(Live);
+          setIcon(Live)
         }
-        break;
-      case "Featured Slots":
+        break
+      case 'TABLE':
         if (active) {
-          setIcon(slots_hover);
+          setIcon(slots_hover)
         } else {
-          setIcon(slots);
+          setIcon(slots)
         }
-        break;
-      case "Roulette":
+        break
+      case 'FISHING GAME':
         if (active) {
-          setIcon(roulette_hover);
+          setIcon(roulette_hover)
         } else {
-          setIcon(roulette);
+          setIcon(roulette)
         }
-        break;
-      case "Blackjack":
+        break
+      case 'VIRTUAL':
         if (active) {
-          setIcon(cards_hover);
+          setIcon(roulette_hover)
         } else {
-          setIcon(cards);
+          setIcon(cards)
         }
-        break;
-      case "Slots":
+        break
+      case 'Slots':
         if (active) {
-          setIcon(slots_hover);
+          setIcon(slots_hover)
         } else {
-          setIcon(slots);
+          setIcon(slots)
         }
-        break;
+        break
+      case 'LOTTO':
+        if (active) {
+          setIcon(slots_hover)
+        } else {
+          setIcon(roulette)
+        }
+        break
+      case 'BINGO':
+        if (active) {
+          setIcon(cards_hover)
+        } else {
+          setIcon(cards)
+        }
+        break
+      case 'EGAME':
+        if (active) {
+          setIcon(slots_hover)
+        } else {
+          setIcon(slots)
+        }
+        break
       default:
-        break;
+        break
     }
-  }, [active]);
+  }, [active])
 
-  return <img src={icon} alt="" />;
-};
+  return <img src={icon} alt='' />
+}

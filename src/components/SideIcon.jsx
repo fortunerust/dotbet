@@ -7,7 +7,17 @@ import { LiveCasino } from './LiveCasino'
 import { Roulette } from './Roulette'
 import { Slots } from './Slots'
 
-import { SportUrls } from '../config/Url'
+import {
+  SLOTUrl,
+  LiveCasinoUrl,
+  SportUrl,
+  FishingGameUrl,
+  TableUrl,
+  VirtualUrl,
+  LottoUrl,
+  BingoUrl,
+  EGameUrl
+} from '../config/Url'
 
 export const SideIcon = ({ title, index }) => {
   const [isHover, setIsHover] = useState(false)
@@ -17,14 +27,14 @@ export const SideIcon = ({ title, index }) => {
       onMouseOver={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
     >
-      <GetIcon title={title} active={isHover} className=""/>
+      <GetIcon title={title} active={isHover} className='' />
       <h1 className='flex-1 text-center'>{title}</h1>
       {index !== 0 && (
         <div className='dropdown-content'>
           {index == '1' && (
             <div className=' h-full backdrop-blur-sm grid grid-rows-6 grid-flow-col gap-4 items-center justify-center'>
               {/* Sports */}
-              {SportUrls.map((item, index) => {
+              {TableUrl.map((item, index) => {
                 return (
                   <img
                     src={item.imageUrl}
@@ -39,7 +49,7 @@ export const SideIcon = ({ title, index }) => {
           {index == '2' && (
             <div className=' h-full backdrop-blur-sm grid grid-rows-6 grid-flow-col gap-4 items-center justify-center'>
               {/* Sports */}
-              {SportUrls.map((item, index) => {
+              {SportUrl.map((item, index) => {
                 return (
                   <img
                     src={item.imageUrl}
@@ -53,7 +63,7 @@ export const SideIcon = ({ title, index }) => {
           {index == '3' && (
             <div className=' h-full backdrop-blur-sm grid grid-rows-6 grid-flow-col gap-4 items-center justify-center'>
               {/* Sports */}
-              {SportUrls.map((item, index) => {
+              {LiveCasinoUrl.map((item, index) => {
                 return (
                   <img
                     src={item.imageUrl}
@@ -67,7 +77,7 @@ export const SideIcon = ({ title, index }) => {
           {index == '4' && (
             <div className=' h-full backdrop-blur-sm grid grid-rows-6 grid-flow-col gap-4 items-center justify-center'>
               {/* Sports */}
-              {SportUrls.map((item, index) => {
+              {FishingGameUrl.map((item, index) => {
                 return (
                   <img
                     src={item.imageUrl}
@@ -81,7 +91,7 @@ export const SideIcon = ({ title, index }) => {
           {index == '5' && (
             <div className=' h-full backdrop-blur-sm grid grid-rows-6 grid-flow-col gap-4 items-center justify-center'>
               {/* Sports */}
-              {SportUrls.map((item, index) => {
+              {SLOTUrl.map((item, index) => {
                 return (
                   <img
                     src={item.imageUrl}
@@ -95,12 +105,54 @@ export const SideIcon = ({ title, index }) => {
           {index == '6' && (
             <div className=' h-full backdrop-blur-sm grid grid-rows-6 grid-flow-col gap-4 items-center justify-center'>
               {/* Sports */}
-              {SportUrls.map((item, index) => {
+              {VirtualUrl.map((item, index) => {
                 return (
                   <img
                     src={item.imageUrl}
                     alt={item.imageUrl}
-                    className='rounded-full w-20 aspect-square mx-2 hover:shadow-[0_0px_40px_-0px_rgba(0,0,0,0.3)] hover:shadow-white'
+                    className='bg-white/60 rounded-xl hover:w-24 m-4 hover:m-0 w-20 aspect-square mx-2 hover:shadow-3xl hover:shadow-white'
+                  />
+                )
+              })}
+            </div>
+          )}
+          {index == '7' && (
+            <div className=' h-full bg-white/40 grid grid-rows-6 grid-flow-col gap-4 items-center justify-center'>
+              {/* Sports */}
+              {LottoUrl.map((item, index) => {
+                return (
+                  <img
+                    src={item.imageUrl}
+                    alt={item.imageUrl}
+                    className='bg-white/60 rounded-xl hover:w-24 m-4 hover:m-0 w-20 aspect-square mx-2 hover:shadow-3xl hover:shadow-white'
+                  />
+                )
+              })}
+            </div>
+          )}
+          {index == '8' && (
+            <div className=' h-full bg-white/40 grid grid-rows-6 grid-flow-col gap-4 items-center justify-center'>
+              {/* Sports */}
+              {BingoUrl.map((item, index) => {
+                return (
+                  <img
+                    src={item.imageUrl}
+                    alt={item.imageUrl}
+                    className='bg-white/60 rounded-xl hover:w-24 m-4 hover:m-0 w-20 aspect-square mx-2 hover:shadow-3xl hover:shadow-white'
+                  />
+                )
+              })}
+            </div>
+          )}
+          {index == '9' && (
+            <div className=' h-full bg-white/40 grid grid-rows-6 grid-flow-col gap-4 items-center justify-center'>
+              {/* Sports */}
+              {EGameUrl.map((item, index) => {
+                return (
+                  <img
+                    src={item.imageUrl}
+                    alt={item.imageUrl}
+                    className='bg-white/60 rounded-xl hover:w-24 m-4 hover:m-0 w-20 aspect-square mx-2 hover:shadow-3xl hover:shadow-white'
                   />
                 )
               })}
