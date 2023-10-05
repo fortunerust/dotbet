@@ -176,7 +176,7 @@ export const Footer = () => {
     }
   ]
   return (
-    <footer className='pt-16 pb-14 mt-16'>
+    <footer className='pt-16 pb-14 mt-16 md:ml-24'>
       <div className='footer-width content-footer-area'>
         <div className='flex flex-wrap items-center justify-center gap-10 mb-6'>
           {Logos.map((item, index) => (

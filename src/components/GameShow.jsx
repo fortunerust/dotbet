@@ -175,7 +175,7 @@ export const GameShow = (props) => {
 
       <div className='slider-wrapper-recent'>
         <Splide
-          className='mt-8 mb-8 SliderAreaFirst'
+          className={props.direction? 'mx-auto SliderAreaFirst':'mt-8 mb-8 SliderAreaFirst'}
           options={{
             gap: 10,
             arrows: true,
@@ -194,7 +194,7 @@ export const GameShow = (props) => {
                 <img
                   src={EachImage.img}
                   alt={`slider ${key + 1}`}
-                  className={props.direction ? 'rounded-50 w-[70px] h-[70px]' : 'rounded-tr-lg rounded-tl-lg w-[80px] h-[80px] xl:w-[200px] xl:h-[200px] lg:w-[140px] lg:h-[140px]'}
+                  className={props.direction ? 'rounded-50 w-[70px] h-[70px]' : 'rounded-tr-lg rounded-tl-lg w-[80px] xl:w-[200px] lg:w-[140px] aspect-square'}
                 />
                 <div className='presentation p-3 justify-between flex flex-col lg:flex-row items-center text-center lg:text-start rounded-bl-lg rounded-br-lg'>
                   <h1 className='w-full h-8 object-cover overflow-hidden'>{EachImage.text}</h1>

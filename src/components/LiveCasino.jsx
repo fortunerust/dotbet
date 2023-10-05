@@ -19,7 +19,7 @@ import gameg10 from '../assets/img/Fortune Rabbit.png'
 
 import livecasino from '../assets/img/live-casino.svg'
 
-export const LiveCasino = (props) => {
+export const LiveCasino = props => {
   const [loading, setLoading] = useState(false)
 
   const notify = () =>
@@ -153,7 +153,7 @@ export const LiveCasino = (props) => {
             theme: 'light'
           })
         }
-        setLoading(false);
+        setLoading(false)
       })
       .catch(function (error) {
         console.error(error)
@@ -164,26 +164,29 @@ export const LiveCasino = (props) => {
 
   return (
     <div className='RecentWin arrowareaslider' id='liveCasino'>
-      {
-        !props.direction &&
+      {!props.direction && (
         <div className='top flex items-center justify-between mb-4'>
           <h1 className='flex items-center'>
             <img src={livecasino} alt='livecasino' className='mr-2' />
             Live Casino
           </h1>
         </div>
-      }
+      )}
 
       <div className='slider-wrapper-recent'>
         <Splide
-          className='mt-8 mb-8 SliderAreaFirst'
+          className={
+            props.direction
+              ? 'mx-auto SliderAreaFirst'
+              : 'mt-8 mb-8 SliderAreaFirst'
+          }
           options={{
             gap: 10,
             arrows: true,
             pagination: false,
-            perPage: 5,
+            perPage: props.items,
             height: props.height,
-            direction: props.direction,
+            direction: props.direction
           }}
         >
           {ImagesArray.map((EachImage, key) => (
@@ -195,12 +198,20 @@ export const LiveCasino = (props) => {
                 <img
                   src={EachImage.img}
                   alt={`slider ${key + 1}`}
-                  className={props.direction ? 'rounded-50 w-[70px] h-[70px]' : 'rounded-tr-lg rounded-tl-lg w-[80px] h-[80px] xl:w-[200px] xl:h-[200px] lg:w-[140px] lg:h-[140px]'}
+                  className={
+                    props.direction
+                      ? 'rounded-[50%] w-[70px] h-[70px]'
+                      : 'rounded-tr-lg rounded-tl-lg w-[80px] xl:w-[200px] lg:w-[140px] aspect-square'
+                  }
                 />
-                <div className='presentation p-3 justify-between flex flex-col lg:flex-row items-center text-center lg:text-start rounded-bl-lg rounded-br-lg'>
-                  <h1 className='w-full h-8 object-cover overflow-hidden'>{EachImage.text}</h1>
-                  <button>Pragmatic Play</button>
-                </div>
+                {!props.direction && (
+                  <div className='presentation p-3 justify-between flex flex-col lg:flex-row items-center text-center lg:text-start rounded-bl-lg rounded-br-lg'>
+                    <h1 className='w-full h-8 object-cover overflow-hidden'>
+                      {EachImage.text}
+                    </h1>
+                    <button>Pragmatic Play</button>
+                  </div>
+                )}
               </div>
             </SplideSlide>
           ))}
