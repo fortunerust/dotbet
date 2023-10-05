@@ -83,10 +83,6 @@ export const Footer = () => {
       Url: ''
     },
     {
-      Logo: logo3,
-      Url: ''
-    },
-    {
       Logo: logo4,
       Url: ''
     },

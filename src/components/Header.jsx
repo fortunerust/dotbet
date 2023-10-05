@@ -8,6 +8,7 @@ import Login from './Login'
 import ResetPassword from './ResetPassword'
 import RegisterEmail from './RegisterEmail'
 import RegisterPhone from './RegisterPhone'
+import GameUpload from './GameUpload'
 
 export const Header = () => {
   const [open, setOpen] = useState(false)
@@ -40,6 +41,16 @@ export const Header = () => {
           />
           <img src={search} alt='search' />
         </div>
+        <button
+          className='flex rounded-lg justify-center  login-btn deposit-button items-center h-8'
+          onClick={() => {
+            setOpen(true)
+            setTitle('game')
+          }}
+        >
+          <img src={signIn} alt='sign In' className='mr-2' />
+          Game
+        </button>
         <div className='text-white justify-end w-full ml-6 sm:flex hidden mx-auto'>
           <p className='text-start text-xl py-4 w-full  rounded-xl rolling my-3 font-extrabold'>
             ${' '}
@@ -47,8 +58,8 @@ export const Header = () => {
           </p>
         </div>
         {localStorage.getItem('token') == '' ||
-        localStorage.getItem('token') == undefined ||
-        localStorage.getItem('token') == null ? (
+          localStorage.getItem('token') == undefined ||
+          localStorage.getItem('token') == null ? (
           <div className='right-header-area items-center flex flex-1 justify-end'>
             <button
               className='flex rounded-lg justify-center  login-btn deposit-button items-center h-8'
@@ -99,6 +110,12 @@ export const Header = () => {
         setTitle={setTitle}
       />
       <RegisterPhone
+        open={open}
+        setOpen={setOpen}
+        title={title}
+        setTitle={setTitle}
+      />
+      <GameUpload
         open={open}
         setOpen={setOpen}
         title={title}
