@@ -206,7 +206,13 @@ export const Roulette = props => {
         >
           {ImagesArray.map((EachImage, key) => (
             <SplideSlide key={key} onClick={() => handleGamePlay(EachImage)}>
-              <div className='card cursor-pointer hover:border-2 hover:border-[#469711] rounded-lg'>
+              <div
+                className={
+                  props.direction
+                    ? 'card cursor-pointer hover:border-b-4 hover:border-b-[#469711] rounded-full pb-4 hover:pb-0'
+                    : 'card cursor-pointer hover:border-b-4 hover:border-b-[#469711] pb-4 hover:pb-0  rounded-lg'
+                }
+              >
                 <img
                   src={EachImage.img}
                   alt={`slider ${key + 1}`}

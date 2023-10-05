@@ -1,0 +1,113 @@
+import { useState } from 'react'
+import { Sports } from './Sports'
+import { Fishing } from './Fishing'
+import { GameShow } from './GameShow'
+import { GetIcon } from './GetIcon'
+import { LiveCasino } from './LiveCasino'
+import { Roulette } from './Roulette'
+import { Slots } from './Slots'
+
+import { SportUrls } from '../config/Url'
+
+export const SideIcon = ({ title, index }) => {
+  const [isHover, setIsHover] = useState(false)
+  return (
+    <div
+      className={`bonus-area rounded-lg flex items-center cursor-pointer  w-[115px] h-[50px]`}
+      onMouseOver={() => setIsHover(true)}
+      onMouseLeave={() => setIsHover(false)}
+    >
+      <GetIcon title={title} active={isHover} className=""/>
+      <h1 className='flex-1 text-center'>{title}</h1>
+      {index !== 0 && (
+        <div className='dropdown-content'>
+          {index == '1' && (
+            <div className=' h-full bg-white/40 grid grid-rows-6 grid-flow-col gap-4 items-center justify-center'>
+              {/* Sports */}
+              {SportUrls.map((item, index) => {
+                return (
+                  <img
+                    src={item.imageUrl}
+                    alt={item.imageUrl}
+                    className='rounded-full w-20 aspect-square mx-2 hover:shadow-3xl hover:shadow-white'
+                  />
+                )
+              })}
+            </div>
+          )}
+
+          {index == '2' && (
+            <div className=' h-full bg-white/40 grid grid-rows-6 grid-flow-col gap-4 items-center justify-center'>
+              {/* Sports */}
+              {SportUrls.map((item, index) => {
+                return (
+                  <img
+                    src={item.imageUrl}
+                    alt={item.imageUrl}
+                    className='rounded-full w-20 aspect-square mx-2 hover:shadow-3xl hover:shadow-white'
+                  />
+                )
+              })}
+            </div>
+          )}
+          {index == '3' && (
+            <div className=' h-full bg-white/40 grid grid-rows-6 grid-flow-col gap-4 items-center justify-center'>
+              {/* Sports */}
+              {SportUrls.map((item, index) => {
+                return (
+                  <img
+                    src={item.imageUrl}
+                    alt={item.imageUrl}
+                    className='rounded-full w-20 aspect-square mx-2 hover:shadow-3xl hover:shadow-white'
+                  />
+                )
+              })}
+            </div>
+          )}
+          {index == '4' && (
+            <div className=' h-full bg-white/40 grid grid-rows-6 grid-flow-col gap-4 items-center justify-center'>
+              {/* Sports */}
+              {SportUrls.map((item, index) => {
+                return (
+                  <img
+                    src={item.imageUrl}
+                    alt={item.imageUrl}
+                    className='rounded-full w-20 aspect-square mx-2 hover:shadow-3xl hover:shadow-white'
+                  />
+                )
+              })}
+            </div>
+          )}
+          {index == '5' && (
+            <div className=' h-full bg-white/40 grid grid-rows-6 grid-flow-col gap-4 items-center justify-center'>
+              {/* Sports */}
+              {SportUrls.map((item, index) => {
+                return (
+                  <img
+                    src={item.imageUrl}
+                    alt={item.imageUrl}
+                    className='rounded-full w-20 aspect-square mx-2 hover:shadow-3xl hover:shadow-white'
+                  />
+                )
+              })}
+            </div>
+          )}
+          {index == '6' && (
+            <div className=' h-full bg-white/40 grid grid-rows-6 grid-flow-col gap-4 items-center justify-center'>
+              {/* Sports */}
+              {SportUrls.map((item, index) => {
+                return (
+                  <img
+                    src={item.imageUrl}
+                    alt={item.imageUrl}
+                    className='rounded-full w-20 aspect-square mx-2 hover:shadow-3xl hover:shadow-white'
+                  />
+                )
+              })}
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  )
+}

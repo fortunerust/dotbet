@@ -26,9 +26,12 @@ import roulette from '../assets/img/aside/tabs/roulette.svg'
 import Live from '../assets/img/aside/tabs/Live casino.svg'
 import slots from '../assets/img/aside/tabs/Slots.svg'
 import home from '../assets/img/aside/tabs/home.svg'
+import home_hover from '../assets/img/aside/tabs/home_hover.svg'
 import cards from '../assets/img/aside/tabs/Card.svg'
 
 import Slide from '../components/Slide'
+import { GetIcon } from './GetIcon'
+import { SideIcon } from './SideIcon'
 
 export const RightAreaHome = () => {
   const commentsData = [
@@ -234,27 +237,33 @@ export const RightAreaHome = () => {
   const gameListLeft = [
     {
       Img: home,
-      Text: 'Lobby'
+      Text: 'Lobby',
+      Hover: home_hover
     },
     {
       Img: sports,
-      Text: 'Sports'
+      Text: 'Sports',
+      Hover: home_hover
     },
     {
       Img: roulette,
-      Text: 'Roulette'
+      Text: 'Roulette',
+      Hover: home_hover
     },
     {
       Img: Live,
-      Text: 'Live Casino'
+      Text: 'Live Casino',
+      Hover: home_hover
     },
     {
       Img: cards,
-      Text: 'Blackjack'
+      Text: 'Blackjack',
+      Hover: home_hover
     },
     {
       Img: slots,
-      Text: 'Slots'
+      Text: 'Slots',
+      Hover: home_hover
     }
   ]
 
@@ -284,68 +293,14 @@ export const RightAreaHome = () => {
     <>
       <div className='md:flex sticky dropdown'>
         <aside className='py-4 hidden  md:flex '>
-          <div className='flex flex-col justify-between'>
+          <div className='flex flex-col justify-between z-[99]'>
             <div>
               <div className='flex items-center justify-center mb-11 mt-2'>
                 <img src={menuExpander} alt='menuExpander' />
               </div>
               {gameListLeft.map((item, index) => {
                 return (
-                  <div
-                    key={index}
-                    href={`${item.id}`}
-                    className={`${
-                      index === openedFaqId ? 'active' : ''
-                    } bonus-area rounded-lg flex items-center  cursor-pointer w-[115px] h-[50px]`}
-                  >
-                    <img src={item.Img} alt='card' />
-                    <h1 className='flex-1 text-center'>{item.Text}</h1>
-                    {index !== 0 && (
-                      <div className='dropdown-content'>
-                        {index == '1' && (
-                          <>
-                            {/* Sports */}
-                            <Sports direction='ttb' height={900} items={8} />
-                          </>
-                        )}
-
-                        {index == '2' && (
-                          <>
-                            {/* Roulette */}
-                            <Roulette direction='ttb' height={900} items={8} />
-                          </>
-                        )}
-                        {index == '3' && (
-                          <>
-                            {/* LiveCasino */}
-                            <LiveCasino
-                              direction='ttb'
-                              height={900}
-                              items={8}
-                            />
-                          </>
-                        )}
-                        {index == '4' && (
-                          <>
-                            {/* Fishing */}
-                            <Fishing direction='ttb' height={900} items={8} />
-                          </>
-                        )}
-                        {index == '5' && (
-                          <>
-                            {/* Slots */}
-                            <Slots direction='ttb' height={900} items={8} />
-                          </>
-                        )}
-                        {index == '6' && (
-                          <>
-                            {/* GameShow */}
-                            <GameShow direction='ttb' height={900} items={8} />
-                          </>
-                        )}
-                      </div>
-                    )}
-                  </div>
+                  <SideIcon title={item.Text} index={index} key={item.Text} />
                 )
               })}
             </div>
@@ -374,34 +329,8 @@ export const RightAreaHome = () => {
       <div className='md:w-[84%] md:ml-[110px] w-full flex-1'>
         <Header />
         <div className='w-full justify-between flex items-start gap-10 px-2 sm:px-8 pt-6'>
-          <div className='w-full lg:w-[65%] xl:w-[70%] 2xl:w-[75%] px-2 mx-auto'>
-            {/* <div className='welcome-area flex flex-col lg:flex-row rounded-xl relative justify-between'>
-              <div className='w-full xl:w-3/5 py-8 p-6 '>
-                <div className='mb-4 topHeader text-[12px] md:text-[18px] lg:text-[24px] xl:text-[32px]'>
-                  Lucky Spin Tournament
-                </div>
-                <p className='my-3'>
-                  Win in selected Smartsoft games. Save points and share{' '}
-                </p>
-                <p className='text-start text-2xl py-4 w-full  rounded-xl rolling my-3 font-extrabold'>
-                  ${' '}
-                  {rollingNumber
-                    .toString()
-                    .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}{' '}
-                </p>
-                <p>1.09-26.09</p>
-                <div className='buttons-wrapper mt-6'>
-                  <button className='w-36 h-11 mr-3'>Get Started</button>
-                </div>
-              </div>
-              <img
-                src={rewardBanner}
-                className='rewardBanner w-2/5 max-w-[340px] xl:flex hidden'
-                alt='rewardBanner'
-              />
-            </div> */}
+          <div className='w-full lg:w-[65%] xl:w-[70%] 2xl:w-[75%] px-2 mx-a'>
             <Slide />
-
             <div className='tags-wrapper mt-10 mb-12 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7 gap-3'>
               {gameListState.map((item, index) => {
                 return (

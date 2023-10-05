@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import search from '../assets/img/search.svg'
 
 import signIn from '../assets/img/sign-in.svg'
@@ -10,21 +10,41 @@ import RegisterEmail from './RegisterEmail'
 import RegisterPhone from './RegisterPhone'
 
 export const Header = () => {
-  const [open, setOpen] = React.useState(false)
-  const [title, setTitle] = React.useState('')
+  const [open, setOpen] = useState(false)
+  const [title, setTitle] = useState('')
+  const [rollingNumber, setRollingNumber] = useState(
+    50000000 + parseInt(Math.random() * 10000)
+  )
+
+  useEffect(() => {
+    let i = rollingNumber
+    let poolnumber = setInterval(function () {
+      i += parseInt(Math.random() * 100)
+      setRollingNumber(i)
+    }, 1000)
+    return () => {
+      clearInterval(poolnumber)
+    }
+  }, [])
   return (
     <>
-      <header className='px-6 h-16 flex items-center'>
+      <header className='px-6 h-16 flex items-center w-full'>
         <a href='/'>
           <img src={logo} alt='logo' />
         </a>
-        <div className='input-wrapper ml-6 hidden sm:flex items-center w-48 h-8'>
+        <div className='input-wrapper ml-3  hidden sm:flex items-center w-48 h-8'>
           <input
             type='text'
             placeholder='Search...'
             className='flex-1 outline-none border-none'
           />
           <img src={search} alt='search' />
+        </div>
+        <div className='text-white justify-end w-full ml-6 sm:flex hidden mx-auto'>
+          <p className='text-start text-xl py-4 w-full  rounded-xl rolling my-3 font-extrabold'>
+            ${' '}
+            {rollingNumber.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}{' '}
+          </p>
         </div>
         {localStorage.getItem('token') == '' ||
         localStorage.getItem('token') == undefined ||
