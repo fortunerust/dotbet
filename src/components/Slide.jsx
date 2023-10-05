@@ -25,7 +25,7 @@ export default function Slide () {
         }}
         navigation={false}
         modules={[Autoplay, Pagination, Navigation]}
-        className='mySwiper'
+        className='mySwiper rounded-xl'
       >
         <SwiperSlide>
           <img src='/img/slide/image (1).png' alt='' />

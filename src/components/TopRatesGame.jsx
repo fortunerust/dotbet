@@ -95,7 +95,7 @@ export const TopRatesGame = () => {
       .then(function (response) {
         if (response.data.status === '0000') {
           window.location.href = response.data.session_url
-        }else{
+        } else {
           toast.error(response.data.desc, {
             position: 'top-right',
             autoClose: 1000,
@@ -107,7 +107,7 @@ export const TopRatesGame = () => {
             theme: 'light'
           })
         }
-        setLoading(false);
+        setLoading(false)
       })
       .catch(function (error) {
         console.error(error)

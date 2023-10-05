@@ -5,25 +5,32 @@
 }
 
 .dropdown-content {
-  display: none;
   position: absolute;
-  background-color: var(--primaryColor);
+  background-color: rgba(44, 42, 74, 0.9);
   left: 112px;
-  top: 0px;
-  width: 100px;
+  top: 0;
+  width: 0px;
   height: 100%;
-  padding: 12px 16px;
-  z-index: 100000;
+  z-index: 1;
+}
+
+.dropdown-content div img {
+ display: none;
+}
+
+.bonus-area:hover .dropdown-content div img {
+  display: block;
 }
 
 .bonus-area:hover .dropdown-content {
   display: block;
+  width: 250px;
+  top: 0%;
+  transition: 0.3s;
 }
+
 .dropdown-content:hover {
   display: block;
-}
-.active .dropdown-content {
-  display: none !important;
 }
 
 .swiper {

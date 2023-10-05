@@ -18,7 +18,7 @@ import gameg10 from '../assets/img/7 Up 7 Down.png'
 
 import gameshow from '../assets/img/game-show.svg'
 
-export const GameShow = (props) => {
+export const GameShow = props => {
   const [loading, setLoading] = useState(false)
 
   const notify = () =>
@@ -152,7 +152,7 @@ export const GameShow = (props) => {
             theme: 'light'
           })
         }
-        setLoading(false);
+        setLoading(false)
       })
       .catch(function (error) {
         console.error(error)
@@ -163,26 +163,29 @@ export const GameShow = (props) => {
 
   return (
     <div className='RecentWin arrowareaslider' id='gameShow'>
-      {
-        !props.direction &&
+      {!props.direction && (
         <div className='top flex items-center justify-between mb-4'>
           <h1 className='flex items-center'>
             <img src={gameshow} alt='gameshow' className='mr-2' />
             Game Shows
           </h1>
         </div>
-      }
+      )}
 
       <div className='slider-wrapper-recent'>
         <Splide
-          className={props.direction? 'mx-auto SliderAreaFirst':'mt-8 mb-8 SliderAreaFirst'}
+          className={
+            props.direction
+              ? 'mx-auto SliderAreaFirst'
+              : 'mt-8 mb-8 SliderAreaFirst'
+          }
           options={{
             gap: 10,
             arrows: true,
             pagination: false,
             perPage: 5,
             height: props.height,
-            direction: props.direction,
+            direction: props.direction
           }}
         >
           {ImagesArray.map((EachImage, key) => (
@@ -190,14 +193,26 @@ export const GameShow = (props) => {
               key={key}
               onClick={() => (handleGamePlay(EachImage), notify)}
             >
-              <div className='card cursor-pointer hover:border-2 hover:border-[#469711] rounded-lg'>
+              <div
+                className={
+                  props.direction
+                    ? 'card cursor-pointer hover:border-b-4 hover:border-b-[#469711] rounded-full pb-4 hover:pb-0'
+                    : 'card cursor-pointer hover:border-b-4 hover:border-b-[#469711] pb-4 hover:pb-0  rounded-lg'
+                }
+              >
                 <img
                   src={EachImage.img}
                   alt={`slider ${key + 1}`}
-                  className={props.direction ? 'rounded-50 w-[70px] h-[70px]' : 'rounded-tr-lg rounded-tl-lg w-[80px] xl:w-[200px] lg:w-[140px] aspect-square'}
+                  className={
+                    props.direction
+                      ? 'rounded-50 w-[70px] h-[70px]'
+                      : 'rounded-tr-lg rounded-tl-lg w-[80px] xl:w-[200px] lg:w-[140px] aspect-square'
+                  }
                 />
                 <div className='presentation p-3 justify-between flex flex-col lg:flex-row items-center text-center lg:text-start rounded-bl-lg rounded-br-lg'>
-                  <h1 className='w-full h-8 object-cover overflow-hidden'>{EachImage.text}</h1>
+                  <h1 className='w-full h-8 object-cover overflow-hidden'>
+                    {EachImage.text}
+                  </h1>
                   <button>Evolution</button>
                 </div>
               </div>
