@@ -1,6 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Header } from './Header'
-import rewardBanner from '../assets/img/reward-banner.png'
 import chat from '../assets/img/chat-green.svg'
 import emoji from '../assets/img/emoji.svg'
 import send from '../assets/img/send.svg'
@@ -106,7 +105,7 @@ export const RightAreaHome = () => {
   const [showState, setShowState] = useState(false)
   const [blogState, setBlogState] = useState(false)
   const [supportState, setSupportState] = useState(false)
-  const [openedFaqId, setOpenedFaqId] = useState(7)
+  const [openedFaqId, setOpenedFaqId] = useState(10)
   const [supportActiveState, setSupportActiveState] = useState(2)
 
   const dropDownText = e => {
@@ -241,13 +240,13 @@ export const RightAreaHome = () => {
       Hover: home_hover
     },
     {
-      Img: sports,
-      Text: 'Sports',
+      Img: home_hover,
+      Text: 'TABLE',
       Hover: home_hover
     },
     {
-      Img: roulette,
-      Text: 'Roulette',
+      Img: sports,
+      Text: 'SPORTS',
       Hover: home_hover
     },
     {
@@ -257,12 +256,32 @@ export const RightAreaHome = () => {
     },
     {
       Img: cards,
-      Text: 'Blackjack',
+      Text: 'FISHING GAME',
       Hover: home_hover
     },
     {
       Img: slots,
       Text: 'Slots',
+      Hover: home_hover
+    },
+    {
+      Img: Live,
+      Text: 'VIRTUAL',
+      Hover: home_hover
+    },
+    {
+      Img: slots,
+      Text: 'LOTTO',
+      Hover: home_hover
+    },
+    {
+      Img: slots,
+      Text: 'BINGO',
+      Hover: home_hover
+    },
+    {
+      Img: slots,
+      Text: 'EGAME',
       Hover: home_hover
     }
   ]
