@@ -1,11 +1,6 @@
 import { useState } from 'react'
-import { Sports } from './Sports'
-import { Fishing } from './Fishing'
-import { GameShow } from './GameShow'
 import { GetIcon } from './GetIcon'
-import { LiveCasino } from './LiveCasino'
-import { Roulette } from './Roulette'
-import { Slots } from './Slots'
+import { useNavigate, useParams } from 'react-router-dom';
 
 import {
   SLOTUrl,
@@ -20,6 +15,7 @@ import {
 } from '../config/Url'
 
 export const SideIcon = ({ title, index }) => {
+  const navigate = useNavigate();
   const [isHover, setIsHover] = useState(false)
   return (
     <div
@@ -37,9 +33,11 @@ export const SideIcon = ({ title, index }) => {
               {TableUrl.map((item, index) => {
                 return (
                   <img
+                    key={index}
                     src={item.imageUrl}
                     alt={item.imageUrl}
-                    className='w-[72px] aspect-square hover:w-[82px] hover:m-0 m-[10px]'
+                    className='w-[65px] aspect-square hover:shadow-[0_0px_40px_-0px_rgba(0,0,0,0.3)] hover:shadow-white m-[10px]'
+                    onClick={()=>navigate(`TABLE/${item.platform}`, { replace: true })}
                   />
                 )
               })}
@@ -52,9 +50,11 @@ export const SideIcon = ({ title, index }) => {
               {SportUrl.map((item, index) => {
                 return (
                   <img
+                    key={index}
                     src={item.imageUrl}
                     alt={item.imageUrl}
-                    className='w-[72px] aspect-square hover:w-[82px] hover:m-0 m-[10px]'
+                    className='w-[65px] aspect-square hover:shadow-[0_0px_40px_-0px_rgba(0,0,0,0.3)] hover:shadow-white m-[10px]'
+                    onClick={()=>navigate(`/ESPORTS/${item.platform}`, { replace: true })}
                   />
                 )
               })}
@@ -66,9 +66,11 @@ export const SideIcon = ({ title, index }) => {
               {LiveCasinoUrl.map((item, index) => {
                 return (
                   <img
+                    key={index}
                     src={item.imageUrl}
                     alt={item.imageUrl}
-                    className='w-[72px] aspect-square hover:w-[82px] hover:m-0 m-[10px]'
+                    className='w-[65px] aspect-square hover:shadow-[0_0px_40px_-0px_rgba(0,0,0,0.3)] hover:shadow-white m-[10px]'
+                    onClick={()=>navigate(`/LIVE/${item.platform}`, { replace: true })}
                   />
                 )
               })}
@@ -80,9 +82,11 @@ export const SideIcon = ({ title, index }) => {
               {FishingGameUrl.map((item, index) => {
                 return (
                   <img
+                    key={index}
                     src={item.imageUrl}
                     alt={item.imageUrl}
-                    className='w-[72px] aspect-square hover:w-[82px] hover:m-0 m-[10px]'
+                    className='w-[65px] aspect-square hover:shadow-[0_0px_40px_-0px_rgba(0,0,0,0.3)] hover:shadow-white m-[10px]'
+                    onClick={()=>navigate(`/FH/${item.platform}`, { replace: true })}
                   />
                 )
               })}
@@ -94,9 +98,11 @@ export const SideIcon = ({ title, index }) => {
               {SLOTUrl.map((item, index) => {
                 return (
                   <img
+                    key={index}
                     src={item.imageUrl}
                     alt={item.imageUrl}
-                    className='w-[72px] aspect-square hover:w-[82px] hover:m-0 m-[10px]'
+                    className='w-[65px] aspect-square hover:shadow-[0_0px_40px_-0px_rgba(0,0,0,0.3)] hover:shadow-white m-[10px]'
+                    onClick={()=>navigate(`/SLOT/${item.platform}`, { replace: true })}
                   />
                 )
               })}
@@ -108,9 +114,11 @@ export const SideIcon = ({ title, index }) => {
               {VirtualUrl.map((item, index) => {
                 return (
                   <img
+                    key={index}
                     src={item.imageUrl}
                     alt={item.imageUrl}
-                    className='w-[72px] aspect-square hover:w-[82px] hover:m-0 m-[10px]'
+                    className='w-[65px] aspect-square hover:shadow-[0_0px_40px_-0px_rgba(0,0,0,0.3)] hover:shadow-white m-[10px]'
+                    onClick={()=>navigate(`/VIRTUAL/${item.platform}`, { replace: true })}
                   />
                 )
               })}
@@ -122,9 +130,11 @@ export const SideIcon = ({ title, index }) => {
               {LottoUrl.map((item, index) => {
                 return (
                   <img
+                    key={index}
                     src={item.imageUrl}
                     alt={item.imageUrl}
-                    className='w-[72px] aspect-square hover:w-[82px] hover:m-0 m-[10px]'
+                    className='w-[65px] aspect-square hover:shadow-[0_0px_40px_-0px_rgba(0,0,0,0.3)] hover:shadow-white m-[10px]'
+                    onClick={()=>navigate(`/LOTTO/${item.platform}`, { replace: true })}
                   />
                 )
               })}
@@ -136,9 +146,11 @@ export const SideIcon = ({ title, index }) => {
               {BingoUrl.map((item, index) => {
                 return (
                   <img
+                    key={index}
                     src={item.imageUrl}
                     alt={item.imageUrl}
-                    className='w-[72px] aspect-square hover:w-[82px] hover:m-0 m-[10px]'
+                    className='w-[65px] aspect-square hover:shadow-[0_0px_40px_-0px_rgba(0,0,0,0.3)] hover:shadow-white m-[10px]'
+                    onClick={()=>navigate(`/BINGO/${item.platform}`, { replace: true })}
                   />
                 )
               })}
@@ -150,9 +162,11 @@ export const SideIcon = ({ title, index }) => {
               {EGameUrl.map((item, index) => {
                 return (
                   <img
+                    key={index}
                     src={item.imageUrl}
                     alt={item.imageUrl}
-                    className='w-[72px] aspect-square hover:w-[82px] hover:m-0 m-[10px]'
+                    className='w-[65px] aspect-square hover:shadow-[0_0px_40px_-0px_rgba(0,0,0,0.3)] hover:shadow-white m-[10px]'
+                    onClick={()=>navigate(`/EGAME/${item.platform}`, { replace: true })}
                   />
                 )
               })}

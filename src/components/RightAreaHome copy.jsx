@@ -1,18 +1,27 @@
 import React, { useEffect, useState } from 'react'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Header } from './Header'
 import chat from '../assets/img/chat-green.svg'
 import emoji from '../assets/img/emoji.svg'
 import send from '../assets/img/send.svg'
 import dailyBonus from '../assets/img/dailyBonus.svg'
-
+import { Hits } from './Hits'
+import { TopRatesGame } from './TopRatesGame'
+import { RecommendedGames } from './RecommendedGames'
+import { LatestBets } from './LatestBets'
 import { CommentCard } from './CommentCard'
-
+import { LiveCasino } from './LiveCasino'
+import { GameShow } from './GameShow'
+import { Fishing } from './Fishing'
+import { Roulette } from './Roulette'
+import { Slots } from './Slots'
+import { Sports } from './Sports'
+import { NewArrival } from './NewArrival'
 import menuExpander from '../assets/img/menu.svg'
 import Support from '../assets/img/aside/Support.svg'
 import blog from '../assets/img/aside/blog.svg'
 
 import sports from '../assets/img/aside/tabs/Sports.svg'
+import roulette from '../assets/img/aside/tabs/roulette.svg'
 import Live from '../assets/img/aside/tabs/Live casino.svg'
 import slots from '../assets/img/aside/tabs/Slots.svg'
 import home from '../assets/img/aside/tabs/home.svg'
@@ -21,8 +30,6 @@ import cards from '../assets/img/aside/tabs/Card.svg'
 
 import Slide from '../components/Slide'
 import { SideIcon } from './SideIcon'
-import { HomeList } from './HomeList'
-import { GameList } from './GameList';
 
 export const RightAreaHome = () => {
   const commentsData = [
@@ -88,10 +95,88 @@ export const RightAreaHome = () => {
   const [rollingNumber, setRollingNumber] = useState(
     50000000 + parseInt(Math.random() * 10000)
   )
+  const [homeState, setHomeState] = useState(true)
+  const [sportState, setSportState] = useState(false)
+  const [liveState, setLiveState] = useState(false)
+  const [slotState, setSlotState] = useState(false)
+  const [rouletteState, setRouletteState] = useState(false)
+  const [fishingState, setFishingState] = useState(false)
+  const [showState, setShowState] = useState(false)
   const [blogState, setBlogState] = useState(false)
   const [supportState, setSupportState] = useState(false)
   const [openedFaqId, setOpenedFaqId] = useState(10)
   const [supportActiveState, setSupportActiveState] = useState(2)
+
+  const dropDownText = e => {
+    setOpenedFaqId(e)
+    switch (e) {
+      case 0:
+        setHomeState(true)
+        setSportState(false)
+        setLiveState(false)
+        setSlotState(false)
+        setRouletteState(false)
+        setFishingState(false)
+        setShowState(false)
+        break
+      case 1:
+        setHomeState(false)
+        setSportState(true)
+        setLiveState(false)
+        setSlotState(false)
+        setRouletteState(false)
+        setFishingState(false)
+        setShowState(false)
+        break
+      case 2:
+        setHomeState(false)
+        setSportState(false)
+        setLiveState(true)
+        setSlotState(false)
+        setRouletteState(false)
+        setFishingState(false)
+        setShowState(false)
+        break
+      case 3:
+        setHomeState(false)
+        setSportState(false)
+        setLiveState(false)
+        setSlotState(true)
+        setRouletteState(false)
+        setFishingState(false)
+        setShowState(false)
+        break
+      case 4:
+        setHomeState(false)
+        setSportState(false)
+        setLiveState(false)
+        setSlotState(false)
+        setRouletteState(true)
+        setFishingState(false)
+        setShowState(false)
+        break
+      case 5:
+        setHomeState(false)
+        setSportState(false)
+        setLiveState(false)
+        setSlotState(false)
+        setRouletteState(false)
+        setFishingState(true)
+        setShowState(false)
+        break
+      case 6:
+        setHomeState(false)
+        setSportState(false)
+        setLiveState(false)
+        setSlotState(false)
+        setRouletteState(false)
+        setFishingState(false)
+        setShowState(true)
+        break
+      default:
+        break
+    }
+  }
 
   const supportAction = async e => {
     setSupportActiveState(e)
@@ -109,6 +194,44 @@ export const RightAreaHome = () => {
     }
   }
 
+  const gameListState = [
+    {
+      Img: home,
+      Text: 'Lobby',
+      id: 'hits'
+    },
+    {
+      Img: sports,
+      Text: 'Sports',
+      id: 'sports'
+    },
+    {
+      Img: Live,
+      Text: 'Live Casino',
+      id: 'liveCasino'
+    },
+    {
+      Img: slots,
+      Text: 'Featured Slots',
+      id: 'slots'
+    },
+    {
+      Img: roulette,
+      Text: 'Roulette',
+      id: 'roulette'
+    },
+    {
+      Img: slots,
+      Text: 'Fishing',
+      id: 'fishing'
+    },
+    {
+      Img: slots,
+      Text: 'Game Shows',
+      id: 'gameShow'
+    }
+  ]
+
   const gameListLeft = [
     {
       Img: home,
@@ -117,12 +240,12 @@ export const RightAreaHome = () => {
     },
     {
       Img: home_hover,
-      Text: 'Table Game',
+      Text: 'TABLE',
       Hover: home_hover
     },
     {
       Img: sports,
-      Text: 'Sports',
+      Text: 'SPORTS',
       Hover: home_hover
     },
     {
@@ -132,7 +255,7 @@ export const RightAreaHome = () => {
     },
     {
       Img: cards,
-      Text: 'Fishing Game',
+      Text: 'FISHING GAME',
       Hover: home_hover
     },
     {
@@ -142,22 +265,22 @@ export const RightAreaHome = () => {
     },
     {
       Img: Live,
-      Text: 'Virtual',
+      Text: 'VIRTUAL',
       Hover: home_hover
     },
     {
       Img: slots,
-      Text: 'Lotto',
+      Text: 'LOTTO',
       Hover: home_hover
     },
     {
       Img: slots,
-      Text: 'Bingo',
+      Text: 'BINGO',
       Hover: home_hover
     },
     {
       Img: slots,
-      Text: 'EGame',
+      Text: 'EGAME',
       Hover: home_hover
     }
   ]
@@ -206,8 +329,9 @@ export const RightAreaHome = () => {
                     <div
                       key={index}
                       onClick={e => supportAction(index)}
-                      className={`${index === supportActiveState ? 'active' : ''
-                        } bonus-area mb-2 rounded-lg flex items-center cursor-pointer`}
+                      className={`${
+                        index === supportActiveState ? 'active' : ''
+                      } bonus-area mb-2 rounded-lg flex items-center cursor-pointer`}
                     >
                       <img src={item.Img} alt='card' />
                       <h1 className='flex-1 text-center'>{item.Text}</h1>
@@ -223,8 +347,8 @@ export const RightAreaHome = () => {
         <Header />
         <div className='w-full justify-between flex items-start gap-10 px-2 sm:px-8 pt-6'>
           <div className='w-full lg:w-[65%] xl:w-[70%] 2xl:w-[75%] px-2 mx-a'>
-            {/* <Slide /> */}
-            {/* <div className='tags-wrapper mt-10 mb-12 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7 gap-3'>
+            <Slide />
+            <div className='tags-wrapper mt-10 mb-12 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7 gap-3'>
               {gameListState.map((item, index) => {
                 return (
                   <div
@@ -240,13 +364,81 @@ export const RightAreaHome = () => {
                   </div>
                 )
               })}
-            </div> */}
+            </div>
 
-            <Routes>
-              <Route path="/" element={<HomeList />} />
-              <Route path="/:gameType/:platform" element={<GameList />} />
-            </Routes>
+            {homeState && (
+              <>
+                {/* RecentWin*/}
+                <Hits items={5} />
 
+                {/* NewArrival */}
+                <NewArrival items={5} />
+                {/* Sports */}
+                <Sports items={5} />
+
+                {/* LiveCasino */}
+                <LiveCasino items={5} />
+
+                {/* Slots */}
+                <Slots items={5} />
+
+                {/* Roulette */}
+                <Roulette items={5} />
+
+                {/* Fishing */}
+                <Fishing items={5} />
+
+                {/* GameShow */}
+                <GameShow items={5} />
+
+                {/* Top Rates Game */}
+                <TopRatesGame items={5} />
+
+                {/* LatestBets */}
+                <LatestBets items={5} />
+
+                {/* Recommended Game */}
+                <RecommendedGames items={5} />
+              </>
+            )}
+
+            {sportState && (
+              <>
+                {/* Sports */}
+                <Sports items={5} />
+              </>
+            )}
+
+            {liveState && (
+              <>
+                {/* LiveCasino */}
+                <LiveCasino items={5} />
+              </>
+            )}
+            {slotState && (
+              <>
+                {/* Slots */}
+                <Slots items={5} />
+              </>
+            )}
+            {rouletteState && (
+              <>
+                {/* Roulette */}
+                <Roulette items={5} />
+              </>
+            )}
+            {fishingState && (
+              <>
+                {/* Fishing */}
+                <Fishing items={5} />
+              </>
+            )}
+            {showState && (
+              <>
+                {/* GameShow */}
+                <GameShow items={5} />
+              </>
+            )}
           </div>
           <div className=' body-right-area w-[20%] rounded-2xl p-4 hidden lg:flex lg:flex-col'>
             <div className='top-area pb-4 flex items-center relative'>

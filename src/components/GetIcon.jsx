@@ -24,7 +24,7 @@ export const GetIcon = ({ title, active }) => {
           setIcon(home)
         }
         break
-      case 'SPORTS':
+      case 'Sports':
         if (active) {
           setIcon(sports_hover)
         } else {
@@ -38,21 +38,21 @@ export const GetIcon = ({ title, active }) => {
           setIcon(Live)
         }
         break
-      case 'TABLE':
+      case 'Table Game':
         if (active) {
           setIcon(slots_hover)
         } else {
           setIcon(slots)
         }
         break
-      case 'FISHING GAME':
+      case 'Fishing Game':
         if (active) {
           setIcon(roulette_hover)
         } else {
           setIcon(roulette)
         }
         break
-      case 'VIRTUAL':
+      case 'Virtual':
         if (active) {
           setIcon(cards_hover)
         } else {
@@ -66,21 +66,21 @@ export const GetIcon = ({ title, active }) => {
           setIcon(slots)
         }
         break
-      case 'LOTTO':
+      case 'Lotto':
         if (active) {
           setIcon(roulette_hover)
         } else {
           setIcon(roulette)
         }
         break
-      case 'BINGO':
+      case 'Bingo':
         if (active) {
           setIcon(cards_hover)
         } else {
           setIcon(cards)
         }
         break
-      case 'EGAME':
+      case 'EGame':
         if (active) {
           setIcon(slots_hover)
         } else {

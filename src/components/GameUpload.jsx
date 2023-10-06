@@ -120,7 +120,7 @@ function GameUpload({open, setOpen, title}) {
                                                 <select id="platform" onChange={handleChange} value={game.platform} className="bg-gray-50 px-6 mt-3 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                                     <option value="BG">BG</option>
                                                     <option value="DRAGOONSOFT">DRAGOONSOFT</option>
-                                                    <option value="E1SPORTS">E1SPORTS</option>
+                                                    <option value="E1SPORT">E1SPORT</option>
                                                     <option value="FASTSPIN">FASTSPIN</option>
                                                     <option value="FC">FC</option>
                                                     <option value="HORSEBOOK">HORSEBOOK</option>

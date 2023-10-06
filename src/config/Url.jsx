@@ -26,153 +26,195 @@ import VRLogo from '../assets/img/New folder/Gaming.png'
 
 export const LiveCasinoUrl = [
   {
-    imageUrl: BGLogo
+    imageUrl: BGLogo,
+    platform: "BG"
   },
   {
-    imageUrl: HRBLogo
+    imageUrl: HRBLogo,
+    platform: "HORSEBOOK"
   },
   {
-    imageUrl: PPLogo
+    imageUrl: PPLogo,
+    platform: "PP"
   },
   {
-    imageUrl: RTLogo
+    imageUrl: RTLogo,
+    platform: "RT"
   },
   {
-    imageUrl: SexyLogo
+    imageUrl: SexyLogo,
+    platform: "SEXYBCRT"
   },
   {
-    imageUrl: SVLogo
+    imageUrl: SVLogo,
+    platform: "SV388"
   },
   {
-    imageUrl: VenusLogo
+    imageUrl: VenusLogo,
+    platform: "VENUS"
   }
 ]
 
 export const SLOTUrl = [
   {
-    imageUrl: DragonLogo
+    imageUrl: DragonLogo,
+    platform: "DRAGOONSOFT"
   },
   {
-    imageUrl: FastSpin
+    imageUrl: FastSpin,
+    platform: "FASTSPIN"
   },
   {
-    imageUrl: FCLogo
+    imageUrl: FCLogo,
+    platform: "FC"
   },
   {
-    imageUrl: JDBLogo
+    imageUrl: JDBLogo,
+    platform: "JDB"
   },
   {
-    imageUrl: JLLogo
+    imageUrl: JLLogo,
+    platform: "JILI"
   },
   {
-    imageUrl: KingamerLogo
+    imageUrl: KingamerLogo,
+    platform: "KINGMAKER"
   },
   {
-    imageUrl: PGLogo
+    imageUrl: PGLogo,
+    platform: "PG"
   },
   {
-    imageUrl: Play8Logo
+    imageUrl: Play8Logo,
+    platform: "PLAY8"
   },
   {
-    imageUrl: PPLogo
+    imageUrl: PPLogo,
+    platform: "PP"
   },
   {
-    imageUrl: RTLogo
+    imageUrl: RTLogo,
+    platform: "RT"
   },
   {
-    imageUrl: PlaytechLogo
+    imageUrl: PlaytechLogo,
+    platform: "PT"
   },
   {
-    imageUrl: SpadeLogo
+    imageUrl: SpadeLogo,
+    platform: "SPADE"
   }
 ]
 
 export const SportUrl = [
   {
-    imageUrl: E1SportLogo
+    imageUrl: E1SportLogo,
+    platform: "E1SPORT"
   }
 ]
 
 export const FishingGameUrl = [
   {
-    imageUrl: FastSpin
+    imageUrl: FastSpin,
+    platform: "FASTSPIN"
   },
   {
-    imageUrl: FCLogo
+    imageUrl: FCLogo,
+    platform: "FC"
   },
   {
-    imageUrl: JDBLogo
+    imageUrl: JDBLogo,
+    platform: "JDB"
   },
   {
-    imageUrl: JDBFLogo
+    imageUrl: JDBFLogo,
+    platform: "JDBFISH"
   },
   {
-    imageUrl: JLLogo
+    imageUrl: JLLogo,
+    platform: "JILI"
   },
   {
-    imageUrl: SpadeLogo
+    imageUrl: SpadeLogo,
+    platform: "SPADE"
   },
   {
-    imageUrl: BinGoLogo
+    imageUrl: BinGoLogo,
+    platform: "YESBINGO"
   },
   {
-    imageUrl: YLLogo
+    imageUrl: YLLogo,
+    platform: "YL"
   }
 ]
 
 export const TableUrl = [
   {
-    imageUrl: JLLogo
+    imageUrl: JLLogo,
+    platform: "JILI"
   },
   {
-    imageUrl: KingamerLogo
+    imageUrl: KingamerLogo,
+    platform: "KINGMAKER"
   },
   {
-    imageUrl: LuckPorkerLogo
+    imageUrl: LuckPorkerLogo,
+    platform: "LUCKPOKER"
   },
   {
-    imageUrl: LudoBetLogo
+    imageUrl: LudoBetLogo,
+    platform: "LUDO"
   },
   {
-    imageUrl: PGLogo
+    imageUrl: PGLogo,
+    platform: "PG"
   },
   {
-    imageUrl: RTLogo
+    imageUrl: RTLogo,
+    platform: "RT"
   }
 ]
 
 export const VirtualUrl = [
   {
-    imageUrl: SABALogo
+    imageUrl: SABALogo,
+    platform: "SABA"
   }
 ]
 
 export const LottoUrl = [
   {
-    imageUrl: VRLogo
+    imageUrl: VRLogo,
+    platform: "VRLOTTO"
   }
 ]
 
 export const BingoUrl = [
   {
-    imageUrl: BinGoLogo
+    imageUrl: BinGoLogo,
+    platform: "YESBINGO"
   }
 ]
 
 export const EGameUrl = [
   {
-    imageUrl: FCLogo
+    imageUrl: FCLogo,
+    platform: "FC"
   },
   {
-    imageUrl: JDBLogo
+    imageUrl: JDBLogo,
+    platform: "JDB"
   },
   {
-    imageUrl: PPLogo
+    imageUrl: PPLogo,
+    platform: "PP"
   },
   {
-    imageUrl: SpadeLogo
+    imageUrl: SpadeLogo,
+    platform: "SPADE"
   },
   {
-    imageUrl: YLLogo
+    imageUrl: YLLogo,
+    platform: "YL"
   }
 ]
