@@ -110,49 +110,49 @@ export const SideIcon = ({ title, index }) => {
                   <img
                     src={item.imageUrl}
                     alt={item.imageUrl}
-                    className='bg-white/60 rounded-xl hover:w-24 m-4 hover:m-0 w-20 aspect-square mx-2 hover:shadow-3xl hover:shadow-white'
+                    className='rounded-full w-20 aspect-square mx-2 hover:shadow-[0_0px_40px_-0px_rgba(0,0,0,0.3)] hover:shadow-white'
                   />
                 )
               })}
             </div>
           )}
           {index == '7' && (
-            <div className=' h-full bg-white/40 grid grid-rows-6 grid-flow-col gap-4 items-center justify-center'>
+            <div className=' h-full backdrop-blur-sm grid grid-rows-6 grid-flow-col gap-4 items-center justify-center'>
               {/* Sports */}
               {LottoUrl.map((item, index) => {
                 return (
                   <img
                     src={item.imageUrl}
                     alt={item.imageUrl}
-                    className='bg-white/60 rounded-xl hover:w-24 m-4 hover:m-0 w-20 aspect-square mx-2 hover:shadow-3xl hover:shadow-white'
+                    className='rounded-full w-20 aspect-square mx-2 hover:shadow-[0_0px_40px_-0px_rgba(0,0,0,0.3)] hover:shadow-white'
                   />
                 )
               })}
             </div>
           )}
           {index == '8' && (
-            <div className=' h-full bg-white/40 grid grid-rows-6 grid-flow-col gap-4 items-center justify-center'>
+            <div className=' h-full backdrop-blur-sm grid grid-rows-6 grid-flow-col gap-4 items-center justify-center'>
               {/* Sports */}
               {BingoUrl.map((item, index) => {
                 return (
                   <img
                     src={item.imageUrl}
                     alt={item.imageUrl}
-                    className='bg-white/60 rounded-xl hover:w-24 m-4 hover:m-0 w-20 aspect-square mx-2 hover:shadow-3xl hover:shadow-white'
+                    className='rounded-full w-20 aspect-square mx-2 hover:shadow-[0_0px_40px_-0px_rgba(0,0,0,0.3)] hover:shadow-white'
                   />
                 )
               })}
             </div>
           )}
           {index == '9' && (
-            <div className=' h-full bg-white/40 grid grid-rows-6 grid-flow-col gap-4 items-center justify-center'>
+            <div className=' h-full backdrop-blur-sm grid grid-rows-6 grid-flow-col gap-4 items-center justify-center'>
               {/* Sports */}
               {EGameUrl.map((item, index) => {
                 return (
                   <img
                     src={item.imageUrl}
                     alt={item.imageUrl}
-                    className='bg-white/60 rounded-xl hover:w-24 m-4 hover:m-0 w-20 aspect-square mx-2 hover:shadow-3xl hover:shadow-white'
+                    className='rounded-full w-20 aspect-square mx-2 hover:shadow-[0_0px_40px_-0px_rgba(0,0,0,0.3)] hover:shadow-white'
                   />
                 )
               })}
