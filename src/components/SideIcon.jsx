@@ -43,7 +43,7 @@ export const SideIcon = ({ title, index }) => {
                     key={index}
                     src={item.imageUrl}
                     alt={item.imageUrl}
-                    className='w-[65px] aspect-square hover:shadow-[0_0px_40px_-0px_rgba(0,0,0,0.3)] hover:shadow-white m-[10px]'
+                    className='w-[65px] aspect-square hover:brightness-150 m-[10px]'
                     onClick={()=>navigate(`TABLE/${item.platform}`, { replace: true })}
                   />
                 )
@@ -60,7 +60,7 @@ export const SideIcon = ({ title, index }) => {
                     key={index}
                     src={item.imageUrl}
                     alt={item.imageUrl}
-                    className='w-[65px] aspect-square hover:shadow-[0_0px_40px_-0px_rgba(0,0,0,0.3)] hover:shadow-white m-[10px]'
+                    className='w-[65px] aspect-square hover:brightness-150 m-[10px]'
                     onClick={()=>navigate(`/ESPORTS/${item.platform}`, { replace: true })}
                   />
                 )
@@ -76,7 +76,7 @@ export const SideIcon = ({ title, index }) => {
                     key={index}
                     src={item.imageUrl}
                     alt={item.imageUrl}
-                    className='w-[65px] aspect-square hover:shadow-[0_0px_40px_-0px_rgba(0,0,0,0.3)] hover:shadow-white m-[10px]'
+                    className='w-[65px] aspect-square hover:brightness-150 m-[10px]'
                     onClick={()=>navigate(`/LIVE/${item.platform}`, { replace: true })}
                   />
                 )
@@ -92,7 +92,7 @@ export const SideIcon = ({ title, index }) => {
                     key={index}
                     src={item.imageUrl}
                     alt={item.imageUrl}
-                    className='w-[65px] aspect-square hover:shadow-[0_0px_40px_-0px_rgba(0,0,0,0.3)] hover:shadow-white m-[10px]'
+                    className='w-[65px] aspect-square hover:brightness-150 m-[10px]'
                     onClick={()=>navigate(`/FH/${item.platform}`, { replace: true })}
                   />
                 )
@@ -108,7 +108,7 @@ export const SideIcon = ({ title, index }) => {
                     key={index}
                     src={item.imageUrl}
                     alt={item.imageUrl}
-                    className='w-[65px] aspect-square hover:shadow-[0_0px_40px_-0px_rgba(0,0,0,0.3)] hover:shadow-white m-[10px]'
+                    className='w-[65px] aspect-square hover:brightness-150 m-[10px]'
                     onClick={()=>navigate(`/SLOT/${item.platform}`, { replace: true })}
                   />
                 )
@@ -124,7 +124,7 @@ export const SideIcon = ({ title, index }) => {
                     key={index}
                     src={item.imageUrl}
                     alt={item.imageUrl}
-                    className='w-[65px] aspect-square hover:shadow-[0_0px_40px_-0px_rgba(0,0,0,0.3)] hover:shadow-white m-[10px]'
+                    className='w-[65px] aspect-square hover:brightness-150 m-[10px]'
                     onClick={()=>navigate(`/VIRTUAL/${item.platform}`, { replace: true })}
                   />
                 )
@@ -140,7 +140,7 @@ export const SideIcon = ({ title, index }) => {
                     key={index}
                     src={item.imageUrl}
                     alt={item.imageUrl}
-                    className='w-[65px] aspect-square hover:shadow-[0_0px_40px_-0px_rgba(0,0,0,0.3)] hover:shadow-white m-[10px]'
+                    className='w-[65px] aspect-square hover:brightness-150 m-[10px]'
                     onClick={()=>navigate(`/LOTTO/${item.platform}`, { replace: true })}
                   />
                 )
@@ -156,7 +156,7 @@ export const SideIcon = ({ title, index }) => {
                     key={index}
                     src={item.imageUrl}
                     alt={item.imageUrl}
-                    className='w-[65px] aspect-square hover:shadow-[0_0px_40px_-0px_rgba(0,0,0,0.3)] hover:shadow-white m-[10px]'
+                    className='w-[65px] aspect-square hover:brightness-150 m-[10px]'
                     onClick={()=>navigate(`/BINGO/${item.platform}`, { replace: true })}
                   />
                 )
@@ -172,7 +172,7 @@ export const SideIcon = ({ title, index }) => {
                     key={index}
                     src={item.imageUrl}
                     alt={item.imageUrl}
-                    className='w-[65px] aspect-square hover:shadow-[0_0px_40px_-0px_rgba(0,0,0,0.3)] hover:shadow-white m-[10px]'
+                    className='w-[65px] aspect-square hover:brightness-150 m-[10px]'
                     onClick={()=>navigate(`/EGAME/${item.platform}`, { replace: true })}
                   />
                 )
