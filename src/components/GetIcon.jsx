@@ -54,7 +54,7 @@ export const GetIcon = ({ title, active }) => {
         break
       case 'VIRTUAL':
         if (active) {
-          setIcon(roulette_hover)
+          setIcon(cards_hover)
         } else {
           setIcon(cards)
         }
@@ -68,7 +68,7 @@ export const GetIcon = ({ title, active }) => {
         break
       case 'LOTTO':
         if (active) {
-          setIcon(slots_hover)
+          setIcon(roulette_hover)
         } else {
           setIcon(roulette)
         }
