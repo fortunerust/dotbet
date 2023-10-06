@@ -17,6 +17,17 @@ export const GameList = () => {
         const res = await API.getGamesByFilter({ gameType, platform });
         if (res.data.status == "0000") {
             setGames(res.data.games);
+        }else {
+            toast.error(res.data.desc, {
+                position: 'top-right',
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: 'light'
+            })
         }
     }
 

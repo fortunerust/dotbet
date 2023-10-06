@@ -22,9 +22,16 @@ export const SideIcon = ({ title, index }) => {
       className={`bonus-area rounded-lg flex items-center cursor-pointer w-[115px] h-[50px]`}
       onMouseOver={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
+      onClick={() => {
+        if(index == 0) navigate(`/`, { replace: true })
+      }}
     >
       <GetIcon title={title} active={isHover} className='' />
-      <h1 className='flex-1 text-center'>{title}</h1>
+      {isHover ? (
+        <h1 className={'flex-1 text-center'} style={{color:"#42930E"}}>{title}</h1>
+      ) : (
+        <h1 className={'flex-1 text-center text-blue-600'}>{title}</h1>
+      )}
       {index !== 0 && (
         <div className='dropdown-content'>
           {index == '1' && (
