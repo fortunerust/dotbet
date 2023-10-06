@@ -29,7 +29,6 @@ import home_hover from '../assets/img/aside/tabs/home_hover.svg'
 import cards from '../assets/img/aside/tabs/Card.svg'
 
 import Slide from '../components/Slide'
-import { GetIcon } from './GetIcon'
 import { SideIcon } from './SideIcon'
 
 export const RightAreaHome = () => {
@@ -314,7 +313,7 @@ export const RightAreaHome = () => {
         <aside className='py-4 hidden  md:flex '>
           <div className='flex flex-col justify-between z-[99]'>
             <div>
-              <div className='flex items-center justify-center mb-11 mt-2'>
+              <div className='flex items-center justify-center mb-8 mt-2'>
                 <img src={menuExpander} alt='menuExpander' />
               </div>
               {gameListLeft.map((item, index) => {
@@ -324,7 +323,6 @@ export const RightAreaHome = () => {
               })}
             </div>
             <div>
-              <div className='breaker flex-1'></div>
               <div className='flex flex-col '>
                 {supportList.map((item, index) => {
                   return (

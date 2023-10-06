@@ -46,7 +46,7 @@ aside {
 }
 aside .bonus-area {
   flex-direction: column;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
 }
 
 aside .bonus-area h1 {
