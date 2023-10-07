@@ -18,6 +18,12 @@ import slots from '../assets/img/aside/tabs/Slots.svg'
 import home from '../assets/img/aside/tabs/home.svg'
 import home_hover from '../assets/img/aside/tabs/home_hover.svg'
 import cards from '../assets/img/aside/tabs/Card.svg'
+import sportGame from '../assets/img/aside/tabs/sports-game-l.svg'
+import tableGame from '../assets/img/aside/tabs/table-game-l.svg'
+import fishingGame from '../assets/img/aside/tabs/fishing-game-l.svg'
+import virtualGame from '../assets/img/aside/tabs/virtual-game-l.svg'
+import lottoGame from '../assets/img/aside/tabs/Lotto-game-l.svg'
+import egame from '../assets/img/aside/tabs/egame-l.svg'
 
 import Slide from '../components/Slide'
 import { SideIcon } from './SideIcon'
@@ -117,13 +123,13 @@ export const RightAreaHome = () => {
       Hover: home_hover
     },
     {
-      Img: slots,
+      Img: tableGame,
       Text: 'Table Game',
       Hover: home_hover,
       gameType: 'TABLE'
     },
     {
-      Img: sports,
+      Img: sportGame,
       Text: 'Sports',
       Hover: home_hover,
       gameType: 'ESPORTS'
@@ -135,7 +141,7 @@ export const RightAreaHome = () => {
       gameType: 'LIVE'
     },
     {
-      Img: cards,
+      Img: fishingGame,
       Text: 'Fishing Game',
       Hover: home_hover,
       gameType: 'FH'
@@ -147,25 +153,25 @@ export const RightAreaHome = () => {
       gameType: 'SLOT'
     },
     {
-      Img: Live,
+      Img: virtualGame,
       Text: 'Virtual',
       Hover: home_hover,
       gameType: 'VIRTUAL'
     },
     {
-      Img: slots,
+      Img: lottoGame,
       Text: 'Lotto',
       Hover: home_hover,
       gameType: 'LOTTO'
     },
     {
-      Img: slots,
+      Img: sports,
       Text: 'Bingo',
       Hover: home_hover,
       gameType: 'BINGO'
     },
     {
-      Img: slots,
+      Img: egame,
       Text: 'EGame',
       Hover: home_hover,
       gameType: 'EGAME'
