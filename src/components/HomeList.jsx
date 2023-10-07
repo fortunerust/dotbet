@@ -64,7 +64,7 @@ export const HomeList = () => {
                 title='Sports'
                 games={
                     games.length > 0
-                        ? games.filter(game => game.gameType == 'ESPORTS')
+                        ? games.filter(game => (game.gameName.toLowerCase().includes('sport') || game.gameType == "ESPORTS"))
                         : []
                 }
             />

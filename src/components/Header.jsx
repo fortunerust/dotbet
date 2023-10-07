@@ -20,9 +20,9 @@ export const Header = () => {
   useEffect(() => {
     let i = rollingNumber
     let poolnumber = setInterval(function () {
-      i += parseInt(Math.random() * 100000)
+      i += parseInt(Math.random() * 10000)
       setRollingNumber(i)
-    }, 1000)
+    }, 100)
     return () => {
       clearInterval(poolnumber)
     }
