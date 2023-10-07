@@ -114,10 +114,10 @@ export const GameList = () => {
                                 src={process.env.REACT_APP_BACKEND + '/images/' + item.img}
                                 alt={`slider ${key + 1}`}
                                 className={
-                                    'rounded-tr-lg rounded-tl-lg w-[80px] xl:w-[200px] lg:w-[140px] aspect-square'
+                                    'rounded-tr-lg rounded-tl-lg w-[200px] aspect-square'
                                 }
                             />
-                            <div className='presentation p-3 justify-between flex flex-col lg:flex-row items-center text-center lg:text-start rounded-bl-lg rounded-br-lg'>
+                            <div className='presentation p-3 justify-between flex flex-col lg:flex-row items-center text-center lg:text-start rounded-bl-lg rounded-br-lg w-[200px]'>
                                 <h1 className='w-full h-8 object-cover overflow-hidden'>
                                     {item.gameName}
                                 </h1>
