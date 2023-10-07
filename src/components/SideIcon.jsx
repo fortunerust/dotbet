@@ -19,7 +19,7 @@ export const SideIcon = ({ title, index }) => {
   const [isHover, setIsHover] = useState(false)
   return (
     <div
-      className={`bonus-area rounded-lg flex flex-col items-center cursor-pointer w-[115px] h-[50px]`}
+      className={`bonus-area rounded-lg flex flex-col mt-[20px] items-center cursor-pointer w-[115px] h-[50px]`}
       onMouseOver={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
       onClick={() => {
