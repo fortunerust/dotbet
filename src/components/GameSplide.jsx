@@ -60,24 +60,24 @@ export const GameSplide = props => {
             gap: 10,
             arrows: false,
             pagination: false,
-            perPage: 6,
-            breakpoints: {
-              280: {
-                perPage: 1,
-              },
-              500:{
-                perPage: 2,
-              },
-              770:{
-                perPage: 3,
-              },
-              970:{
-                perPage: 4,
-              },
-              1200:{
-                perPage: 5,
-              }
-            },
+            perPage: 5,
+            // breakpoints: {
+            //   280: {
+            //     perPage: 1,
+            //   },
+            //   500:{
+            //     perPage: 2,
+            //   },
+            //   770:{
+            //     perPage: 3,
+            //   },
+            //   970:{
+            //     perPage: 4,
+            //   },
+            //   1200:{
+            //     perPage: 5,
+            //   }
+            // },
             height: props.height,
             direction: props.direction
           }}
