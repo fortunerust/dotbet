@@ -92,5 +92,5 @@ export const GetIcon = ({ title, active }) => {
     }
   }, [active])
 
-  return <img src={icon} alt='' />
+  return <img src={icon} alt=''/>
 }

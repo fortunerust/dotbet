@@ -3,23 +3,23 @@ import { GetIcon } from './GetIcon'
 import { useNavigate, useParams } from 'react-router-dom';
 
 import {
-  SLOTUrl,
-  LiveCasinoUrl,
-  SportUrl,
-  FishingGameUrl,
-  TableUrl,
-  VirtualUrl,
-  LottoUrl,
-  BingoUrl,
-  EGameUrl
-} from '../config/Url'
+  Slot,
+  LiveCasino,
+  Sport,
+  FishingGame,
+  Table,
+  Virtual,
+  Lotto,
+  Bingo,
+  EGame
+} from '../config'
 
 export const SideIcon = ({ title, index }) => {
   const navigate = useNavigate();
   const [isHover, setIsHover] = useState(false)
   return (
     <div
-      className={`bonus-area rounded-lg flex items-center cursor-pointer w-[115px] h-[50px]`}
+      className={`bonus-area rounded-lg flex flex-col items-center cursor-pointer w-[115px] h-[50px]`}
       onMouseOver={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
       onClick={() => {
@@ -28,22 +28,22 @@ export const SideIcon = ({ title, index }) => {
     >
       <GetIcon title={title} active={isHover} className='' />
       {isHover ? (
-        <h1 className={'flex-1 text-center'} style={{color:"#42930E"}}>{title}</h1>
+        <h1 className={'flex flex-col-1 text-center'} style={{color:"#42930E"}}>{title}</h1>
       ) : (
-        <h1 className={'flex-1 text-center text-blue-600'}>{title}</h1>
+        <h1 className={'flex flex-col-1 text-center text-blue-600'}>{title}</h1>
       )}
       {index !== 0 && (
         <div className='dropdown-content'>
           {index == '1' && (
-            <div className='h-full backdrop-blur-sm flex flex-col flex-wrap items-center justify-center gap-6 mx-2'>
+            <div className='h-full flex flex-col backdrop-blur-sm no-scrollbar overflow-y-scroll'>
               {/* Sports */}
-              {TableUrl.map((item, index) => {
+              {Table.map((item, index) => {
                 return (
                   <img
                     key={index}
                     src={item.imageUrl}
                     alt={item.imageUrl}
-                    className='w-[65px] aspect-square hover:brightness-150 m-[10px]'
+                    className='w-[40%] hover:brightness-150 m-auto pb-[30px] pt-[30px]'
                     onClick={()=>navigate(`TABLE/${item.platform}`, { replace: true })}
                   />
                 )
@@ -52,15 +52,15 @@ export const SideIcon = ({ title, index }) => {
           )}
 
           {index == '2' && (
-            <div className='h-full backdrop-blur-sm flex flex-col flex-wrap items-center justify-center gap-6 mx-2'>
+            <div className='h-full flex flex-col backdrop-blur-sm no-scrollbar overflow-y-scroll'>
               {/* Sports */}
-              {SportUrl.map((item, index) => {
+              {Sport.map((item, index) => {
                 return (
                   <img
                     key={index}
                     src={item.imageUrl}
                     alt={item.imageUrl}
-                    className='w-[65px] aspect-square hover:brightness-150 m-[10px]'
+                    className='w-[70%] hover:brightness-150 m-auto pr-[20px] pb-[30px] pt-[30px]'
                     onClick={()=>navigate(`/ESPORTS/${item.platform}`, { replace: true })}
                   />
                 )
@@ -68,15 +68,15 @@ export const SideIcon = ({ title, index }) => {
             </div>
           )}
           {index == '3' && (
-            <div className='h-full backdrop-blur-sm flex flex-col flex-wrap items-center justify-center gap-6 mx-2'>
+            <div className='h-full flex flex-col backdrop-blur-sm no-scrollbar overflow-y-scroll'>
               {/* Sports */}
-              {LiveCasinoUrl.map((item, index) => {
+              {LiveCasino.map((item, index) => {
                 return (
                   <img
                     key={index}
                     src={item.imageUrl}
                     alt={item.imageUrl}
-                    className='w-[65px] aspect-square hover:brightness-150 m-[10px]'
+                    className='w-[40%] hover:brightness-150 m-auto pb-[30px] pt-[30px]'
                     onClick={()=>navigate(`/LIVE/${item.platform}`, { replace: true })}
                   />
                 )
@@ -84,15 +84,15 @@ export const SideIcon = ({ title, index }) => {
             </div>
           )}
           {index == '4' && (
-            <div className='h-full backdrop-blur-sm flex flex-col flex-wrap items-center justify-center gap-6 mx-2'>
+            <div className='h-full flex flex-col backdrop-blur-sm no-scrollbar overflow-y-scroll'>
               {/* Sports */}
-              {FishingGameUrl.map((item, index) => {
+              {FishingGame.map((item, index) => {
                 return (
                   <img
                     key={index}
                     src={item.imageUrl}
                     alt={item.imageUrl}
-                    className='w-[65px] aspect-square hover:brightness-150 m-[10px]'
+                    className='w-[40%] hover:brightness-150 m-auto pb-[30px] pt-[30px]'
                     onClick={()=>navigate(`/FH/${item.platform}`, { replace: true })}
                   />
                 )
@@ -100,15 +100,15 @@ export const SideIcon = ({ title, index }) => {
             </div>
           )}
           {index == '5' && (
-            <div className='h-full backdrop-blur-sm flex flex-col flex-wrap items-center justify-center gap-6 mx-2'>
+            <div className='h-full flex flex-col backdrop-blur-sm no-scrollbar overflow-y-scroll'>
               {/* Sports */}
-              {SLOTUrl.map((item, index) => {
+              {Slot.map((item, index) => {
                 return (
                   <img
                     key={index}
                     src={item.imageUrl}
                     alt={item.imageUrl}
-                    className='w-[65px] aspect-square hover:brightness-150 m-[10px]'
+                    className='w-[40%] hover:brightness-150 m-auto pb-[30px] pt-[30px]'
                     onClick={()=>navigate(`/SLOT/${item.platform}`, { replace: true })}
                   />
                 )
@@ -116,15 +116,15 @@ export const SideIcon = ({ title, index }) => {
             </div>
           )}
           {index == '6' && (
-            <div className='h-full backdrop-blur-sm flex flex-col flex-wrap items-center justify-center gap-6 mx-2'>
+            <div className='h-full flex flex-col backdrop-blur-sm no-scrollbar overflow-y-scroll'>
               {/* Sports */}
-              {VirtualUrl.map((item, index) => {
+              {Virtual.map((item, index) => {
                 return (
                   <img
                     key={index}
                     src={item.imageUrl}
                     alt={item.imageUrl}
-                    className='w-[65px] aspect-square hover:brightness-150 m-[10px]'
+                    className='w-[40%] hover:brightness-150 m-auto pb-[30px] pt-[30px]'
                     onClick={()=>navigate(`/VIRTUAL/${item.platform}`, { replace: true })}
                   />
                 )
@@ -132,15 +132,15 @@ export const SideIcon = ({ title, index }) => {
             </div>
           )}
           {index == '7' && (
-            <div className='h-full backdrop-blur-sm flex flex-col flex-wrap items-center justify-center gap-6 mx-2'>
+            <div className='h-full flex flex-col backdrop-blur-sm no-scrollbar overflow-y-scroll'>
               {/* Sports */}
-              {LottoUrl.map((item, index) => {
+              {Lotto.map((item, index) => {
                 return (
                   <img
                     key={index}
                     src={item.imageUrl}
                     alt={item.imageUrl}
-                    className='w-[65px] aspect-square hover:brightness-150 m-[10px]'
+                    className='w-[40%] hover:brightness-150 m-auto pb-[30px] pt-[30px]'
                     onClick={()=>navigate(`/LOTTO/${item.platform}`, { replace: true })}
                   />
                 )
@@ -148,15 +148,15 @@ export const SideIcon = ({ title, index }) => {
             </div>
           )}
           {index == '8' && (
-            <div className='h-full backdrop-blur-sm flex flex-col flex-wrap items-center justify-center gap-6 mx-2'>
+            <div className='h-full flex flex-col backdrop-blur-sm no-scrollbar overflow-y-scroll'>
               {/* Sports */}
-              {BingoUrl.map((item, index) => {
+              {Bingo.map((item, index) => {
                 return (
                   <img
                     key={index}
                     src={item.imageUrl}
                     alt={item.imageUrl}
-                    className='w-[65px] aspect-square hover:brightness-150 m-[10px]'
+                    className='w-[40%] hover:brightness-150 m-auto pb-[30px] pt-[30px]'
                     onClick={()=>navigate(`/BINGO/${item.platform}`, { replace: true })}
                   />
                 )
@@ -164,15 +164,15 @@ export const SideIcon = ({ title, index }) => {
             </div>
           )}
           {index == '9' && (
-            <div className='h-full backdrop-blur-sm flex flex-col flex-wrap items-center justify-center gap-6 mx-2'>
+            <div className='h-full flex flex-col backdrop-blur-sm no-scrollbar overflow-y-scroll'>
               {/* Sports */}
-              {EGameUrl.map((item, index) => {
+              {EGame.map((item, index) => {
                 return (
                   <img
                     key={index}
                     src={item.imageUrl}
                     alt={item.imageUrl}
-                    className='w-[65px] aspect-square hover:brightness-150 m-[10px]'
+                    className='w-[40%] hover:brightness-150 m-auto pb-[30px] pt-[30px]'
                     onClick={()=>navigate(`/EGAME/${item.platform}`, { replace: true })}
                   />
                 )

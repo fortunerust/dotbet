@@ -118,6 +118,47 @@
   color: #469711;
 }
 
+.game-list .card {
+  width: 100%;
+}
+
+
+.home .game-list .card > .presentation {
+  background: var(--secondaryColor);
+}
+.home .game-list .card > .presentation h1 {
+  color: var(--headingColor);
+  font-family: 'Arabic Pro Reg';
+  font-size: 12px;
+  font-style: normal;
+  line-height: 135%; /* 16.2px */
+}
+.home .game-list .card > .presentation button:not(.text-xs) {
+  color: #c7c8cf;
+  font-size: 10px;
+  font-family: 'Arabic Pro Reg';
+
+  line-height: 14px;
+  word-wrap: break-word;
+}
+.home .TopRatesGame .game-list .card {
+  /* width: 179px; */
+  width: 100%;
+}
+.home .TopRatesGame .game-list .card .presentation h1 {
+  color: var(--paragraphColor);
+}
+.home .TopRatesGame .game-list .card .presentation button {
+  width: 100%;
+  color: var(--primaryColor) !important;
+  background-clip: unset;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+  background: #469711;
+}
+
+
+
 .home .slider-wrapper-recent .card {
   width: 100%;
 }
