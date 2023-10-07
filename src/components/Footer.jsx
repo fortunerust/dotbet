@@ -178,12 +178,29 @@ export const Footer = () => {
   return (
     <footer className='pt-16 pb-14 mt-16 md:ml-24'>
       <div className='footer-width content-footer-area'>
-        <div className='flex flex-wrap items-center justify-center gap-10 mb-6'>
-          {Logos.map((item, index) => (
-            <a key={index} href={item.Url}>
-              <img src={item.Logo} alt='Logo' className='h-6 mx-auto' />
-            </a>
-          ))}
+        <div className='icons-wrapper mt-14'>
+          <div className='slider-area'>
+            <Splide
+              className='mt-8 mb-16 SliderAreaFirst'
+              options={{
+                autoWidth: true,
+                gap: 30,
+                arrows: false,
+                pagination: false
+              }}
+            >
+              {Logos.map((item, index) => (
+                <SplideSlide
+                  key={index}
+                  className='w-[180px]  bg-white/20 py-3 rounded-lg'
+                >
+                  <a key={index} href={item.Url}>
+                    <img src={item.Logo} alt='Logo' className='h-8 mx-auto' />
+                  </a>
+                </SplideSlide>
+              ))}
+            </Splide>
+          </div>
         </div>
         <div className='why-area grid lg:grid-cols-2 gap-6 lg:gap-36'>
           <div className='left-area-footer-why'>
