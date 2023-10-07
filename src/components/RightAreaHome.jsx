@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 import { Header } from './Header'
 import chat from '../assets/img/chat-green.svg'
 import emoji from '../assets/img/emoji.svg'
@@ -25,6 +25,7 @@ import { HomeList } from './HomeList'
 import { GameList } from './GameList';
 
 export const RightAreaHome = () => {
+  const navigate = useNavigate();
   const commentsData = [
     {
       name: 'Devon Lane',
@@ -116,49 +117,58 @@ export const RightAreaHome = () => {
       Hover: home_hover
     },
     {
-      Img: home_hover,
+      Img: slots,
       Text: 'Table Game',
-      Hover: home_hover
+      Hover: home_hover,
+      gameType: 'TABLE'
     },
     {
       Img: sports,
       Text: 'Sports',
-      Hover: home_hover
+      Hover: home_hover,
+      gameType: 'ESPORTS'
     },
     {
       Img: Live,
       Text: 'Live Casino',
-      Hover: home_hover
+      Hover: home_hover,
+      gameType: 'LIVE'
     },
     {
       Img: cards,
       Text: 'Fishing Game',
-      Hover: home_hover
+      Hover: home_hover,
+      gameType: 'FH'
     },
     {
       Img: slots,
       Text: 'Slots',
-      Hover: home_hover
+      Hover: home_hover,
+      gameType: 'SLOT'
     },
     {
       Img: Live,
       Text: 'Virtual',
-      Hover: home_hover
+      Hover: home_hover,
+      gameType: 'VIRTUAL'
     },
     {
       Img: slots,
       Text: 'Lotto',
-      Hover: home_hover
+      Hover: home_hover,
+      gameType: 'LOTTO'
     },
     {
       Img: slots,
       Text: 'Bingo',
-      Hover: home_hover
+      Hover: home_hover,
+      gameType: 'BINGO'
     },
     {
       Img: slots,
       Text: 'EGame',
-      Hover: home_hover
+      Hover: home_hover,
+      gameType: 'EGAME'
     }
   ]
 
@@ -224,13 +234,17 @@ export const RightAreaHome = () => {
         <div className='w-full justify-between flex items-start gap-10 px-2 sm:px-8 pt-6'>
           <div className='w-full lg:w-[65%] xl:w-[70%] 2xl:w-[75%] px-2 mx-a'>
             <Slide />
-            {/* <div className='tags-wrapper mt-10 mb-12 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7 gap-3'>
-              {gameListState.map((item, index) => {
+            <div className='tags-wrapper mt-10 mb-12 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7 gap-3'>
+              {gameListLeft.map((item, index) => {
                 return (
                   <div
                     key={index}
-                    onClick={e => dropDownText(index)}
                     // href={`${item.id}`}
+                    onClick={()=>{
+                      if(item.Text == "Lobby") navigate("/", {replace: true});
+                      else navigate(`${item.gameType}/ALL`, { replace: true })
+                      setOpenedFaqId(index);
+                    }}
                     className={`${
                       index === openedFaqId ? 'active' : ''
                     } tag flex justify-center  items-center cursor-pointer`}
@@ -240,7 +254,7 @@ export const RightAreaHome = () => {
                   </div>
                 )
               })}
-            </div> */}
+            </div>
 
             <Routes>
               <Route path="/" element={<HomeList />} />

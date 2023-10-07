@@ -52,19 +52,18 @@ export const HomeList = () => {
             <GameSplide items={5} title="New" games={games.slice(11,20)}/>
 
             {/* Sports */}
-            <GameSplide items={5} title="Sports" games={games.slice(21,30)}/>
+            <GameSplide items={5} title="Sports" games={games.length > 0 ? games.filter((game)=>game.gameType == "ESPORTS") : []}/>
 
             {/* LiveCasino */}
-            <GameSplide items={5} icon={()=>{return (<img src={livecasino} alt='livecasino' className='mr-2' />)}} title="Live Casino" games={games.slice(31,40)}/>
+            <GameSplide items={5} icon={()=>{return (<img src={livecasino} alt='livecasino' className='mr-2' />)}} title="Live Casino" games={games.length > 0 ? games.filter((game)=>game.gameType == "LIVE") : []}/>
 
             {/* Slots */}
-            <GameSplide items={5} title="Featured Slots" games={games.slice(51,60)}/>
-
+            <GameSplide items={5} title="Featured Slots" games={games.length > 0 ? games.filter((game)=>game.gameType == "SLOT") : []}/>
             {/* Roulette */}
-            <GameSplide items={5} title="Roulette" games={games.slice(61,70)}/>
+            <GameSplide items={5} title="Roulette" games={games.length > 0 ? games.filter((game)=>game.gameName.toLowercase == "roulette") : []}/>
 
             {/* Fishing */}
-            <GameSplide items={5} title="Fishing" games={games.slice(71,80)}/>
+            <GameSplide items={5} title="Fishing" games={games.length > 0 ? games.filter((game)=>game.gameType == "FH") : []}/>
 
             {/* GameShow */}
             <GameSplide items={5} icon={()=>{return (<img src={gameshow} alt='gameshow' className='mr-2' />)}} title="Game Shows" games={games.slice(81,90)}/>
