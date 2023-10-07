@@ -223,7 +223,7 @@ export const RightAreaHome = () => {
         <Header />
         <div className='w-full justify-between flex items-start gap-10 px-2 sm:px-8 pt-6'>
           <div className='w-full lg:w-[65%] xl:w-[70%] 2xl:w-[75%] px-2 mx-a'>
-            {/* <Slide /> */}
+            <Slide />
             {/* <div className='tags-wrapper mt-10 mb-12 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7 gap-3'>
               {gameListState.map((item, index) => {
                 return (

@@ -14,13 +14,13 @@ export const Header = () => {
   const [open, setOpen] = useState(false)
   const [title, setTitle] = useState('')
   const [rollingNumber, setRollingNumber] = useState(
-    50000000 + parseInt(Math.random() * 10000)
+    50000000 + parseInt(Math.random() * 100000)
   )
 
   useEffect(() => {
     let i = rollingNumber
     let poolnumber = setInterval(function () {
-      i += parseInt(Math.random() * 100)
+      i += parseInt(Math.random() * 100000)
       setRollingNumber(i)
     }, 1000)
     return () => {
@@ -52,7 +52,7 @@ export const Header = () => {
           Game
         </button>
         <div className='text-white justify-end w-full ml-6 sm:flex hidden mx-auto'>
-          <p className='text-start text-xl py-4 w-full  rounded-xl rolling my-3 font-extrabold'>
+          <p className='text-start py-4 w-full  rounded-xl text-3xl rolling my-3 font-extrabold'>
             ${' '}
             {rollingNumber.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}{' '}
           </p>

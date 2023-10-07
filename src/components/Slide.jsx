@@ -27,9 +27,9 @@ export default function Slide () {
         modules={[Autoplay, Pagination, Navigation]}
         className='mySwiper rounded-xl'
       >
-        <SwiperSlide>
+        {/* <SwiperSlide>
           <img src='/img/slide/image (1).png' alt='' />
-        </SwiperSlide>
+        </SwiperSlide> */}
         <SwiperSlide>
           <img src='/img/slide/image (2).png' alt='' />
         </SwiperSlide>
@@ -42,9 +42,9 @@ export default function Slide () {
         <SwiperSlide>
           <img src='/img/slide/image (5).png' alt='' />
         </SwiperSlide>
-        <SwiperSlide>
+        {/* <SwiperSlide>
           <img src='/img/slide/image (6).png' alt='' />
-        </SwiperSlide>
+        </SwiperSlide> */}
         <SwiperSlide>
           <img src='/img/slide/image (7).png' alt='' />
         </SwiperSlide>
