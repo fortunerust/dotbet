@@ -11,7 +11,7 @@ import { Roulette } from './Roulette'
 import { Slots } from './Slots'
 import { Sports } from './Sports'
 import { NewArrival } from './NewArrival'
-import * as API from '../services/api';
+import * as API from '../services/api'
 import { ToastContainer, toast } from 'react-toastify'
 
 import glowdot from '../assets/img/glow-dot.svg'
@@ -19,63 +19,132 @@ import livecasino from '../assets/img/live-casino.svg'
 import gameshow from '../assets/img/game-show.svg'
 
 export const HomeList = () => {
-    const [games, setGames] = useState([]);
-
-    const fetchData = async () => {
-        const res = await API.getGames();
-        if (res.data.status == "0000") {
-            setGames(res.data.games);
-        } else {
-            toast.error(res.data.desc, {
-                position: 'top-right',
-                autoClose: 1000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: 'light'
-            })
-        }
+  const [games, setGames] = useState([])
+  const fetchData = async () => {
+    const res = await API.getGames()
+    if (res.data.status == '0000') {
+      setGames(res.data.games)
+    } else {
+      toast.error(res.data.desc, {
+        position: 'top-right',
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light'
+      })
     }
+  }
 
-    useEffect(() => {
-        fetchData();
-    }, []);
+  useEffect(() => {
+    fetchData()
+  }, [])
 
-    return (
-        <>
-            {/* RecentWin*/}
-            <GameSplide items={5} icon={()=>{return (<img src={glowdot} alt='glowdot' className='mr-2' />)}} title="Hits" games={games.slice(0,10)}/>
+  return (
+    <>
+      {/* RecentWin*/}
+      <GameSplide
+        items={5}
+        icon={() => {
+          return <img src={glowdot} alt='glowdot' className='mr-2' />
+        }}
+        title='Hits'
+        games={games.slice(0, 10)}
+      />
 
-            {/* NewArrival */}
-            <GameSplide items={5} title="New" games={games.slice(11,20)}/>
+      {/* NewArrival */}
+      <GameSplide items={5} title='New' games={games.slice(11, 20)} />
 
-            {/* Sports */}
-            <GameSplide items={5} title="Sports" games={games.length > 0 ? games.filter((game)=>game.gameType == "ESPORTS") : []}/>
+      {/* Providers */}
+      <GameSplide
+        items={5}
+        title='Providers'
+        games={
+          games.length > 0
+            ? games.filter(game => game.gameType == 'Providers')
+            : []
+        }
+      />
 
-            {/* LiveCasino */}
-            <GameSplide items={5} icon={()=>{return (<img src={livecasino} alt='livecasino' className='mr-2' />)}} title="Live Casino" games={games.length > 0 ? games.filter((game)=>game.gameType == "LIVE") : []}/>
+      {/* Sports */}
+      <GameSplide
+        items={5}
+        title='Sports'
+        games={
+          games.length > 0
+            ? games.filter(game => game.gameType == 'ESPORTS')
+            : []
+        }
+      />
 
-            {/* Slots */}
-            <GameSplide items={5} title="Featured Slots" games={games.length > 0 ? games.filter((game)=>game.gameType == "SLOT") : []}/>
-            {/* Roulette */}
-            <GameSplide items={5} title="Roulette" games={games.length > 0 ? games.filter((game)=>game.gameName.toLowercase == "roulette") : []}/>
+      {/* LiveCasino */}
+      <GameSplide
+        items={5}
+        icon={() => {
+          return <img src={livecasino} alt='livecasino' className='mr-2' />
+        }}
+        title='Live Casino'
+        games={
+          games.length > 0 ? games.filter(game => game.gameType == 'LIVE') : []
+        }
+      />
 
-            {/* Fishing */}
-            <GameSplide items={5} title="Fishing" games={games.length > 0 ? games.filter((game)=>game.gameType == "FH") : []}/>
+      {/* Slots */}
+      <GameSplide
+        items={5}
+        title='Featured Slots'
+        games={
+          games.length > 0 ? games.filter(game => game.gameType == 'SLOT') : []
+        }
+      />
+      {/* Roulette */}
+      <GameSplide
+        items={5}
+        title='Roulette'
+        games={
+          games.length > 0
+            ? games.filter(game => game.gameName == 'VRLOTTO')
+            : []
+        }
+      />
 
-            {/* GameShow */}
-            <GameSplide items={5} icon={()=>{return (<img src={gameshow} alt='gameshow' className='mr-2' />)}} title="Game Shows" games={games.slice(81,90)}/>
+      {/* Fishing */}
+      <GameSplide
+        items={5}
+        title='Fishing'
+        games={
+          games.length > 0 ? games.filter(game => game.gameType == 'FH') : []
+        }
+      />
 
-            {/* Top Rates Game */}
-            <GameSplide items={5} title="Top Rates Game" games={games.slice(91,100)}/>
+      {/* GameShow */}
+      <GameSplide
+        items={5}
+        icon={() => {
+          return <img src={gameshow} alt='gameshow' className='mr-2' />
+        }}
+        title='Game Shows'
+        games={games.slice(81, 90)}
+      />
 
-            {/* LatestBets */}
-            <LatestBets items={5} />
+      {/* Top Rates Game */}
+      <GameSplide
+        items={5}
+        title='Top Rates Game'
+        games={games.slice(91, 100)}
+      />
 
-            {/* Recommended Game */}
-            <GameSplide items={5} title="Recommended Games" games={games.slice(45,55)}/>
-        </>
-    )
+      {/* LatestBets */}
+      <LatestBets items={5} />
+
+      {/* Recommended Game */}
+      <GameSplide
+        items={5}
+        title='Recommended Games'
+        games={games.slice(45, 55)}
+      />
+    </>
+  )
 }

@@ -11,6 +11,18 @@ import home from '../assets/img/aside/tabs/home.svg'
 import home_hover from '../assets/img/aside/tabs/home_hover.svg'
 import cards from '../assets/img/aside/tabs/Card.svg'
 import cards_hover from '../assets/img/aside/tabs/Card_hover.svg'
+import sportGame from '../assets/img/aside/tabs/sports-game-l.svg'
+import sportGame_hover from '../assets/img/aside/tabs/sports-game.svg'
+import tableGame from '../assets/img/aside/tabs/table-game-l.svg'
+import tableGame_hover from '../assets/img/aside/tabs/table-game.svg'
+import fishingGame from '../assets/img/aside/tabs/fishing-game-l.svg'
+import fishingGame_hover from '../assets/img/aside/tabs/fishing-game.svg'
+import virtualGame from '../assets/img/aside/tabs/virtual-game-l.svg'
+import virtualGame_hover from '../assets/img/aside/tabs/virtual-game.svg'
+import lottoGame from '../assets/img/aside/tabs/Lotto-game-l.svg'
+import lottoGame_hover from '../assets/img/aside/tabs/lotto-game.svg'
+import egame from '../assets/img/aside/tabs/egame-l.svg'
+import egame_hover from '../assets/img/aside/tabs/egame.svg'
 
 export const GetIcon = ({ title, active }) => {
   const [icon, setIcon] = useState('')
@@ -26,9 +38,9 @@ export const GetIcon = ({ title, active }) => {
         break
       case 'Sports':
         if (active) {
-          setIcon(sports_hover)
+          setIcon(sportGame_hover)
         } else {
-          setIcon(sports)
+          setIcon(sportGame)
         }
         break
       case 'Live Casino':
@@ -40,23 +52,23 @@ export const GetIcon = ({ title, active }) => {
         break
       case 'Table Game':
         if (active) {
-          setIcon(slots_hover)
+          setIcon(tableGame_hover)
         } else {
-          setIcon(slots)
+          setIcon(tableGame)
         }
         break
       case 'Fishing Game':
         if (active) {
-          setIcon(roulette_hover)
+          setIcon(fishingGame_hover)
         } else {
-          setIcon(roulette)
+          setIcon(fishingGame)
         }
         break
       case 'Virtual':
         if (active) {
-          setIcon(cards_hover)
+          setIcon(virtualGame_hover)
         } else {
-          setIcon(cards)
+          setIcon(virtualGame)
         }
         break
       case 'Slots':
@@ -68,23 +80,23 @@ export const GetIcon = ({ title, active }) => {
         break
       case 'Lotto':
         if (active) {
-          setIcon(roulette_hover)
+          setIcon(lottoGame_hover)
         } else {
-          setIcon(roulette)
+          setIcon(lottoGame)
         }
         break
       case 'Bingo':
         if (active) {
-          setIcon(cards_hover)
+          setIcon(sports_hover)
         } else {
-          setIcon(cards)
+          setIcon(sports)
         }
         break
       case 'EGame':
         if (active) {
-          setIcon(slots_hover)
+          setIcon(egame_hover)
         } else {
-          setIcon(slots)
+          setIcon(egame)
         }
         break
       default:
@@ -92,5 +104,5 @@ export const GetIcon = ({ title, active }) => {
     }
   }, [active])
 
-  return <img src={icon} alt=''/>
+  return <img src={icon} alt='' />
 }
