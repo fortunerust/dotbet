@@ -57,17 +57,6 @@ export const HomeList = () => {
       {/* NewArrival */}
       <GameSplide items={5} title='New' games={games.slice(11, 20)} />
 
-      {/* Providers */}
-      <GameSplide
-        items={5}
-        title='Providers'
-        games={
-          games.length > 0
-            ? games.filter(game => game.gameType == 'Providers')
-            : []
-        }
-      />
-
       {/* Sports */}
       <GameSplide
         items={5}
