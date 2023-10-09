@@ -8,6 +8,10 @@ const api = axios.create({
     }
 });
 
+export async function getUserInfo() {
+    return await api.get(`/auth`);
+}
+
 export async function getGames() {
     return await api.get(`/game`);
 }

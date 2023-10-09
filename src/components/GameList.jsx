@@ -79,6 +79,7 @@ export const GameList = () => {
         setLoading(true);
         const res = await API.getGamePlayUrl(item._id);
         if (res.data.status == "0000") {
+            setLoading(false);
             window.open(res.data.session_url, "", "width=800, height=800");
         } else {
             toast.error(res.data.desc, {
