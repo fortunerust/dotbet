@@ -177,7 +177,7 @@ export const GameProvider = props => {
           {Logos.map((item, index) => (
             <SplideSlide
               key={index}
-              onClick={()=>navigation(`/ALL/${item.platform}`, {replace: true})}
+              onClick={()=>navigation(`ALL/${item.platform}`, {replace: true})}
               className='w-[180px]  bg-white/20 py-3 rounded-lg'
             >
               <a key={index} href={item.Url}>

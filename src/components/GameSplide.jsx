@@ -49,7 +49,7 @@ export const GameSplide = props => {
             {props.icon && <props.icon />}
             {props.title}
           </h1>
-          <a href='/'>See all</a>
+          <a href={`/ALL/${props.games[0]?.platform}`}>See all</a>
         </div>
       )}
 
@@ -108,7 +108,7 @@ export const GameSplide = props => {
                     <h1 className='w-full h-8 object-cover overflow-hidden'>
                       {item.gameName}
                     </h1>
-                    <button>Original</button>
+                    <button>{item.platform}</button>
                   </div>
                 </div>
               </SplideSlide>

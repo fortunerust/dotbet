@@ -59,7 +59,7 @@ export const HomeList = () => {
             <GameSplide items={5} title='New' games={games.slice(11, 20)} />
 
             {/* Sports */}
-            <GameSplide
+            {/* <GameSplide
                 items={5}
                 title='Sports'
                 games={
@@ -67,7 +67,7 @@ export const HomeList = () => {
                         ? games.filter(game => (game.gameName.toLowerCase().includes('sport') || game.gameType == "ESPORTS"))
                         : []
                 }
-            />
+            /> */}
 
             {/* LiveCasino */}
             <GameSplide
@@ -90,7 +90,7 @@ export const HomeList = () => {
                 }
             />
             {/* Roulette */}
-            <GameSplide
+            {/* <GameSplide
                 items={5}
                 title='Roulette'
                 games={
@@ -98,7 +98,7 @@ export const HomeList = () => {
                         ? games.filter(game => game.gameName == 'VRLOTTO')
                         : []
                 }
-            />
+            /> */}
 
             {/* Fishing */}
             <GameSplide

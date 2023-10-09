@@ -121,7 +121,7 @@ export const GameList = () => {
                                 <h1 className='w-full h-8 object-cover overflow-hidden'>
                                     {item.gameName}
                                 </h1>
-                                <button>Pragmatic Play</button>
+                                <button>{item.platform}</button>
                             </div>
                         </div>
                     </SplideSlide>

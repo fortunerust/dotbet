@@ -41,7 +41,7 @@ export const Header = () => {
           />
           <img src={search} alt='search' />
         </div>
-        <button
+        {/* <button
           className='flex rounded-lg justify-center  login-btn deposit-button items-center h-8'
           onClick={() => {
             setOpen(true)
@@ -50,7 +50,7 @@ export const Header = () => {
         >
           <img src={signIn} alt='sign In' className='mr-2' />
           Game
-        </button>
+        </button> */}
         <div className='text-white justify-end w-full ml-6 sm:flex hidden mx-auto'>
           <p className='text-start py-4 w-full  rounded-xl text-3xl rolling my-3 font-extrabold'>
             ${' '}
