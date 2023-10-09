@@ -11,6 +11,7 @@ import apple_icon from '../assets/img/apple_sign.svg'
 import twitter_icon from '../assets/img/twitter_sign.svg'
 import telegram_icon from '../assets/img/telegram_sign.svg'
 import whatsapp_icon from '../assets/img/whatsapp_sign.svg'
+import * as API from '../services/api'
 
 import axios from 'axios'
 
@@ -51,7 +52,8 @@ export default function Login ({ open, setOpen, title, setTitle }) {
       .then(function (response) {
         console.log(response.data)
         if (response.data.status === '0000') {
-          window.localStorage.setItem('token', response.data.token)
+          window.localStorage.setItem('token', response.data.token);
+          API.setAuthToken(response.data.token);
           setOpen(false)
 
           // window.location.href = response.data.login_url;

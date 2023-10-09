@@ -9,10 +9,10 @@ export const EGame = [
     imageUrl: FC,
     platform: "FC"
   },
-  {
-    imageUrl: JDB,
-    platform: "JDB"
-  },
+  // {
+  //   imageUrl: JDB,
+  //   platform: "JDB"
+  // },
   {
     imageUrl: PT,
     platform: "PT"

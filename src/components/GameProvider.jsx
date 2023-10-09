@@ -34,11 +34,11 @@ export const GameProvider = props => {
   const navigation = useNavigate();
 
   const Logos = [
-    {
-      Logo: logo19,
-      Url: '',
-      platform: "BG"
-    },
+    // {
+    //   Logo: logo19,
+    //   Url: '',
+    //   platform: "BG"
+    // },
     {
       Logo: logo20,
       Url: '',

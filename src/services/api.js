@@ -1,12 +1,22 @@
 import axios from 'axios'
 
-const api = axios.create({
+let api = axios.create({
     baseURL: process.env.REACT_APP_BACKEND + '/api',
     headers: {
         'Content-Type': 'application/json',
         'x-auth-token': window.localStorage.getItem('token')
     }
 });
+
+export function setAuthToken(token) {
+    api = axios.create({
+        baseURL: process.env.REACT_APP_BACKEND + '/api',
+        headers: {
+            'Content-Type': 'application/json',
+            'x-auth-token': token
+        }
+    });
+}
 
 export async function getUserInfo() {
     return await api.get(`/auth`);

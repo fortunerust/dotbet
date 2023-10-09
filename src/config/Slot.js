@@ -12,10 +12,10 @@ import PT from '../assets/img/Slot/PT.png'
 import SPADE from '../assets/img/Slot/SPADE.png'
 
 export const Slot = [
-  {
-    imageUrl: DRAGOONSOFT,
-    platform: "DRAGOONSOFT"
-  },
+  // {
+  //   imageUrl: DRAGOONSOFT,
+  //   platform: "DRAGOONSOFT"
+  // },
   {
     imageUrl: FASTSPIN,
     platform: "FASTSPIN"

@@ -7,10 +7,10 @@ import SV388 from '../assets/img/LiveCasino/SV388.png'
 import VENUS from '../assets/img/LiveCasino/VENUS.png'
 
 export const LiveCasino = [
-  {
-    imageUrl: BG,
-    platform: "BG"
-  },
+  // {
+  //   imageUrl: BG,
+  //   platform: "BG"
+  // },
   {
     imageUrl: HORSEBOOK,
     platform: "HORSEBOOK"
