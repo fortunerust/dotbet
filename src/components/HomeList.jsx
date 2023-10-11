@@ -126,7 +126,7 @@ export const HomeList = () => {
                 games={games.slice(91, 100)}
             />
 
-            <GameProvider />
+            {/* <GameProvider /> */}
 
             {/* LatestBets */}
             <LatestBets items={5} />

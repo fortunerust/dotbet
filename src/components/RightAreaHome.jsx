@@ -238,7 +238,7 @@ export const RightAreaHome = () => {
       <div className='md:w-[84%] md:ml-[110px] w-full flex-1'>
         <Header />
         <div className='w-full justify-between flex items-start gap-10 px-2 sm:px-8 pt-6'>
-          <div className='w-full lg:w-[65%] xl:w-[70%] 2xl:w-[75%] px-2 mx-a'>
+          <div className='w-full px-2 mx-a'>
             <Slide />
             <div className='tags-wrapper mt-10 mb-12 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7 gap-3'>
               {gameListLeft.map((item, index) => {
@@ -268,7 +268,7 @@ export const RightAreaHome = () => {
             </Routes>
 
           </div>
-          <div className=' body-right-area w-[20%] rounded-2xl p-4 hidden lg:flex lg:flex-col'>
+          {/* <div className=' body-right-area w-[20%] rounded-2xl p-4 hidden lg:flex lg:flex-col'>
             <div className='top-area pb-4 flex items-center relative'>
               <img src={chat} alt='' />
               <h1 className='flex-1 ml-1'>General Chat</h1>
@@ -317,7 +317,7 @@ export const RightAreaHome = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </>

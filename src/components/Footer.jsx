@@ -178,30 +178,7 @@ export const Footer = () => {
   return (
     <footer className='pt-16 pb-14 mt-16 md:ml-24'>
       <div className='footer-width content-footer-area'>
-        <div className='icons-wrapper mt-14'>
-          <div className='slider-area'>
-            <Splide
-              className='mt-8 mb-16 SliderAreaFirst'
-              options={{
-                autoWidth: true,
-                gap: 30,
-                arrows: false,
-                pagination: false
-              }}
-            >
-              {Logos.map((item, index) => (
-                <SplideSlide
-                  key={index}
-                  className='w-[180px]  bg-white/20 py-3 rounded-lg'
-                >
-                  <a key={index} href={item.Url}>
-                    <img src={item.Logo} alt='Logo' className='h-8 mx-auto' />
-                  </a>
-                </SplideSlide>
-              ))}
-            </Splide>
-          </div>
-        </div>
+        
         <div className='why-area grid lg:grid-cols-2 gap-6 lg:gap-36'>
           <div className='left-area-footer-why'>
             <h1>Why DotBet?</h1>
@@ -381,7 +358,7 @@ export const Footer = () => {
             <a href='/'>See all</a>
           </div>
 
-          <div className='slider-area'>
+          <div className='slider-area flex justify-center'>
             <Splide
               className='mt-8 mb-16 SliderAreaFirst'
               options={{
@@ -402,6 +379,14 @@ export const Footer = () => {
               ))}
             </Splide>
           </div>
+        </div>
+
+        <div className='icons-wrapper mt-2 flex flex-wrap justify-center'>
+          {Logos.map((item, index) => (
+            <a key={index} href={item.Url}>
+              <img src={item.Logo} alt='Logo' className='h-8 mx-4 my-4' />
+            </a>
+          ))}
         </div>
 
         <div className='cols-footer-area mt-16 grid sm:grid-cols-2 md:grid-cols-3 gap-6'>
