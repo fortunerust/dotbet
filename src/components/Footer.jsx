@@ -27,7 +27,6 @@ import coin19 from '../assets/img/image 91.svg'
 import coin20 from '../assets/img/image 92.svg'
 
 import logo2 from '../assets/img/Logo/logo1.png'
-import logo3 from '../assets/img/Logo/logo (1).svg'
 import logo4 from '../assets/img/Logo/logo (1).png'
 import logo5 from '../assets/img/Logo/logo2.png'
 import logo6 from '../assets/img/Logo/logo (2).png'

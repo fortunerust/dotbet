@@ -1,12 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import { Header } from './Header'
-import chat from '../assets/img/chat-green.svg'
-import emoji from '../assets/img/emoji.svg'
-import send from '../assets/img/send.svg'
-import dailyBonus from '../assets/img/dailyBonus.svg'
-
-import { CommentCard } from './CommentCard'
 
 import menuExpander from '../assets/img/menu.svg'
 import Support from '../assets/img/aside/Support.svg'
@@ -17,7 +11,6 @@ import Live from '../assets/img/aside/tabs/Live casino.svg'
 import slots from '../assets/img/aside/tabs/Slots.svg'
 import home from '../assets/img/aside/tabs/home.svg'
 import home_hover from '../assets/img/aside/tabs/home_hover.svg'
-import cards from '../assets/img/aside/tabs/Card.svg'
 import sportGame from '../assets/img/aside/tabs/sports-game-l.svg'
 import tableGame from '../assets/img/aside/tabs/table-game-l.svg'
 import fishingGame from '../assets/img/aside/tabs/fishing-game-l.svg'
@@ -32,65 +25,6 @@ import { GameList } from './GameList';
 
 export const RightAreaHome = () => {
   const navigate = useNavigate();
-  const commentsData = [
-    {
-      name: 'Devon Lane',
-      date: '04:02 am',
-      img: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YXZhdGFyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60',
-      comment: 'Me recomenda alguma coisa 🥺🥺'
-    },
-    {
-      name: 'Dianne Russell',
-      date: '02:34 am',
-      img: 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YXZhdGFyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60',
-      comment: 'Ação, comédia, romance... sou um cinéfilo versátil! 🎥💥'
-    },
-    {
-      name: 'Imran Hossen',
-      date: '02:34 am',
-      img: 'https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8YXZhdGFyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60',
-      comment:
-        'Quem precisa de heróis reais quando se tem super-heróis no cinema? 💪🎞️'
-    },
-    {
-      name: 'Jane Cooper',
-      date: '12:23 pm',
-      img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGF2YXRhcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60',
-      comment: 'Filmes são minha terapia diária. 🎞️💆‍♂️'
-    },
-    {
-      name: 'Dianne Russell',
-      date: '02:34 am',
-      img: 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YXZhdGFyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60',
-      comment: 'Ação, comédia, romance... sou um cinéfilo versátil! 🎥💥'
-    },
-    {
-      name: 'Imran Hossen',
-      date: '02:34 am',
-      img: 'https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8YXZhdGFyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60',
-      comment:
-        'Quem precisa de heróis reais quando se tem super-heróis no cinema? 💪🎞️'
-    },
-    {
-      name: 'Jane Cooper',
-      date: '12:23 pm',
-      img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGF2YXRhcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60',
-      comment: 'Filmes são minha terapia diária. 🎞️💆‍♂️'
-    },
-    {
-      name: 'Dianne Russell',
-      date: '02:34 am',
-      img: 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YXZhdGFyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60',
-      comment: 'Ação, comédia, romance... sou um cinéfilo versátil! 🎥💥'
-    },
-    {
-      name: 'Imran Hossen',
-      date: '02:34 am',
-      img: 'https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8YXZhdGFyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60',
-      comment:
-        'Quem precisa de heróis reais quando se tem super-heróis no cinema? 💪🎞️'
-    }
-  ]
 
   const [rollingNumber, setRollingNumber] = useState(
     50000000 + parseInt(Math.random() * 10000)
@@ -268,56 +202,6 @@ export const RightAreaHome = () => {
             </Routes>
 
           </div>
-          {/* <div className=' body-right-area w-[20%] rounded-2xl p-4 hidden lg:flex lg:flex-col'>
-            <div className='top-area pb-4 flex items-center relative'>
-              <img src={chat} alt='' />
-              <h1 className='flex-1 ml-1'>General Chat</h1>
-              <p className='mr-1 absolute'>489</p>
-              <div className='flex items-center'>
-                <img
-                  src='https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2960&q=80'
-                  alt='first user online'
-                  className='w-5 h-5 rounded-full'
-                />
-                <img
-                  src='https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2787&q=80'
-                  alt='second user online'
-                  className='w-5 h-5 rounded-full'
-                />
-                <img
-                  src='https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2960&q=80'
-                  alt='third user online'
-                  className='w-5 h-5 rounded-full'
-                />
-              </div>
-            </div>
-
-            <div className='scroll-area-start pt-4 pb-10'>
-              <img src={dailyBonus} alt='Daily Bonus' className='w-full mb-4' />
-
-              {commentsData.map((EachData, index) => (
-                <CommentCard
-                  key={index}
-                  name={EachData.name}
-                  date={EachData.date}
-                  img={EachData.img}
-                  comment={EachData.comment}
-                />
-              ))}
-
-              <div className='comment-area flex items-center px-4 h-14 rounded-bl-2xl rounded-br-2xl'>
-                <input
-                  type='text'
-                  placeholder='Send a message...'
-                  className='flex-1 w-full'
-                />
-                <div className='flex'>
-                  <img src={emoji} alt='emoji' className='mr-3' />
-                  <img src={send} alt='send' />
-                </div>
-              </div>
-            </div>
-          </div> */}
         </div>
       </div>
     </>

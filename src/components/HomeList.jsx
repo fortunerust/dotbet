@@ -1,23 +1,13 @@
 import React, { useEffect, useState } from 'react'
 
 import { GameSplide } from './GameSplide'
-import { TopRatesGame } from './TopRatesGame'
-import { RecommendedGames } from './RecommendedGames'
 import { LatestBets } from './LatestBets'
-import { LiveCasino } from './LiveCasino'
-import { GameShow } from './GameShow'
-import { Fishing } from './Fishing'
-import { Roulette } from './Roulette'
-import { Slots } from './Slots'
-import { Sports } from './Sports'
-import { NewArrival } from './NewArrival'
 import * as API from '../services/api'
-import { ToastContainer, toast } from 'react-toastify'
+import { toast } from 'react-toastify'
 
 import glowdot from '../assets/img/glow-dot.svg'
 import livecasino from '../assets/img/live-casino.svg'
 import gameshow from '../assets/img/game-show.svg'
-import { GameProvider } from './GameProvider'
 
 export const HomeList = () => {
     const [games, setGames] = useState([])
