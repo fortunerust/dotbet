@@ -18,7 +18,11 @@ export const GameList = () => {
         if (platform == "ALL") {
             const res = await API.getGames();
             if (res.data.status == "0000") {
-                setGames(res.data.games.filter((game) => game.gameType == gameType));
+                setGames(res.data.games.filter((game) => game.gameType == gameType).sort((a,b)=>{
+                    if(a.gameName < b.gameName) { return -1; }
+                    if(a.gameName > b.gameName) { return 1; }
+                    return 0;
+                }));
             } else {
                 toast.error(res.data.desc, {
                     position: 'top-right',
@@ -34,7 +38,11 @@ export const GameList = () => {
         } else if (gameType == "ALL") {
             const res = await API.getGames();
             if (res.data.status == "0000") {
-                setGames(res.data.games.filter((game) => game.platform == platform));
+                setGames(res.data.games.filter((game) => game.platform == platform).sort((a,b)=>{
+                    if(a.gameName < b.gameName) { return -1; }
+                    if(a.gameName > b.gameName) { return 1; }
+                    return 0;
+                }));
             } else {
                 toast.error(res.data.desc, {
                     position: 'top-right',
@@ -50,7 +58,11 @@ export const GameList = () => {
         } else {
             const res = await API.getGamesByFilter({ gameType, platform });
             if (res.data.status == "0000") {
-                setGames(res.data.games);
+                setGames(res.data.games.sort((a,b)=>{
+                    if(a.gameName < b.gameName) { return -1; }
+                    if(a.gameName > b.gameName) { return 1; }
+                    return 0;
+                }));
             } else {
                 toast.error(res.data.desc, {
                     position: 'top-right',

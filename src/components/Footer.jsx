@@ -351,7 +351,7 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className='icons-wrapper mt-14'>
+        {/* <div className='icons-wrapper mt-14'>
           <div className='top-area flex items-center justify-between'>
             <h1>Accepted Networks</h1>
             <a href='/'>See all</a>
@@ -378,7 +378,7 @@ export const Footer = () => {
               ))}
             </Splide>
           </div>
-        </div>
+        </div> */}
 
         <div className='icons-wrapper mt-2 flex flex-wrap justify-center'>
           {Logos.map((item, index) => (
